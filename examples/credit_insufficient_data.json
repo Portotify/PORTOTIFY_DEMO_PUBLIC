@@ -1,0 +1,11 @@
+{
+  "domain": "credit",
+  "intent": "credit_profile_analysis",
+  "version": "v1",
+  "inputs": {
+    "applicant_text": "Applicant wants a loan."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

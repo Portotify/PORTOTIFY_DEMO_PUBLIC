@@ -1,0 +1,11 @@
+{
+  "domain": "career",
+  "intent": "cv_analysis",
+  "version": "v1",
+  "inputs": {
+    "cv_text": "Backend engineer with Python and REST API experience."
+  },
+  "controls": {
+    "has_external_write": true
+  }
+}

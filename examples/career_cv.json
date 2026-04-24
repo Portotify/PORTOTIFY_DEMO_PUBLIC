@@ -1,0 +1,11 @@
+{
+  "domain": "career",
+  "intent": "cv_analysis",
+  "version": "v1",
+  "inputs": {
+    "cv_text": "Senior Backend Engineer with 7 years of experience in Python, Django, and FastAPI. Built microservices architecture serving 2M daily requests. Led team of 4 engineers. Implemented CI/CD pipeline reducing deployment time by 60%. BSc Computer Science, University of Amsterdam. AWS Certified Solutions Architect. Fluent in English and Dutch. Looking to transition into a technical leadership role."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

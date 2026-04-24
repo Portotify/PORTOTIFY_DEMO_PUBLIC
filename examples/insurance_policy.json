@@ -1,0 +1,11 @@
+{
+  "domain": "insurance",
+  "intent": "policy_summary_analysis",
+  "version": "v1",
+  "inputs": {
+    "policy_text": "HEALTH INSURANCE POLICY. Policy Number: HI-2026-4421. Insured: Individual plan. Coverage period: 1 March 2026 to 28 February 2027. Hospitalization coverage for illness or accidental injury up to 50,000 EUR per incident. Waiting period: 36 months for pre-existing conditions. Outpatient coverage: not included in base plan. Annual deductible: 500 EUR. Premium: 245 EUR monthly. Beneficiary: as designated by policyholder. Claims must be submitted within 60 days of treatment."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

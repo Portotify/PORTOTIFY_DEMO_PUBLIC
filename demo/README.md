@@ -1,12 +1,18 @@
-This folder contains the materials to run and present the Portotify demo.
+# Demo Materials
 
+This folder contains the demo script and supporting narratives for Portotify presentations.
 
+## Files
 
-Files:
+- **DEMO_SCRIPT.md** — 5-minute demo flow (8 steps, all 9 domains)
 
-\- DEMO.txt — Technical runbook for executing the demo.
+## How to Use
 
-\- DEMO\_PITCH.txt — Short presentation script for live demos.
+1. Start backend with `ENGINE_PROVIDER=mock` for deterministic execution
+2. Follow DEMO_SCRIPT.md step by step
+3. Use payloads from `../examples/` for live API calls
+4. Reference `../evidence/` for recorded governance responses
 
-\- CTO\_DEMO\_QA.txt — Technical Q\&A for follow-up discussions.
+## Audience
 
+CTO, CFO, Founder, Technical Decision Maker

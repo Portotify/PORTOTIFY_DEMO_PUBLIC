@@ -1,0 +1,11 @@
+{
+  "domain": "legal",
+  "intent": "contract_analysis",
+  "version": "v1",
+  "inputs": {
+    "contract_text": "SERVICE AGREEMENT between Company A (Client) and Company B (Provider). Effective date: 1 January 2026. Term: 24 months with automatic renewal unless terminated with 30 days written notice. Scope: Company B shall provide software development services as specified in Appendix A. Payment: Client shall pay Provider within 30 days of invoice receipt. Rate: 150 EUR per hour. Confidentiality: Both parties agree to maintain confidentiality of proprietary information for 3 years following termination. Liability: Provider's total liability shall not exceed the fees paid in the preceding 12 months. Governing law: Laws of the Federal Republic of Germany."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

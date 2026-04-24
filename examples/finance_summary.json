@@ -1,0 +1,11 @@
+{
+  "domain": "finance",
+  "intent": "financial_summary_analysis",
+  "version": "v1",
+  "inputs": {
+    "financial_text": "Company reported total revenue of 4.2 million USD for Q3 2025. Operating expenses were 3.8 million USD, resulting in operating income of 0.4 million USD. Total liabilities stand at 2.3 million USD against total assets of 5.1 million USD. Cash and equivalents are 1.1 million USD. The auditor noted a going concern qualification in the most recent report. Accounts receivable aging shows 15% of receivables over 90 days."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

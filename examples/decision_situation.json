@@ -1,0 +1,11 @@
+{
+  "domain": "decision",
+  "intent": "situation_analysis",
+  "version": "v1",
+  "inputs": {
+    "situation_text": "Our company (50 employees, B2B SaaS) is considering migrating from on-premise infrastructure to cloud. Current annual infrastructure cost is 180,000 EUR. Cloud estimates range from 120,000-150,000 EUR annually. Migration timeline estimated at 6 months. Key stakeholders: CTO (in favor), CFO (cautious about upfront costs), Head of Engineering (concerned about downtime). Two critical customer contracts require 99.9% uptime SLA. The current on-premise system had 3 unplanned outages in the past 12 months totaling 14 hours of downtime."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "hrtech",
+  "intent": "candidate_profile_extraction",
+  "version": "v1",
+  "inputs": {
+    "candidate_text": "Candidate holds a BSc in Computer Science from Technical University of Munich (2018). Currently employed as Senior Backend Engineer at a mid-size SaaS company, tenure 3 years. Previous role: Backend Developer at a startup, 2 years. Skills listed: Python, Go, PostgreSQL, Docker, Kubernetes, CI/CD pipelines. AWS Solutions Architect certification (2023). Speaks English (fluent) and German (B2). Expected salary range: 75,000-85,000 EUR. Available from July 2026. References available upon request."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

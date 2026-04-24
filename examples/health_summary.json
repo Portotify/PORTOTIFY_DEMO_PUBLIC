@@ -1,0 +1,11 @@
+{
+  "domain": "health",
+  "intent": "health_summary_analysis",
+  "version": "v1",
+  "inputs": {
+    "health_text": "Patient is a 52-year-old male presenting with fatigue lasting approximately three weeks. Blood pressure recorded at 145/92 mmHg on two separate visits. HbA1c of 7.8% recorded six months ago. Current medications include metformin 500mg twice daily and lisinopril 10mg daily. No known drug allergies. Family history includes type 2 diabetes (mother) and hypertension (father). BMI 28.4."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

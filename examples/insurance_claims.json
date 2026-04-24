@@ -1,0 +1,11 @@
+{
+  "domain": "insurance_claims",
+  "intent": "claim_profile_extraction",
+  "version": "v1",
+  "inputs": {
+    "claim_text": "CLAIM SUBMISSION. Policy: AU-2025-7893. Date of incident: 14 March 2025. Location: Junction of Maple Street and Oak Avenue, Munich. Description: Rear-end collision at traffic light. Claimant vehicle stopped at red light, struck from behind by third party. Damage: Rear bumper, trunk lid, and tail lights. Two independent repair estimates obtained: Estimate A: 4,200 EUR. Estimate B: 3,850 EUR. Police report filed (reference: MUC-2025-03-14-0442). Photographs of damage attached. No injuries reported."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

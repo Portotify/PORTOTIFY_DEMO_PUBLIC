@@ -1,0 +1,11 @@
+{
+  "domain": "credit",
+  "intent": "credit_profile_analysis",
+  "version": "v1",
+  "inputs": {
+    "applicant_text": "Applicant reports annual income of 85,000 EUR from employment at a technology company. Monthly mortgage payment of 1,200 EUR on a property valued at 280,000 EUR. Credit card balance of 3,500 EUR across two cards with a combined limit of 12,000 EUR. Savings account with 15,000 EUR. No outstanding personal loans reported. Employment tenure of 4 years with current employer. Previous employer tenure was 3 years in the same industry."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

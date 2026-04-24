@@ -1,101 +1,182 @@
-# Portotify Public Demo Script
+# PORTOTIFY — Demo Script (5 Minutes)
 
-This public demo is a static walkthrough of Portotify's governance model.
+**Updated:** 25 April 2026
 
-Portotify does not treat model output as decision authority. The governance boundary decides whether a governed decision is persisted as committed or rejected, and whether a separate human review workflow is required.
+**Audience:** CTO, CFO, Founder, Technical Decision Maker
 
-Use the artifacts in this order.
+**Environment:** Local or controlled staging with `ENGINE_PROVIDER=mock`
 
-## 1. Low-risk allow path
+---
 
-Open `examples/execute_request.json` and the paired low-risk evidence.
+## STEP 1 — What Is Portotify? (30s)
 
-Narrative:
+**Narration:**
 
-- This request is ordinary and low risk.
-- The governance boundary returns `allow`.
-- The decision can be committed because the request does not trigger elevated controls.
+"Portotify is not a chatbot wrapper. It is a governance protocol that decides whether AI output is allowed, blocked, or controlled — before it reaches anyone.
 
-What to emphasize:
+The model is not the authority. The governance boundary is the authority. If the system cannot determine safety, it stops."
 
-- Low-risk work can proceed.
-- Governance still records a decision artifact.
-- The artifact is immutable and versioned.
+**Key message:** Fail-closed. Deterministic. Auditable.
 
-## 2. Prompt or policy manipulation blocked path
+---
 
-Open `examples/injection_test.json` and `examples/injection_test_2.json`.
+## STEP 2 — Governed Execution: Credit Domain (60s)
 
-Narrative:
+**Scenario:** Credit applicant profile analysis with sufficient data.
 
-- These requests attempt to override policy or reveal hidden instructions.
-- Portotify blocks them before they can become valid governed decisions.
-- The system fails closed instead of trying to recover silently.
+**Request:**
+```json
+{
+  "domain": "credit",
+  "intent": "credit_profile_analysis",
+  "version": "v1",
+  "inputs": {
+    "applicant_text": "Applicant reports annual income of 85,000 EUR from employment at a technology company. Monthly mortgage payment of 1,200 EUR. Credit card balance of 3,500 EUR across two cards. Savings account with 15,000 EUR. No outstanding loans reported. Employment tenure of 4 years."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}
+```
 
-What to emphasize:
+**Show:**
+- Response succeeds with `status: completed`
+- Output contains structured analysis with `profile_data_gaps` (enum codes, not free text)
+- `governance_verdict: allow`
+- `decision_capsules_v2` record created (immutable)
+- `suggested_next_intent` points to next step in journey
 
-- Policy manipulation does not become a normal execution path.
-- The blocked outcome is deterministic and auditable.
-- The model is not the authority.
+**Narration:** "The system analyzed the input, found sufficient data, and allowed the execution. Every field in the output is schema-bound. The decision is now an immutable audit record."
 
-## 3. High-risk review-required path
+---
 
-Open `examples/governance_high_risk.json`, `evidence/03_governance_high_risk_execute.json`, and `data/boundary_high_result.json`.
+## STEP 3 — Decision Readiness Gate: Insufficient Data (60s)
 
-Narrative:
+**Scenario:** Same domain, but input is missing critical information.
 
-- This request proposes a high-risk external financial action.
-- The execution artifact is only a candidate summary.
-- The governance boundary persists the decision as committed.
-- Human review happens in a separate workflow.
+**Request:**
+```json
+{
+  "domain": "credit",
+  "intent": "credit_profile_analysis",
+  "version": "v1",
+  "inputs": {
+    "applicant_text": "Applicant wants a loan."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}
+```
 
-What to emphasize:
+**Show:**
+- Response blocked: `reason_code: INSUFFICIENT_DATA_CRITICAL_GAPS`
+- `profile_data_gaps` lists exactly what's missing (enum codes)
+- Block guidance tells the user what to provide
+- No LLM involvement in the block decision — pure backend rule
 
-- `review_required` is a governance verdict, not a lifecycle state.
-- Persisted high-risk decision truth is `committed` plus `review_required`.
-- Review does not introduce a separate persisted lifecycle state.
+**Narration:** "This is the Decision Readiness Gate. The system checked: is there enough data to produce a meaningful result? The answer was no. It blocked — not with a vague error, but with specific guidance on exactly what's missing. The LLM never ran. The backend decided."
 
-## 4. Critical fail-closed blocked path
+---
 
-Open `data/boundary_critical_result.json`.
+## STEP 4 — External Action Invariant (45s)
 
-Narrative:
+**Scenario:** Valid request, but external write flag is set.
 
-- This request includes an external write condition without required controls.
-- Portotify rejects it at the boundary.
-- No commit occurs and no fallback "best effort" path is allowed.
+**Request:**
+```json
+{
+  "domain": "career",
+  "intent": "cv_analysis",
+  "version": "v1",
+  "inputs": {
+    "cv_text": "Backend engineer with Python and REST API experience. 5 years at major tech companies."
+  },
+  "controls": {
+    "has_external_write": true
+  }
+}
+```
 
-What to emphasize:
+**Show:**
+- Deterministic BLOCK
+- `reason_code: POLICY_BLOCK`
+- `controls.blocked: true`
+- No execution, no LLM call
 
-- External write conditions must fail closed.
-- Blocked decisions are rejected explicitly.
-- Safety comes from deterministic boundary control, not post-hoc explanation.
+**Narration:** "If external action is requested, the system blocks. Always. The model cannot override this. This is a governance invariant, not a suggestion."
 
-## 5. Immutable decision artifact and lineage
+---
 
-Open `evidence/04_capsule_detail.json` and `evidence/06_review_flow_lineage.json`.
+## STEP 5 — Opinion Language Guard (45s)
 
-Narrative:
+**Scenario:** LLM tries to express an opinion in the output.
 
-- Each decision artifact represents one immutable version.
-- New information does not mutate an old decision.
-- Review activity is tracked separately from persisted decision state.
+**Show** (use recorded evidence or mock output):
+- LLM output contains "the profile is quite strong" or "this is a solid financial position"
+- `PB1_OPINION_LANGUAGE` guard triggers
+- Response blocked with `reason_code` indicating opinion language violation
 
-What to emphasize:
+**Narration:** "Portotify does not express opinions. If the LLM uses subjective qualifiers — strong, solid, excellent, promising — the output is blocked. This is enforced across all 9 domains, deterministically."
 
-- Decisions are immutable and versioned.
-- Human review is a separate workflow.
-- Review does not rewrite persisted decision state into `candidate` or `pending_review`.
+---
 
-## 6. Governance health and trust signals
+## STEP 6 — Multi-Domain Coverage (45s)
 
-Open `evidence/05_governance_health.json`, `data/demo_governance_signals.json`, and `data/demo_trust_signals.json`.
+**Show** (quick fire — one request each, show domain diversity):
 
-Narrative:
+| Domain | Intent | Input Field |
+|---|---|---|
+| Finance | financial_summary_analysis | financial_text |
+| Health | health_summary_analysis | health_text |
+| Legal | contract_analysis | contract_text |
+| Insurance Claims | claim_profile_extraction | claim_text |
 
-- These artifacts summarize the public demo model.
-- They reinforce the immutable boundary rules without implying any live integration.
+**Narration:** "Portotify is not a single-use tool. It governs AI decisions across 9 industry domains — each with its own gap codes, output guards, and compliance mapping. Same governance protocol, different domain expertise."
 
-Close with:
+---
 
-Portotify does not promise perfect model output. It ensures that governed decisions are versioned, reviewable when necessary, and blocked fail-closed when required conditions are not met.
+## STEP 7 — Immutable Evidence (45s)
+
+**Show:**
+- Decision capsule record (decision_id, governance_verdict, risk_tier)
+- No raw LLM output stored — only hash
+- Override creates new version with `parent_decision_id` lineage
+- Human review (accept/reject) creates new decision, never mutates original
+
+**Narration:** "Every governance decision is immutable. If someone overrides it, the original stays. A new version is created with explicit lineage. This is not a log — it is audit-grade evidence."
+
+---
+
+## STEP 8 — EU AI Act Readiness (30s)
+
+**Show:**
+- `framework_mapping` in execute response
+- Annex III.4 (HR Tech), Annex III.5 (Finance, Insurance), Annex III.5c (Insurance Claims)
+
+**Narration:** "EU AI Act full enforcement begins August 2026. Portotify already maps every execution to the relevant regulatory framework. This is not documentation — it is runtime compliance evidence."
+
+---
+
+## CLOSE (30s)
+
+**Core message:**
+
+"Portotify does not make AI smarter. It ensures that imperfect AI cannot produce uncontrolled outcomes.
+
+It is:
+- Fail-closed — unknown states block, not pass
+- Deterministic — every decision is reproducible
+- Auditable — every decision is immutable evidence
+- Compliant — EU AI Act framework mapping built in
+
+The model changes. The governance boundary does not."
+
+---
+
+## Post-Demo Resources
+
+- `examples/` — request payloads for all 9 domains
+- `evidence/` — recorded governance responses
+- `WHY_PORTOTIFY.md` — product overview
+- [portotify.com](https://portotify.com) — website
