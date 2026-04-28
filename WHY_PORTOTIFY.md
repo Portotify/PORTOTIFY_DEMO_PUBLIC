@@ -117,7 +117,7 @@ Portotify enforces multi-step execution journeys:
 | Health | Health summary, risk detection | Annex III.5a |
 | Insurance | Policy analysis, coverage gaps | Annex III.5 |
 | Legal | Contract analysis, risk detection, clause gaps | — |
-| Career | CV analysis, skill gaps, interview prep | — |
+| Career | CV analysis, skill gaps, interview prep | Annex III.4 |
 | Decision | Situation analysis, risk detection, context gaps | — |
 
 ---
