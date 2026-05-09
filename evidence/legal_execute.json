@@ -1,0 +1,72 @@
+{
+  "output": {
+    "data": {
+      "key_points": [
+        "Mock key_points item 1.",
+        "Mock key_points item 2."
+      ],
+      "obligations": [
+        "Mock obligations item 1.",
+        "Mock obligations item 2."
+      ],
+      "critical_terms": [
+        "Mock critical_terms item 1.",
+        "Mock critical_terms item 2."
+      ],
+      "plain_summary": "Mock output for plain_summary. Context: This Software Services Agreement is entered into as of 1 April 2026 between Portotify B.V., a company incorporated under",
+      "contract_data_gaps": [
+        "missing_party_identification"
+      ],
+      "evidence_snippets": [
+        "Mock evidence_snippets item 1.",
+        "Mock evidence_snippets item 2."
+      ]
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "39021865-9061-4c69-ac93-9c01afec3acd",
+    "trace_id": "aac0549b-77b0-4ca0-bd21-5dd5512f80eb",
+    "request_id": "ab98fe65-bfd5-48ec-8b28-a115064c0c65",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 2.67,
+    "overhead_ms": 2.67,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "risk_detection",
+    "next_step_human": "This analysis explains the overall structure and meaning of the contract, but it does not isolate the clauses that may create legal or practical risk. Reviewing the contract risks will help you identify which parts may require closer attention.",
+    "next_recommended_step": {
+      "intent": "risk_detection"
+    }
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "risk_detection",
+    "reason_human": "This analysis explains the overall structure and meaning of the contract, but it does not isolate the clauses that may create legal or practical risk. Reviewing the contract risks will help you identify which parts may require closer attention."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

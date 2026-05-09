@@ -1,0 +1,97 @@
+{
+  "output": {
+    "data": {
+      "stated_qualifications": [
+        "Mock stated_qualifications item 1.",
+        "Mock stated_qualifications item 2."
+      ],
+      "stated_experience": [
+        "Mock stated_experience item 1.",
+        "Mock stated_experience item 2."
+      ],
+      "employment_history_observations": [
+        "Mock employment_history_observations item 1.",
+        "Mock employment_history_observations item 2."
+      ],
+      "profile_data_gaps": [
+        "missing_education_details"
+      ],
+      "plain_profile_summary": "Mock output for plain_profile_summary. Context: Candidate holds a BSc in Computer Science from Technical University of Munich (2018). Currently employed as Senior Backe",
+      "evidence_snippets": [
+        "Mock evidence_snippets item 1.",
+        "Mock evidence_snippets item 2."
+      ]
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "f00e50b0-d862-48fc-ac5b-bf5d9d309c9f",
+    "trace_id": "d708f537-b06f-4908-be2f-c6e9385074ad",
+    "request_id": "b048d5a7-1f67-4dae-bc43-30cad9d309a9",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 2.71,
+    "overhead_ms": 2.71,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "employment_risk_signals",
+    "next_step_human": "This profile describes what the candidate's documents show, but it does not identify where the specific concerns or gaps in the candidate's history lie. Reviewing the employment risk signals will surface issues that require closer attention before the panel review.",
+    "next_recommended_step": {
+      "intent": "employment_risk_signals"
+    },
+    "cross_domain_next_intents": [
+      {
+        "domain": "credit",
+        "intent": "credit_profile_analysis",
+        "next_step_human": "Candidate profile references financial or compensation data — credit assessment may be relevant."
+      }
+    ]
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "employment_risk_signals",
+    "reason_human": "This profile describes what the candidate's documents show, but it does not identify where the specific concerns or gaps in the candidate's history lie. Reviewing the employment risk signals will surface issues that require closer attention before the panel review."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_4_employment_workers_management",
+      "risk_classification": "high_risk",
+      "articles": [
+        "article_13",
+        "article_15"
+      ],
+      "portotify_controls": [
+        "hr_output_guard",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

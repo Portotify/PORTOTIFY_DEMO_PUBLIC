@@ -1,0 +1,95 @@
+{
+  "output": {
+    "data": {},
+    "error": {
+      "message": "Policy block.",
+      "code": "HEALTH_OUTPUT_VIOLATION",
+      "details": {
+        "internal_reason": "HEALTH_OUTPUT_VIOLATION"
+      },
+      "guidance": {
+        "reason_title": "We can't give medical diagnoses or prescriptions",
+        "reason_detail": "The response made a definitive medical claim or treatment recommendation, which this tool is not qualified to provide.",
+        "reason_detail_tr": "Yanıt kesin bir tıbbi iddia veya tedavi tavsiyesi içerdi. Bu araç bu tür sonuçlar üretmeye yetkili değildir.",
+        "next_step": "Ask about what the health information says rather than what it means for your specific situation — and speak to a healthcare professional for personal guidance.",
+        "source_type": "llm_output"
+      }
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": true,
+    "block_reasons": [
+      "HEALTH_OUTPUT_VIOLATION"
+    ],
+    "block_stage": "post_execution"
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "68d17b85-f691-4453-b63d-e73ba32cb52a",
+    "trace_id": "1f5f5ae1-9f3d-450c-98f5-28f5f3838641",
+    "request_id": "17e2e6db-5672-4864-96a6-23c88d48876c",
+    "status": "blocked",
+    "reason_code": "HEALTH_OUTPUT_VIOLATION",
+    "engine": "mock",
+    "model": "mock",
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "reason_human": "The response made a definitive medical claim or treatment recommendation, which this tool is not qualified to provide."
+  },
+  "next_action": {
+    "type": "retry_with_clearer_input",
+    "intent": null,
+    "reason_human": "This request could not be completed as submitted. Please revise the input and try again with clearer or more complete information."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_5a_health_insurance_eligibility_conditional",
+      "risk_classification": "high_risk_conditional",
+      "risk_classification_note": "High-risk classification applies ONLY when deployed in insurance underwriting or eligibility determination context. General health information use is not automatically high-risk.",
+      "chain_position": "preparatory_task",
+      "article_6_3_d": true,
+      "articles": [
+        "article_9",
+        "article_13",
+        "article_14"
+      ],
+      "portotify_controls": [
+        "health_output_guard",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "gdpr": {
+      "article_9_note": "Health inputs likely constitute special category data under GDPR Article 9. Processing requires explicit legal basis.",
+      "controller_responsibility": "customer"
+    },
+    "nist_ai_rmf": {
+      "functions": [
+        "GOVERN",
+        "MAP",
+        "MEASURE"
+      ]
+    },
+    "disclaimer": "This mapping is conditional on deployment context. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

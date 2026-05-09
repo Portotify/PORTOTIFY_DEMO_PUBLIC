@@ -1,0 +1,61 @@
+{
+  "output": {
+    "data": {},
+    "error": {
+      "message": "Input does not meet minimum requirements for this request.",
+      "code": "VALIDATION_ERROR",
+      "details": {
+        "internal_reason": "VALIDATION_ERROR"
+      },
+      "guidance": {
+        "reason_title": "The applicant documents are too short to analyse",
+        "reason_detail": "There wasn't enough financial content in the submitted documents to produce a meaningful credit profile.",
+        "reason_detail_tr": "Gönderilen belgeler, anlamlı bir kredi profili oluşturmak için yeterli finansal içerik içermiyor.",
+        "next_step": "Paste the full financial statements, bank statements, or management accounts — include figures, dates, and at least one full reporting period.",
+        "source_type": "system"
+      }
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": true,
+    "block_reasons": [
+      "INPUT_INSUFFICIENT_APPLICANT_TEXT"
+    ],
+    "block_stage": "pre_execution"
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "811ce839-f43d-4642-a3a2-aa053b593578",
+    "trace_id": "bebeb32d-fa79-47fe-9e02-b8f822f3310b",
+    "request_id": "488fc8e7-64bd-4e15-898e-5427d0086589",
+    "status": "blocked",
+    "reason_code": "VALIDATION_ERROR",
+    "engine": "none",
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "reason_human": "There wasn't enough financial content in the submitted documents to produce a meaningful credit profile."
+  },
+  "next_action": {
+    "type": "retry_with_clearer_input",
+    "intent": null,
+    "reason_human": "This request could not be completed as submitted. Please revise the input and try again with clearer or more complete information."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

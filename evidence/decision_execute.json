@@ -1,0 +1,71 @@
+{
+  "output": {
+    "data": {
+      "identified_factors": [
+        "Mock identified_factors item 1.",
+        "Mock identified_factors item 2."
+      ],
+      "risk_signals": [
+        "Mock risk_signals item 1.",
+        "Mock risk_signals item 2."
+      ],
+      "missing_information": [
+        "missing_stakeholder_identification"
+      ],
+      "plain_situation_summary": "Mock output for plain_situation_summary. Context: Our company (50 employees, B2B SaaS) is considering migrating from on-premise infrastructure to cloud. Current annual in"
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "1a4f3392-411a-4a67-9fef-ea0693749dd4",
+    "trace_id": "0ce8d8c2-eaf2-45d6-ba64-eb2843b6afe4",
+    "request_id": "c9af0e4f-2390-4dac-806b-a129186b7977",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 2.56,
+    "overhead_ms": 2.56,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "decision_risk_detection",
+    "next_step_human": "Would you like to explore the potential risks in this situation?",
+    "next_recommended_step": {
+      "intent": "decision_risk_detection"
+    },
+    "cross_domain_next_intents": [
+      {
+        "domain": "legal",
+        "intent": "risk_detection",
+        "next_step_human": "If your situation involves legal or contractual elements, would you like to review the legal risks?"
+      }
+    ]
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "decision_risk_detection",
+    "reason_human": "Would you like to explore the potential risks in this situation?"
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

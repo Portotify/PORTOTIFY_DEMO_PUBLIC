@@ -1,0 +1,100 @@
+{
+  "output": {
+    "data": {
+      "positive_aspects": [
+        "Mock positive_aspects item 1.",
+        "Mock positive_aspects item 2."
+      ],
+      "improvement_areas": [
+        "Mock improvement_areas item 1.",
+        "Mock improvement_areas item 2."
+      ],
+      "missing_signals": [
+        "missing_education_history"
+      ],
+      "improvement_priorities": [
+        "Mock improvement_priorities item 1.",
+        "Mock improvement_priorities item 2."
+      ],
+      "plain_cv_summary": "Mock output for plain_cv_summary. Context: Senior Backend Engineer with 7 years of experience in Python, Django, and FastAPI. Built microservices architecture serv",
+      "evidence_snippets": [
+        "Mock evidence_snippets item 1.",
+        "Mock evidence_snippets item 2."
+      ]
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "21e9789f-dcc9-4253-a9e6-b2b5cdb2ae03",
+    "trace_id": "3ddeb3f3-2613-4be7-97e2-caef39c0f206",
+    "request_id": "60cacdb4-c628-4c8e-bad4-5cb241852c3c",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 2.51,
+    "overhead_ms": 2.51,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "skill_gap_analysis",
+    "next_step_human": "This analysis highlights your current strengths, but it does not identify which critical skills are missing for your target role. Reviewing your skill gaps will help you understand what you need to improve next.",
+    "next_recommended_step": {
+      "intent": "skill_gap_analysis",
+      "why": "2 improvement areas and 1 missing signal detected in your CV; top priority: \"Mock improvement_areas item 1.\" — skill gap analysis will compare these directly against the target role requirements."
+    }
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "skill_gap_analysis",
+    "reason_human": "This analysis highlights your current strengths, but it does not identify which critical skills are missing for your target role. Reviewing your skill gaps will help you understand what you need to improve next."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_4_employment_workers_management",
+      "risk_classification": "high_risk",
+      "articles": [
+        "article_9",
+        "article_13",
+        "article_14",
+        "article_15"
+      ],
+      "portotify_controls": [
+        "career_output_guard",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "nist_ai_rmf": {
+      "functions": [
+        "GOVERN",
+        "MAP",
+        "MEASURE"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

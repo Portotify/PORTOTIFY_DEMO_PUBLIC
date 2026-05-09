@@ -1,0 +1,91 @@
+{
+  "output": {
+    "data": {
+      "financial_indicators": [
+        "Mock financial_indicators item 1.",
+        "Mock financial_indicators item 2."
+      ],
+      "stated_obligations": [
+        "Mock stated_obligations item 1.",
+        "Mock stated_obligations item 2."
+      ],
+      "profile_data_gaps": "Mock output for profile_data_gaps. Context: Applicant is a 38-year-old salaried employee with annual gross income of 92,000 EUR from a permanent contract at a mid-s",
+      "plain_profile_summary": "Mock value for plain_profile_summary. Context: Applicant is a 38-year-old salaried employee with annual gross income of 92,000 EUR from a permanent contract at a mid-s",
+      "evidence_snippets": [
+        "Mock evidence_snippets item 1.",
+        "Mock evidence_snippets item 2."
+      ]
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "afc2af0c-73f0-4480-a079-04c3e2e637ce",
+    "trace_id": "37c161a1-e379-4093-a704-36cd3a1a4d2c",
+    "request_id": "2aa479d4-1fa2-425d-9b3a-9b5c9ec792e6",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 22.42,
+    "overhead_ms": 22.42,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "credit_risk_detection",
+    "next_step_human": "This profile describes what the applicant's documents show, but it does not assess where the specific default or repayment risks lie. Reviewing the credit risk signals will identify which factors require closer attention.",
+    "next_recommended_step": {
+      "intent": "credit_risk_detection"
+    },
+    "cross_domain_next_intents": [
+      {
+        "domain": "hrtech",
+        "intent": "candidate_profile_extraction",
+        "next_step_human": "Credit assessment references workforce — HR evaluation may be relevant."
+      }
+    ]
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "credit_risk_detection",
+    "reason_human": "This profile describes what the applicant's documents show, but it does not assess where the specific default or repayment risks lie. Reviewing the credit risk signals will identify which factors require closer attention."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_5b_creditworthiness_assessment",
+      "risk_classification": "high_risk",
+      "articles": [
+        "article_13",
+        "article_15"
+      ],
+      "portotify_controls": [
+        "credit_output_guard",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

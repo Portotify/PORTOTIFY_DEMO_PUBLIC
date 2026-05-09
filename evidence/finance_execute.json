@@ -1,0 +1,92 @@
+{
+  "output": {
+    "data": {},
+    "error": {
+      "message": "Policy block.",
+      "code": "FINANCE_OUTPUT_VIOLATION",
+      "details": {
+        "internal_reason": "FINANCE_OUTPUT_VIOLATION"
+      },
+      "guidance": {
+        "reason_title": "We can't predict returns or recommend investments",
+        "reason_detail": "The response included a guaranteed return figure or a specific investment recommendation — claims this tool cannot make because financial outcomes depend on factors outside any document.",
+        "reason_detail_tr": "Yanıt garantili bir getiri rakamı veya belirli bir yatırım tavsiyesi içerdi. Bu araç bu tür iddialar yapamaz; finansal sonuçlar herhangi bir belgenin dışındaki faktörlere bağlıdır.",
+        "next_step": "Ask what the document states — specific figures, stated rates, or defined terms — not what an investment will return.",
+        "source_type": "llm_output"
+      }
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": true,
+    "block_reasons": [
+      "FINANCE_OUTPUT_VIOLATION"
+    ],
+    "block_stage": "post_execution"
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "90e43139-8abc-45a4-8406-45842fd574cd",
+    "trace_id": "207cfd6d-bd7c-4a3c-a623-b2d4a4e88c71",
+    "request_id": "d5c09791-8826-49c6-8df5-508bd0dcb337",
+    "status": "blocked",
+    "reason_code": "FINANCE_OUTPUT_VIOLATION",
+    "engine": "mock",
+    "model": "mock",
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "reason_human": "The response included a guaranteed return figure or a specific investment recommendation — claims this tool cannot make because financial outcomes depend on factors outside any document."
+  },
+  "next_action": {
+    "type": "retry_with_clearer_input",
+    "intent": null,
+    "reason_human": "This request could not be completed as submitted. Please revise the input and try again with clearer or more complete information."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_5_access_to_essential_services_finance",
+      "risk_classification": "high_risk",
+      "chain_position": "preparatory_task",
+      "article_6_3_d": true,
+      "articles": [
+        "article_9",
+        "article_13",
+        "article_14",
+        "article_15"
+      ],
+      "portotify_controls": [
+        "finance_output_guard_dual_layer",
+        "investment_advice_prohibition",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "missing_disclosures_required_field"
+      ]
+    },
+    "nist_ai_rmf": {
+      "functions": [
+        "GOVERN",
+        "MAP",
+        "MEASURE"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

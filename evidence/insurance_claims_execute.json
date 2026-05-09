@@ -1,0 +1,102 @@
+{
+  "output": {
+    "data": {
+      "stated_incident_details": [
+        "Mock stated_incident_details item 1.",
+        "Mock stated_incident_details item 2."
+      ],
+      "stated_damage_observations": [
+        "Mock stated_damage_observations item 1.",
+        "Mock stated_damage_observations item 2."
+      ],
+      "document_trail_observations": [
+        "Mock document_trail_observations item 1.",
+        "Mock document_trail_observations item 2."
+      ],
+      "claim_data_gaps": [
+        "missing_incident_description"
+      ],
+      "plain_claim_summary": "Mock output for plain_claim_summary. Context: Claim Reference: CLM-2026-07812. Date of Loss: 14 March 2026. Claimant: Meridian Logistics GmbH. Policy Number: CPL-2026",
+      "evidence_snippets": [
+        "Mock evidence_snippets item 1.",
+        "Mock evidence_snippets item 2."
+      ]
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": false,
+    "block_reasons": []
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "63897205-6b37-435f-886f-11ea5a7cafda",
+    "trace_id": "b0e2382b-7120-413c-a9e1-d0fa6ea4028b",
+    "request_id": "49690c74-0343-4963-902f-58e28b245d85",
+    "status": "completed",
+    "reason_code": "OK",
+    "engine": "mock",
+    "model": "mock",
+    "duration_ms": 2.73,
+    "overhead_ms": 2.73,
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "suggested_next_intent": "claim_coverage_risk_signals",
+    "next_step_human": "This profile describes what the claim documents show, but it does not identify where the specific coverage concerns or policy interpretation issues may lie. Reviewing the coverage risk signals will surface issues that require closer attention before claim adjudication.",
+    "next_recommended_step": {
+      "intent": "claim_coverage_risk_signals"
+    },
+    "cross_domain_next_intents": [
+      {
+        "domain": "insurance",
+        "intent": "policy_summary_analysis",
+        "next_step_human": "Claim references policy terms — reviewing the underlying policy may be relevant."
+      },
+      {
+        "domain": "finance",
+        "intent": "financial_summary_analysis",
+        "next_step_human": "Claim references financial figures — a financial summary analysis may be relevant."
+      }
+    ]
+  },
+  "next_action": {
+    "type": "try_next_step",
+    "intent": "claim_coverage_risk_signals",
+    "reason_human": "This profile describes what the claim documents show, but it does not identify where the specific coverage concerns or policy interpretation issues may lie. Reviewing the coverage risk signals will surface issues that require closer attention before claim adjudication."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_5c_insurance_risk_pricing",
+      "risk_classification": "high_risk",
+      "articles": [
+        "article_13",
+        "article_15"
+      ],
+      "portotify_controls": [
+        "insurance_output_guard",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}

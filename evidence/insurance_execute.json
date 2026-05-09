@@ -1,0 +1,90 @@
+{
+  "output": {
+    "data": {},
+    "error": {
+      "message": "Policy block.",
+      "code": "INSURANCE_OUTPUT_VIOLATION",
+      "details": {
+        "internal_reason": "INSURANCE_OUTPUT_VIOLATION"
+      },
+      "guidance": {
+        "reason_title": "We can't confirm whether a claim will be paid",
+        "reason_detail": "The response confirmed coverage or guaranteed a claim outcome — which goes beyond what any text in a policy document can establish on its own.",
+        "reason_detail_tr": "Yanıt teminat onayladı veya hasar sonucunu garanti etti. Bunlar yalnızca poliçe belgesi metninden belirlenemez.",
+        "next_step": "Paste the exact policy clause you want examined and ask what it says, not whether your specific claim will be approved.",
+        "source_type": "llm_output"
+      }
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": true,
+    "block_reasons": [
+      "INSURANCE_OUTPUT_VIOLATION"
+    ],
+    "block_stage": "post_execution"
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "7a7679d7-b556-46ae-80b1-0c577747340d",
+    "trace_id": "6d254c03-843b-4f57-acbb-a566222fbc5a",
+    "request_id": "2b6d4390-6f95-4362-b983-0626fda39388",
+    "status": "blocked",
+    "reason_code": "INSURANCE_OUTPUT_VIOLATION",
+    "engine": "mock",
+    "model": "mock",
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "low",
+      "reasons": [
+        "explicit_no_action_signals"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": false,
+        "override_used": false
+      }
+    },
+    "reason_human": "The response confirmed coverage or guaranteed a claim outcome — which goes beyond what any text in a policy document can establish on its own."
+  },
+  "next_action": {
+    "type": "retry_with_clearer_input",
+    "intent": null,
+    "reason_human": "This request could not be completed as submitted. Please revise the input and try again with clearer or more complete information."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_5_access_to_essential_services_insurance",
+      "risk_classification": "high_risk",
+      "chain_position": "preparatory_task",
+      "article_6_3_d": true,
+      "articles": [
+        "article_9",
+        "article_13",
+        "article_14"
+      ],
+      "portotify_controls": [
+        "insurance_authority_prohibition",
+        "evidence_anchoring",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "nist_ai_rmf": {
+      "functions": [
+        "GOVERN",
+        "MAP",
+        "MEASURE"
+      ]
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-09",
+    "engine": "mock",
+    "source": "local_evidence_generation"
+  }
+}
