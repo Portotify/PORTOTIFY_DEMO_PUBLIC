@@ -180,3 +180,15 @@ The model changes. The governance boundary does not."
 - `evidence/` — recorded governance responses
 - `WHY_PORTOTIFY.md` — product overview
 - [portotify.com](https://portotify.com) — website
+
+---
+
+## Evidence Notes
+
+> **Not:** `finance_execute.json`, `health_execute.json`, `insurance_execute.json`
+> intentionally BLOCKED döner. Bu bir hata değil — domain-specific output guard
+> aktif, mock output bile contract violation yapınca sistem geçirilmiyor.
+> Bu governance theater olmadığının kanıtıdır.
+>
+> `credit_02_drg_block.json`: Input quality guard block'unu gösterir.
+> DRG block evidence production LLM ile ayrıca üretilmeli.

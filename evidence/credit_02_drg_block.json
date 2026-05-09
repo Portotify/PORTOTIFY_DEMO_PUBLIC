@@ -56,6 +56,9 @@
   "_demo_metadata": {
     "recorded_at": "2026-05-09",
     "engine": "mock",
-    "source": "local_evidence_generation"
+    "source": "local_evidence_generation",
+    "block_source": "input_quality_guard",
+    "block_note": "DRG (INSUFFICIENT_DATA_CRITICAL_GAPS) mock engine'de tetiklenmiyor. Bu evidence input quality guard block'unu gösteriyor. Gerçek DRG evidence production LLM ile üretilmeli.",
+    "filename_note": "drg_block adı misleading — input_quality_block olarak düşün"
   }
 }
