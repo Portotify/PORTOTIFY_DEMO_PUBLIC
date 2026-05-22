@@ -1,6 +1,6 @@
 # PORTOTIFY — Demo Script (5 Minutes)
 
-**Updated:** 25 April 2026
+**Updated:** 22 May 2026
 
 **Audience:** CTO, CFO, Founder, Technical Decision Maker
 
@@ -117,22 +117,26 @@ The model is not the authority. The governance boundary is the authority. If the
 - `PB1_OPINION_LANGUAGE` guard triggers
 - Response blocked with `reason_code` indicating opinion language violation
 
-**Narration:** "Portotify does not express opinions. If the LLM uses subjective qualifiers — strong, solid, excellent, promising — the output is blocked. This is enforced across all 9 domains, deterministically."
+**Narration:** "Portotify does not express opinions. If the LLM uses subjective qualifiers — strong, solid, excellent, promising — the output is blocked. This is enforced across all 11 domains, deterministically."
 
 ---
 
-## STEP 6 — Multi-Domain Coverage (45s)
+## STEP 6 — Multi-Domain Coverage (60s)
 
 **Show** (quick fire — one request each, show domain diversity):
 
-| Domain | Intent | Input Field |
-|---|---|---|
-| Finance | financial_summary_analysis | financial_text |
-| Health | health_summary_analysis | health_text |
-| Legal | contract_analysis | contract_text |
-| Insurance Claims | claim_profile_extraction | claim_text |
+| Domain | Intent | Input Field | Demonstrates |
+|---|---|---|---|
+| Finance | financial_summary_analysis | financial_text | Opinion + investment advice guard |
+| Health | health_summary_analysis | health_text | Risk detection, gap codes |
+| Legal | contract_analysis | contract_text | Clause gap analysis |
+| Insurance Claims | claim_profile_extraction | claim_text | Coverage risk classification |
+| Education | learning_gap_analysis | student_text | EU AI Act Annex III.3 scope |
+| Courier / Last-Mile Delivery | account_suspension | rider_text | Governance blocks automatic suspension → enforces human review |
 
-**Narration:** "Portotify is not a single-use tool. It governs AI decisions across 9 industry domains — each with its own gap codes, output guards, and compliance mapping. Same governance protocol, different domain expertise."
+**Narration for Courier:** "This request flags a rider account for a policy violation and asks the system to suspend it automatically. Portotify blocks the automatic action and requires human review before any account-level decision is executed. Platform Work Directive 2024/2831 mandates exactly this — no automated account decisions without human oversight."
+
+**Narration:** "Portotify is not a single-use tool. It governs AI decisions across 11 industry domains — each with its own gap codes, output guards, and compliance mapping. Same governance protocol, different domain expertise."
 
 ---
 
@@ -152,7 +156,11 @@ The model is not the authority. The governance boundary is the authority. If the
 
 **Show:**
 - `framework_mapping` in execute response
-- Annex III.4 (HR Tech), Annex III.5 (Finance, Insurance), Annex III.5c (Insurance Claims)
+- Annex III.3 (Education)
+- Annex III.4 (HR Tech, Career, Courier / Last-Mile Delivery)
+- Annex III.5 (Finance, Insurance)
+- Annex III.5c (Insurance Claims)
+- Platform Work Directive 2024/2831 (Courier)
 
 **Narration:** "EU AI Act full enforcement begins August 2026. Portotify already maps every execution to the relevant regulatory framework. This is not documentation — it is runtime compliance evidence."
 
@@ -176,7 +184,7 @@ The model changes. The governance boundary does not."
 
 ## Post-Demo Resources
 
-- `examples/` — request payloads for all 9 domains
+- `examples/` — request payloads for all 11 domains
 - `evidence/` — recorded governance responses
 - `WHY_PORTOTIFY.md` — product overview
 - [portotify.com](https://portotify.com) — website
@@ -185,10 +193,6 @@ The model changes. The governance boundary does not."
 
 ## Evidence Notes
 
-> **Not:** `finance_execute.json`, `health_execute.json`, `insurance_execute.json`
-> intentionally BLOCKED döner. Bu bir hata değil — domain-specific output guard
-> aktif, mock output bile contract violation yapınca sistem geçirilmiyor.
-> Bu governance theater olmadığının kanıtıdır.
+> `finance_execute.json`, `health_execute.json`, `insurance_execute.json` intentionally return BLOCKED. This is not an error — domain-specific output guards are active, and even mock output that violates the contract is blocked. This is proof that Portotify is not governance theater.
 >
-> `credit_02_drg_block.json`: Input quality guard block'unu gösterir.
-> DRG block evidence production LLM ile ayrıca üretilmeli.
+> `credit_02_drg_block.json`: Demonstrates the input quality guard block. DRG block evidence with production LLM should be generated separately.

@@ -1,6 +1,6 @@
 # Why Portotify?
 
-**Updated:** 25 April 2026
+**Updated:** 22 May 2026
 
 ---
 
@@ -65,7 +65,7 @@ Every governance decision is reproducible from code and inputs. No model-generat
 
 Before analysis even begins, the system checks: **is there enough data to produce a meaningful result?**
 
-- 9 domains, each with enum-constrained gap codes
+- 11 domains, each with enum-constrained gap codes
 - Missing critical data → BLOCK with specific guidance on what's needed
 - Unknown gap codes → BLOCK (contract violation)
 - LLM does not decide sufficiency — the backend rule engine does
@@ -82,7 +82,8 @@ Override creates a new decision version — the original is never mutated.
 ### 5. EU AI Act Ready
 
 Framework mapping for high-risk AI systems:
-- Annex III.4 — Employment (HR Tech, Career)
+- Annex III.3 — Education and vocational training (Education)
+- Annex III.4 — Employment (HR Tech, Career, Courier / Last-Mile Delivery)
 - Annex III.5 — Essential Services (Finance, Insurance)
 - Annex III.5a — Insurance Context (Health)
 - Annex III.5c — Insurance Claims
@@ -106,7 +107,7 @@ Portotify enforces multi-step execution journeys:
 
 ---
 
-## 9 Active Domains
+## 11 Active Domains
 
 | Domain | Use Case | EU AI Act |
 |---|---|---|
@@ -119,6 +120,8 @@ Portotify enforces multi-step execution journeys:
 | Legal | Contract analysis, risk detection, clause gaps | — |
 | Career | CV analysis, skill gaps, interview prep | Annex III.4 |
 | Decision | Situation analysis, risk detection, context gaps | — |
+| Education | Student assessment, learning gap analysis, educational risk | Annex III.3 |
+| Courier / Last-Mile Delivery | Rider assignment, performance evaluation, account suspension, platform deactivation | Annex III.4, Platform Work Directive 2024/2831 |
 
 ---
 
@@ -131,6 +134,7 @@ Portotify enforces multi-step execution journeys:
 - Insurance companies using AI for claims processing
 - HR departments using AI for candidate screening
 - Healthcare organizations using AI for patient data analysis
+- Gig economy platforms using AI for rider/driver management and account decisions
 - Any organization that needs to prove their AI decisions are governed, auditable, and compliant
 
 ---
@@ -145,5 +149,5 @@ We do not make AI smarter. We ensure that imperfect AI cannot produce uncontroll
 
 ## Learn More
 
-🌐 [portotify.com](https://portotify.com)
-📧 info@portotify.com
+[portotify.com](https://portotify.com)
+info@portotify.com
