@@ -1,0 +1,12 @@
+{
+  "domain": "education",
+  "intent": "learning_gap_analysis",
+  "version": "v1",
+  "inputs": {
+    "student_text": "Student assessment records for academic year 2025-2026. Mathematics: scored 58% on mid-term assessment covering algebra and geometry; teacher note states 'difficulty with abstract problem-solving, particularly multi-step equations.' Reading comprehension: scored 71% on standardised reading assessment. Attendance record: 14 absences in the current semester (out of 90 scheduled days). No prior education history documented in the submitted records. No language proficiency assessment on file. Teacher notes indicate the student participates in class discussions but struggles to complete written assignments independently. No support plan or special educational needs documentation present in the submitted file.",
+    "curriculum_text": "Year 9 Mathematics curriculum requirements: algebraic manipulation, quadratic equations, geometric proofs, statistical analysis, and introduction to trigonometry. Year 9 Reading and Literacy requirements: analysis of complex texts, argumentative writing, vocabulary development to B2 level. Attendance threshold for academic progression: maximum 15 absences per semester. Language proficiency baseline required for curriculum access: B1 level documented assessment."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

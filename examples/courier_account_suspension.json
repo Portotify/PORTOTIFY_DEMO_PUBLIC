@@ -1,0 +1,12 @@
+{
+  "domain": "courier",
+  "intent": "account_suspension",
+  "version": "v1",
+  "inputs": {
+    "incident_context": "Rider account flagged for review following three consecutive undelivered orders within a 14-day period. One formal customer complaint submitted regarding non-delivery with photographic evidence provided by customer. Rider check-in logs show a pattern of late shift starts: 7 late check-ins recorded in the past 30 days, averaging 18 minutes past scheduled start. Platform suspension request submitted by operations team. Rider has not provided a written explanation for the missed deliveries or late check-ins. No prior formal warning on record. Rider has been active on the platform for 11 months.",
+    "policy_reference": "Platform policy: three or more undelivered orders within 30 days triggers mandatory human review before any account action. Policy violations require documented evidence and a rider response opportunity before suspension determination. Platform Work Directive 2024/2831 Article 16: human oversight required for all account restriction decisions."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

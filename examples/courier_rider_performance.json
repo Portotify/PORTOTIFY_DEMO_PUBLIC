@@ -1,0 +1,12 @@
+{
+  "domain": "courier",
+  "intent": "rider_performance_evaluation",
+  "version": "v1",
+  "inputs": {
+    "rider_context": "Rider operational record for the past 30 days: delivery completion rate 87% (13% incomplete or returned). Average delivery time 23 minutes per order against a zone benchmark of 19 minutes. Two incident reports filed: one customer complaint regarding delayed delivery, one order marked as undelivered with no explanation logged. Operating zone: city center. Total active shifts in period: 22. No formal disputes or appeals on record. Rider has been active on the platform for 8 months. No prior formal warnings.",
+    "role_context": "City center delivery zone. Standard delivery SLA: 20 minutes average. Zone traffic conditions: high congestion during peak hours (12:00-14:00, 18:00-20:00). Platform policy: completion rate below 90% triggers operational review. Two or more incidents in a 30-day period requires documented review by operations team."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}

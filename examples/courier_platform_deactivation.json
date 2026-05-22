@@ -1,0 +1,12 @@
+{
+  "domain": "courier",
+  "intent": "platform_deactivation",
+  "version": "v1",
+  "inputs": {
+    "incident_context": "Rider account subject to permanent deactivation review. Violation history: two prior formal suspensions (March 2026: 7-day suspension for repeated non-delivery; January 2026: 3-day suspension for customer misconduct complaint). Current incident: fraud allegation — rider reported as accepting payment directly from customer outside the platform on two occasions, documented by customer receipts and platform transaction log discrepancy. Contract breach formally documented by legal team on 14 May 2026. Rider submitted a written response on 19 May 2026 denying the fraud allegation; response logged and attached to the record. Total platform tenure: 14 months.",
+    "policy_reference": "Platform policy: third violation following two prior suspensions triggers permanent deactivation review. Fraud allegations require legal team sign-off and a documented rider response before any deactivation determination. Platform Work Directive 2024/2831 Article 16: permanent deactivation constitutes a permanent restriction of access to self-employment — human oversight mandatory. EU AI Act Annex III.4: high-risk AI system classification applies. No automated deactivation permitted."
+  },
+  "controls": {
+    "has_external_write": false
+  }
+}
