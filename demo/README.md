@@ -4,7 +4,7 @@ This folder contains the demo script and supporting narratives for Portotify pre
 
 ## Files
 
-- **DEMO_SCRIPT.md** — 5-minute demo flow (8 steps, all 9 domains)
+- **DEMO_SCRIPT.md** — 5-minute demo flow (8 steps, all 11 domains)
 
 ## How to Use
 
@@ -16,3 +16,7 @@ This folder contains the demo script and supporting narratives for Portotify pre
 ## Audience
 
 CTO, CFO, Founder, Technical Decision Maker
+
+## Domains Covered
+
+Career, Credit, Decision, Education, Finance, Health, HR Tech, Insurance, Insurance Claims, Legal, Courier / Last-Mile Delivery

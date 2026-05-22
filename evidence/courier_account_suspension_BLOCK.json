@@ -1,0 +1,86 @@
+{
+  "output": {
+    "data": {},
+    "error": {
+      "message": "Policy block.",
+      "code": "COURIER_SUSPENSION_VIOLATION",
+      "details": {
+        "internal_reason": "COURIER_SUSPENSION_VIOLATION"
+      },
+      "guidance": {
+        "reason_title": "Automatic account suspension is not permitted",
+        "reason_detail": "The response contained a suspension recommendation or account status verdict — output that this system cannot produce. Account suspension decisions restrict access to work and require a human manager to review the signals and make the determination.",
+        "next_step": "An operations manager must review the incident signals and make the account decision. The rider has the right to respond before any account action is taken.",
+        "source_type": "llm_output"
+      }
+    }
+  },
+  "controls": {
+    "fail_closed": true,
+    "blocked": true,
+    "block_reasons": [
+      "COURIER_SUSPENSION_VIOLATION"
+    ],
+    "block_stage": "post_execution"
+  },
+  "meta": {
+    "schema_version": "v2",
+    "execution_id": "b3f92d14-a1c7-4e88-9d03-7c4a15e820f1",
+    "trace_id": "e4d71b2c-8f30-4a91-bc52-1d9e307f6a48",
+    "request_id": "c7a83e05-2b14-4f77-a1d9-8e6c024b3912",
+    "status": "blocked",
+    "reason_code": "COURIER_SUSPENSION_VIOLATION",
+    "engine": "mock",
+    "model": "mock",
+    "provider_output_used": true,
+    "fallback_used": false,
+    "risk_tier_v0": {
+      "tier": "high",
+      "reasons": [
+        "account_restriction_decision",
+        "work_access_impact"
+      ],
+      "signals": {
+        "has_external_write": false,
+        "has_tool_call": false,
+        "human_in_loop": true,
+        "override_used": false
+      }
+    },
+    "reason_human": "Automatic account suspension blocked. Account suspension decisions restrict access to work and require a human manager to review the signals and make the determination. Platform Work Directive 2024/2831 Article 16."
+  },
+  "next_action": {
+    "type": "human_review_required",
+    "intent": "dispute_resolution",
+    "reason_human": "Operations manager review required. Rider has the right to respond before any account action is taken. If the rider has raised an objection, reviewing the dispute context ensures the record is complete before a human manager makes a final determination."
+  },
+  "framework_mapping": {
+    "eu_ai_act": {
+      "annex_iii": "section_4_employment_workers_management",
+      "risk_classification": "high_risk",
+      "articles": [
+        "article_14",
+        "article_22_gdpr"
+      ],
+      "portotify_controls": [
+        "courier_output_guard",
+        "human_handoff_enforcement",
+        "immutable_audit_lineage",
+        "journey_continuity_enforcement",
+        "panic_b_output_contract"
+      ]
+    },
+    "platform_work_directive": {
+      "article": "16",
+      "requirement": "human_review_mandatory_for_work_restriction_decisions"
+    },
+    "disclaimer": "This mapping reflects Portotify's good-faith interpretation. Not a substitute for formal legal compliance review."
+  },
+  "_demo_metadata": {
+    "recorded_at": "2026-05-22",
+    "engine": "mock",
+    "source": "local_evidence_generation",
+    "block_source": "courier_output_guard",
+    "block_note": "LLM output contained a suspension verdict. Courier output guard triggered COURIER_SUSPENSION_VIOLATION post-execution. Human review enforced before any account action."
+  }
+}
