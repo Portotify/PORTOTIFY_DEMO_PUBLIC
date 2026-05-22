@@ -2,24 +2,26 @@
   "output": {
     "data": {
       "positive_aspects": [
-        "Mock positive_aspects item 1.",
-        "Mock positive_aspects item 2."
+        "7 years of continuous backend engineering experience documented across two employers",
+        "AWS Solutions Architect certification (2023) on record",
+        "Documented technical leadership contribution: led a team of 4 engineers",
+        "Quantified delivery impact: CI/CD pipeline implementation reduced deployment time by 60%"
       ],
       "improvement_areas": [
-        "Mock improvement_areas item 1.",
-        "Mock improvement_areas item 2."
+        "Education history contains no postgraduate qualification or continuing education beyond BSc (2018)",
+        "No formal management or people leadership qualification documented in the submitted CV"
       ],
       "missing_signals": [
         "missing_education_history"
       ],
       "improvement_priorities": [
-        "Mock improvement_priorities item 1.",
-        "Mock improvement_priorities item 2."
+        "Add formal evidence of leadership or people management training to support stated goal of transitioning into a technical leadership role",
+        "Document any postgraduate study, professional certifications, or structured learning undertaken since 2018"
       ],
-      "plain_cv_summary": "Mock output for plain_cv_summary. Context: Senior Backend Engineer with 7 years of experience in Python, Django, and FastAPI. Built microservices architecture serv",
+      "plain_cv_summary": "The submitted CV documents 7 years of backend engineering experience with documented exposure to Python, Django, FastAPI, and microservices architecture. A quantified team leadership contribution (4 engineers) and a measured delivery improvement (60% reduction in deployment time via CI/CD pipeline) are present in the record. AWS Solutions Architect certification (2023) is on file. The record does not document postgraduate qualifications or formal management training. Education history ends at BSc in Computer Science from the University of Amsterdam (year not stated) with no continuing education documented since graduation.",
       "evidence_snippets": [
-        "Mock evidence_snippets item 1.",
-        "Mock evidence_snippets item 2."
+        "Led team of 4 engineers",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
       ]
     }
   },
@@ -57,7 +59,7 @@
     "next_step_human": "This analysis highlights your current strengths, but it does not identify which critical skills are missing for your target role. Reviewing your skill gaps will help you understand what you need to improve next.",
     "next_recommended_step": {
       "intent": "skill_gap_analysis",
-      "why": "2 improvement areas and 1 missing signal detected in your CV; top priority: \"Mock improvement_areas item 1.\" — skill gap analysis will compare these directly against the target role requirements."
+      "why": "2 improvement areas and 1 missing signal detected; top priority: no formal management qualification documented — skill gap analysis will compare these against target leadership role requirements."
     }
   },
   "next_action": {

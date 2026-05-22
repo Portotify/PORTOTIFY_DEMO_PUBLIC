@@ -2,24 +2,28 @@
   "output": {
     "data": {
       "stated_incident_details": [
-        "Mock stated_incident_details item 1.",
-        "Mock stated_incident_details item 2."
+        "Date of loss stated as 14 March 2026",
+        "Claimant identified as Meridian Logistics GmbH, policy reference CPL-2026-04419",
+        "Incident described as cargo damage during transit — two pallets of electronic components reported as water-damaged upon arrival at destination warehouse",
+        "Damage discovered at delivery inspection on 14 March 2026; carrier acknowledged receipt of damaged goods in writing on the delivery note"
       ],
       "stated_damage_observations": [
-        "Mock stated_damage_observations item 1.",
-        "Mock stated_damage_observations item 2."
+        "Two pallets of electronic components reported as water-damaged — claimant states estimated value of 34,500 EUR",
+        "Carrier acknowledgement of damaged goods on delivery note is present in submitted claim documents",
+        "No independent damage assessment or surveyor report present in submitted claim file"
       ],
       "document_trail_observations": [
-        "Mock document_trail_observations item 1.",
-        "Mock document_trail_observations item 2."
+        "Delivery note with carrier signature acknowledging damage is present in submitted documents",
+        "Original purchase invoice for the damaged goods is not included in the submitted claim file",
+        "No bill of lading or transport documentation included in submission — carrier identity and transit route not independently verified from submitted materials"
       ],
       "claim_data_gaps": [
         "missing_incident_description"
       ],
-      "plain_claim_summary": "Mock output for plain_claim_summary. Context: Claim Reference: CLM-2026-07812. Date of Loss: 14 March 2026. Claimant: Meridian Logistics GmbH. Policy Number: CPL-2026",
+      "plain_claim_summary": "The submitted claim file documents an incident on 14 March 2026 in which two pallets of electronic components belonging to Meridian Logistics GmbH (policy CPL-2026-04419) are reported as water-damaged upon arrival at the destination warehouse. The claimant states a value of 34,500 EUR for the damaged goods. A carrier acknowledgement of damaged goods on the delivery note is included in the submitted documents. The original purchase invoice, bill of lading, and independent surveyor assessment are absent from the submitted file. The cause of water ingress during transit is not documented in the submitted materials.",
       "evidence_snippets": [
-        "Mock evidence_snippets item 1.",
-        "Mock evidence_snippets item 2."
+        "Claim Reference: CLM-2026-07812. Date of Loss: 14 March 2026. Claimant: Meridian Logistics GmbH. Policy Number: CPL-2026-04419.",
+        "carrier acknowledged receipt of damaged goods"
       ]
     }
   },

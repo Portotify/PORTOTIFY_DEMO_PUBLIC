@@ -2,18 +2,22 @@
   "output": {
     "data": {
       "financial_indicators": [
-        "Mock financial_indicators item 1.",
-        "Mock financial_indicators item 2."
+        "Annual gross income of 92,000 EUR stated from permanent employment contract",
+        "Savings balance of 15,000 EUR documented",
+        "Combined credit card utilisation of 29% (3,500 EUR balance against 12,000 EUR combined limit)",
+        "Outstanding mortgage balance not disclosed — property value of 280,000 EUR stated but loan balance absent from submitted documents"
       ],
       "stated_obligations": [
-        "Mock stated_obligations item 1.",
-        "Mock stated_obligations item 2."
+        "Monthly mortgage payment of 1,200 EUR documented",
+        "Credit card balance of 3,500 EUR across two cards — monthly minimum payment amounts not stated in submitted documents",
+        "No outstanding personal loans reported in submitted documents"
       ],
-      "profile_data_gaps": "Mock output for profile_data_gaps. Context: Applicant is a 38-year-old salaried employee with annual gross income of 92,000 EUR from a permanent contract at a mid-s",
-      "plain_profile_summary": "Mock value for plain_profile_summary. Context: Applicant is a 38-year-old salaried employee with annual gross income of 92,000 EUR from a permanent contract at a mid-s",
+      "profile_data_gaps": "Outstanding mortgage balance not disclosed in submitted documents. Monthly credit card minimum payment obligations not stated. Source documentation for income not provided — employment contract or payslips not attached to the submitted application.",
+      "plain_profile_summary": "The submitted documents describe a salaried applicant with annual gross income of 92,000 EUR from a permanent employment contract of 4 years tenure. A mortgage obligation of 1,200 EUR per month is documented with a stated property value of 280,000 EUR, though the outstanding mortgage balance is not disclosed. Credit card obligations total 3,500 EUR across two cards with a combined limit of 12,000 EUR, representing 29% utilisation. Savings of 15,000 EUR are reported. No personal loans are reported in the submitted documents. Employment tenure of 4 years with the current employer is stated; the prior employer tenure of 3 years in the same industry is also documented.",
       "evidence_snippets": [
-        "Mock evidence_snippets item 1.",
-        "Mock evidence_snippets item 2."
+        "annual gross income of 92,000 EUR from a permanent contract at a mid-size technology company",
+        "Monthly mortgage payment of 1,200 EUR on a property valued at 280,000 EUR",
+        "Employment tenure of 4 years with current employer. Previous employer tenure was 3 years in the same industry."
       ]
     }
   },

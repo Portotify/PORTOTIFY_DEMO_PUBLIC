@@ -2,24 +2,27 @@
   "output": {
     "data": {
       "stated_qualifications": [
-        "Mock stated_qualifications item 1.",
-        "Mock stated_qualifications item 2."
+        "BSc Computer Science, Technical University of Munich (2018) documented",
+        "AWS Solutions Architect certification (2023) on file",
+        "Language proficiency: English (fluent) and German (B2) stated in submitted record"
       ],
       "stated_experience": [
-        "Mock stated_experience item 1.",
-        "Mock stated_experience item 2."
+        "Current role: Senior Backend Engineer at a mid-size SaaS company, 3 years tenure documented",
+        "Previous role: Backend Developer at a startup, 2 years tenure documented",
+        "Total documented professional experience: 5 years across two backend engineering roles"
       ],
       "employment_history_observations": [
-        "Mock employment_history_observations item 1.",
-        "Mock employment_history_observations item 2."
+        "Employment history contains two consecutive roles with no gaps documented in the submitted record",
+        "Transition from startup (Backend Developer) to mid-size SaaS (Senior Backend Engineer) is documented — no explanation of role change rationale provided in the submission",
+        "Current employer is identified only as 'a mid-size SaaS company' — company name not disclosed in the submitted record"
       ],
       "profile_data_gaps": [
         "missing_education_details"
       ],
-      "plain_profile_summary": "Mock output for plain_profile_summary. Context: Candidate holds a BSc in Computer Science from Technical University of Munich (2018). Currently employed as Senior Backe",
+      "plain_profile_summary": "The submitted record documents 5 years of backend engineering experience across two roles, with a stated tenure of 3 years in the current Senior Backend Engineer position at a mid-size SaaS company and 2 years in a prior Backend Developer role at a startup. A BSc in Computer Science from the Technical University of Munich (2018) and an AWS Solutions Architect certification (2023) are on file. Technical skills listed include Python, Go, PostgreSQL, Docker, Kubernetes, and CI/CD pipelines. Language proficiency is stated as English (fluent) and German (B2). The current employer is not named in the submitted record. References are noted as available upon request but are not included in the submission.",
       "evidence_snippets": [
-        "Mock evidence_snippets item 1.",
-        "Mock evidence_snippets item 2."
+        "Currently employed as Senior Backend Engineer at a mid-size SaaS company, tenure 3 years. Previous role: Backend Developer at a startup, 2 years.",
+        "AWS Solutions Architect certification (2023). Speaks English (fluent) and German (B2)."
       ]
     }
   },

@@ -2,24 +2,28 @@
   "output": {
     "data": {
       "key_points": [
-        "Mock key_points item 1.",
-        "Mock key_points item 2."
+        "Agreement type: Software Services Agreement, effective 1 April 2026",
+        "Service provider identified as Portotify B.V., incorporated under Dutch law",
+        "Counterparty identification is incomplete in the submitted document extract — second party name not fully present in submitted text",
+        "Agreement scope covers provision of software services — specific deliverables and service level commitments not present in the submitted extract"
       ],
       "obligations": [
-        "Mock obligations item 1.",
-        "Mock obligations item 2."
+        "Service provider (Portotify B.V.) obligated to deliver software services as defined in the agreement scope",
+        "Payment terms, invoicing schedule, and late payment provisions are referenced in the agreement but the relevant clauses are not present in the submitted extract",
+        "Data processing obligations and GDPR Article 28 processor agreement status not addressed in the submitted portion of the contract"
       ],
       "critical_terms": [
-        "Mock critical_terms item 1.",
-        "Mock critical_terms item 2."
+        "Effective date: 1 April 2026 — stated explicitly in the agreement header",
+        "Governing law clause not present in the submitted extract",
+        "Termination provisions and notice period requirements not present in the submitted extract"
       ],
-      "plain_summary": "Mock output for plain_summary. Context: This Software Services Agreement is entered into as of 1 April 2026 between Portotify B.V., a company incorporated under",
+      "plain_summary": "The submitted document is an extract from a Software Services Agreement dated 1 April 2026, with Portotify B.V. identified as the service provider. The counterparty is not fully identified in the submitted text. The agreement establishes a framework for software service provision, but the submitted extract does not include payment terms, service level commitments, data processing provisions, governing law, or termination clauses. The contract data gap 'missing_party_identification' is recorded — the second party to the agreement is not fully identified in the submitted portion of the document.",
       "contract_data_gaps": [
         "missing_party_identification"
       ],
       "evidence_snippets": [
-        "Mock evidence_snippets item 1.",
-        "Mock evidence_snippets item 2."
+        "This Software Services Agreement is entered into as of 1 April 2026 between Portotify B.V., a company incorporated under",
+        "provision of software services"
       ]
     }
   },
