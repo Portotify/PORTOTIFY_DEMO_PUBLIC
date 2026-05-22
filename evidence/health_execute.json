@@ -10,8 +10,7 @@
       "guidance": {
         "reason_title": "We can't give medical diagnoses or prescriptions",
         "reason_detail": "The response made a definitive medical claim or treatment recommendation, which this tool is not qualified to provide.",
-        "reason_detail_tr": "Yanıt kesin bir tıbbi iddia veya tedavi tavsiyesi içerdi. Bu araç bu tür sonuçlar üretmeye yetkili değildir.",
-        "next_step": "Ask about what the health information says rather than what it means for your specific situation — and speak to a healthcare professional for personal guidance.",
+"next_step": "Ask about what the health information says rather than what it means for your specific situation — and speak to a healthcare professional for personal guidance.",
         "source_type": "llm_output"
       }
     }

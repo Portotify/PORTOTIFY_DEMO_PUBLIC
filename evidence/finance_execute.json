@@ -10,8 +10,7 @@
       "guidance": {
         "reason_title": "We can't predict returns or recommend investments",
         "reason_detail": "The response included a guaranteed return figure or a specific investment recommendation — claims this tool cannot make because financial outcomes depend on factors outside any document.",
-        "reason_detail_tr": "Yanıt garantili bir getiri rakamı veya belirli bir yatırım tavsiyesi içerdi. Bu araç bu tür iddialar yapamaz; finansal sonuçlar herhangi bir belgenin dışındaki faktörlere bağlıdır.",
-        "next_step": "Ask what the document states — specific figures, stated rates, or defined terms — not what an investment will return.",
+"next_step": "Ask what the document states — specific figures, stated rates, or defined terms — not what an investment will return.",
         "source_type": "llm_output"
       }
     }
