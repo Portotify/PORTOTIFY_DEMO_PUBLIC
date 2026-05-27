@@ -48,6 +48,14 @@ Each file is a recorded Portotify API response demonstrating a specific governan
 
 ---
 
+## Production Latency Benchmark
+
+| File | Scenario | Demonstrates |
+|---|---|---|
+| `LATENCY_BENCHMARK_2026-05-27.md` | 3 engines × 4 domains, 360 requests, production | Engine-agnostic governance, real latency data, INTENT_BLOCKED divergence finding |
+
+---
+
 ## Notes
 
 - Files marked `post_execution` block: the LLM ran, output guard detected a violation, output was suppressed.
