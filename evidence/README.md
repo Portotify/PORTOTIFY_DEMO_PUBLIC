@@ -52,7 +52,8 @@ Each file is a recorded Portotify API response demonstrating a specific governan
 
 | File | Scenario | Demonstrates |
 |---|---|---|
-| `LATENCY_BENCHMARK_2026-05-27.md` | 3 engines × 4 domains, 360 requests, production | Engine-agnostic governance, real latency data, INTENT_BLOCKED divergence finding |
+| `LATENCY_BENCHMARK_2026-05-27.md` | 2 engines × 4 domains, v2 with engine_ms visible, n=10 each | Engine-agnostic governance, LLM latency isolation, governance overhead 57–115 ms |
+| `FINDING_OPENAI_NONDETERMINISM.md` | openai/credit — same payload, opposite verdicts in two runs | LLM non-determinism validated empirically; runtime governance is the only reliable control |
 
 ---
 
