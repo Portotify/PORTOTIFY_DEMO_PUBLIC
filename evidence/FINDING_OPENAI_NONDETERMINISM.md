@@ -19,27 +19,34 @@ benchmark runs. The governance verdict was inconsistent across runs:
 | 3 | 20260527T081748Z | 10 | POLICY_BLOCK (all) | Cache-bust active, INTENT_BLOCKED |
 | 4 | 20260527T102030Z | 10 | 200 / committed (all) | Cache-bust active, passed |
 
-Runs 3 and 4 used the same payload content (only the `[cb:xxxxxxxx]` cache-bust suffix
-differed per request). Run 3 produced `INTENT_BLOCKED` on every sample; Run 4 committed
-every sample successfully.
+Runs 3 and 4 used the same governance-relevant payload content (only the `[cb:xxxxxxxx]`
+cache-bust suffix differed per request to defeat prompt caching — this suffix is not
+evaluated by governance rules). Run 3 produced `INTENT_BLOCKED` on every sample; Run 4
+committed every sample successfully.
 
 ---
 
 ## Root Cause Analysis
 
-**The payload did not change between Run 3 and Run 4.**
+**The governance-relevant payload did not change between Run 3 and Run 4.**
 
-The divergence originates in OpenAI's stochastic generation process. Large language models
-with `temperature > 0` do not produce deterministic output for a given input. Each API call
-samples from a probability distribution over the token vocabulary, producing a different
-completion on every invocation. For the same `credit_profile_analysis` prompt:
+The evidence is consistent with stochastic generation behavior. Large language models
+with `temperature > 0` do not produce deterministic output for a given input — each API
+call samples from a probability distribution over the token vocabulary, producing a
+different completion on every invocation. For the same `credit_profile_analysis` prompt:
 
-- In Run 3, OpenAI generated output that triggered the governance intent risk classifier,
+- In Run 3, the model generated output that triggered the governance intent risk classifier,
   resulting in `INTENT_BLOCKED`.
-- In Run 4, OpenAI generated semantically equivalent but lexically different output that
+- In Run 4, the model generated semantically equivalent but lexically different output that
   did not activate the classifier.
 
-The governance layer did not change between runs. The LLM output changed.
+The governance layer did not change between runs. The produced output changed.
+
+Other explanations — backend state drift, provider-side routing changes, moderation
+variance, or upstream model version changes — cannot be fully excluded from a black-box
+observation. However, stochastic generation is the most likely explanation given that the
+effect is well-documented for temperature > 0 models and the divergence pattern is
+consistent with token-level sampling variance.
 
 ---
 
@@ -47,17 +54,23 @@ The governance layer did not change between runs. The LLM output changed.
 
 This finding validates a core Portotify design principle:
 
-> **LLM output is non-deterministic. Governance cannot be applied once at design time —
-> it must be applied at inference time, on every execution.**
+> **Governance cannot be applied once at design time — it must be applied at inference
+> time, on every execution, against the actual output produced by the model.**
 
-A system that validates LLM behavior only during testing or staging will miss production
-divergence. Portotify intercepts every execution, evaluates the actual output produced by
-the model at that moment, and applies governance rules in-line before the output reaches
-the consumer.
+The critical distinction is between *intended behavior* and *produced artifact*. A system
+that validates LLM behavior during testing or staging is validating intended behavior under
+controlled conditions. Production execution produces a different artifact on every call.
+Portotify evaluates the produced artifact — what the model actually returned, at that
+moment — before it reaches the consumer.
+
+This is why runtime governance remains necessary even when a model has been validated
+in staging: production behavior can diverge from staging validation at any inference call,
+for any execution, without warning.
 
 The non-determinism of `openai/credit` across runs is not a defect in the benchmark. It
-is empirical evidence that the same prompt can produce both compliant and non-compliant
-LLM outputs at different times — and that runtime governance is the only reliable control.
+is empirical evidence that the same governance-relevant prompt can produce both compliant
+and non-compliant LLM outputs at different times — and that runtime governance is the
+most reliable control boundary for stochastic LLM systems deployed in production.
 
 ---
 
