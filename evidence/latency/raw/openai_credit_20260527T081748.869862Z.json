@@ -1,0 +1,53 @@
+{
+  "engine": "openai",
+  "domain": "credit",
+  "started_at": "2026-05-27T08:17:48.869862Z",
+  "finished_at": "2026-05-27T08:17:50.013616Z",
+  "target_url": "https://portotify-backend.onrender.com",
+  "execute_url": "https://portotify-backend.onrender.com/v1/execute",
+  "total_requests": 2,
+  "warmup_count": 1,
+  "sample_count": 1,
+  "delay_seconds": 0.0,
+  "render_plan": "Hobby (legacy)",
+  "payload_snapshot": {
+    "domain": "credit",
+    "intent": "credit_profile_analysis",
+    "version": "v1",
+    "inputs": {
+      "applicant_text": "The applicant is the sole director and full-time employee of the applicant company, drawing a salary of 42,000 GBP per annum. Employment status: self-employed director, trading for 6 years. The company reported turnover of 2.1 million GBP for the fiscal year ending March 2024. Operating profit was 340 thousand GBP, with total debt obligations of 850 thousand GBP outstanding. Asset and savings information: the applicant holds personal savings of 85,000 GBP in a cash ISA, a residential property valued at 310,000 GBP with an outstanding mortgage of 195,000 GBP, and company retained reserves of 120,000 GBP. Monthly expense breakdown: mortgage repayment 1,150 GBP, household bills 420 GBP, vehicle finance 380 GBP, school fees 600 GBP, food and miscellaneous 800 GBP — total 3,350 GBP per month. Management accounts are unaudited. Twelve months of statements have been submitted for review. Bank statements covering six months have been submitted. No dividends were declared during the period. Personal tax returns for the past two years have been provided as supporting documentation. No county court judgments or insolvency events are recorded in the submitted documents. Current interest rate on the mortgage is 4.5 percent per annum."
+    },
+    "controls": {
+      "has_external_write": false,
+      "has_tool_call": false
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T08:17:49.272017Z",
+      "client_total_ms": 453,
+      "server_duration_ms": null,
+      "server_engine_ms": null,
+      "governance_overhead_ms": null,
+      "status_code": 200,
+      "request_id": "54cac3b2-5545-4917-949c-adc2c130a3c9",
+      "reason_code": "POLICY_BLOCK",
+      "error": null
+    },
+    {
+      "index": 1,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T08:17:49.724800Z",
+      "client_total_ms": 288,
+      "server_duration_ms": null,
+      "server_engine_ms": null,
+      "governance_overhead_ms": null,
+      "status_code": 200,
+      "request_id": "ff953cdc-4d4a-456d-b158-f1e9ace0e4a2",
+      "reason_code": "POLICY_BLOCK",
+      "error": null
+    }
+  ]
+}

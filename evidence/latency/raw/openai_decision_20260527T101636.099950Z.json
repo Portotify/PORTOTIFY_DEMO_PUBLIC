@@ -1,0 +1,183 @@
+{
+  "engine": "openai",
+  "domain": "decision",
+  "started_at": "2026-05-27T10:16:36.099950Z",
+  "finished_at": "2026-05-27T10:18:22.760772Z",
+  "target_url": "https://portotify-backend.onrender.com",
+  "execute_url": "https://portotify-backend.onrender.com/v1/execute",
+  "total_requests": 12,
+  "warmup_count": 2,
+  "sample_count": 10,
+  "delay_seconds": 0.0,
+  "render_plan": "Hobby (legacy)",
+  "payload_snapshot": {
+    "domain": "decision",
+    "intent": "situation_analysis",
+    "version": "v1",
+    "inputs": {
+      "situation_text": "I am a backend software engineer with 7 years of experience, currently employed at a mid-size fintech company. I have received two job offers and must decide by June 15, 2026 — a firm deadline set by both employers. The first offer is a senior engineer role at a large bank: 95k GBP base salary, standard pension, 30 days leave, but requires 5 days per week in office in central London — a 90-minute commute each way. The second offer is at an early-stage startup: 72k GBP base, 0.8 percent equity vested over 4 years, fully remote, but no pension contribution and a 12-month cliff before equity vests. Key stakeholders: my spouse works part-time and handles school pickup — the commute would require us to hire childcare at approximately 1,200 GBP per month. My current team of 3 junior engineers depends on my technical oversight. The mortgage on our home is 1,850 GBP per month with 18 years remaining; we have 4 months of expenses in savings. Known risks of option 1: commute stress, childcare costs reduce net gain, large employer means slower promotion. Known risks of option 2: startup may fail within 2 years (sector mortality rate approximately 60 percent), equity may be worthless, income reduction of 23k GBP immediately impacts mortgage buffer. I have no other offers pending. My current employer has not made a counter-offer."
+    },
+    "controls": {
+      "has_external_write": false,
+      "has_tool_call": false
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T10:16:36.468726Z",
+      "client_total_ms": 10087,
+      "server_duration_ms": 9647.84,
+      "server_engine_ms": 9552.0,
+      "governance_overhead_ms": 95.84,
+      "status_code": 200,
+      "request_id": "1dbf74bd-df05-4178-be46-3c9be365a57f",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 1,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T10:16:46.556773Z",
+      "client_total_ms": 10109,
+      "server_duration_ms": 9758.74,
+      "server_engine_ms": 9661.0,
+      "governance_overhead_ms": 97.74,
+      "status_code": 200,
+      "request_id": "de9f549e-cf31-4c2f-9e0b-c9cfc7c2662b",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 2,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:16:56.665174Z",
+      "client_total_ms": 9466,
+      "server_duration_ms": 9114.36,
+      "server_engine_ms": 9011.0,
+      "governance_overhead_ms": 103.36,
+      "status_code": 200,
+      "request_id": "bac61c95-bd54-4109-8157-c76a6031a0cb",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 3,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:06.131419Z",
+      "client_total_ms": 11907,
+      "server_duration_ms": 11544.32,
+      "server_engine_ms": 11447.0,
+      "governance_overhead_ms": 97.32,
+      "status_code": 200,
+      "request_id": "a2c4ee6c-05b1-49cb-a64e-965347914dc9",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 4,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:18.038240Z",
+      "client_total_ms": 7847,
+      "server_duration_ms": 7487.74,
+      "server_engine_ms": 7383.0,
+      "governance_overhead_ms": 104.74,
+      "status_code": 200,
+      "request_id": "23646fdb-b491-405a-81dd-4eb908d52fed",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 5,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:25.886614Z",
+      "client_total_ms": 7604,
+      "server_duration_ms": 7250.84,
+      "server_engine_ms": 7156.0,
+      "governance_overhead_ms": 94.84,
+      "status_code": 200,
+      "request_id": "31d46571-bf39-4344-bd8b-bc0888723e9d",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 6,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:33.491210Z",
+      "client_total_ms": 8827,
+      "server_duration_ms": 8479.38,
+      "server_engine_ms": 8381.0,
+      "governance_overhead_ms": 98.38,
+      "status_code": 200,
+      "request_id": "e84d869d-f441-4dde-8553-42b5390c6b10",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 7,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:42.317503Z",
+      "client_total_ms": 8756,
+      "server_duration_ms": 8406.89,
+      "server_engine_ms": 8313.0,
+      "governance_overhead_ms": 93.89,
+      "status_code": 200,
+      "request_id": "02189f89-ff09-423e-a38d-3484ee3a15f3",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 8,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:51.074011Z",
+      "client_total_ms": 7498,
+      "server_duration_ms": 7150.09,
+      "server_engine_ms": 7060.0,
+      "governance_overhead_ms": 90.09,
+      "status_code": 200,
+      "request_id": "a9b0444a-7885-4b7e-a9f7-5f31ccbf4c6c",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 9,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:17:58.572497Z",
+      "client_total_ms": 7904,
+      "server_duration_ms": 7562.83,
+      "server_engine_ms": 7472.0,
+      "governance_overhead_ms": 90.83,
+      "status_code": 200,
+      "request_id": "037d96f1-e2de-4541-a751-030143fe4352",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 10,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:18:06.476878Z",
+      "client_total_ms": 7736,
+      "server_duration_ms": 7380.18,
+      "server_engine_ms": 7289.0,
+      "governance_overhead_ms": 91.18,
+      "status_code": 200,
+      "request_id": "2bd03396-412e-47fb-a652-83f2e9eaa33f",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 11,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:18:14.212146Z",
+      "client_total_ms": 8547,
+      "server_duration_ms": 8181.49,
+      "server_engine_ms": 8085.0,
+      "governance_overhead_ms": 96.49,
+      "status_code": 200,
+      "request_id": "4d86e19f-5dcf-42a9-9542-13cf035f1854",
+      "reason_code": "OK",
+      "error": null
+    }
+  ]
+}

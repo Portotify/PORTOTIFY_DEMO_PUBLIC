@@ -1,0 +1,54 @@
+{
+  "engine": "openai",
+  "domain": "career",
+  "started_at": "2026-05-27T09:56:02.146013Z",
+  "finished_at": "2026-05-27T09:56:16.409676Z",
+  "target_url": "https://portotify-backend.onrender.com",
+  "execute_url": "https://portotify-backend.onrender.com/v1/execute",
+  "total_requests": 2,
+  "warmup_count": 1,
+  "sample_count": 1,
+  "delay_seconds": 0.0,
+  "render_plan": "Hobby (legacy)",
+  "payload_snapshot": {
+    "domain": "career",
+    "intent": "cv_analysis",
+    "version": "v1",
+    "inputs": {
+      "cv_text": "Experienced backend software engineer with over four years of Python development. Designed and built REST APIs using FastAPI and Flask. Led migration from monolith to microservices architecture. Proficient in SQL databases including PostgreSQL and Redis. Collaborated with cross-functional teams to deliver product features on schedule. Managed a team of two junior developers and conducted code reviews.",
+      "target_role": "Senior Backend Engineer"
+    },
+    "controls": {
+      "has_external_write": false,
+      "has_tool_call": false
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T09:56:02.535917Z",
+      "client_total_ms": 7949,
+      "server_duration_ms": 7310.57,
+      "server_engine_ms": 7017.0,
+      "governance_overhead_ms": 293.57,
+      "status_code": 200,
+      "request_id": "123770bc-2023-4ed7-874b-02ed55527f4c",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 1,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T09:56:10.485293Z",
+      "client_total_ms": 5924,
+      "server_duration_ms": 5455.96,
+      "server_engine_ms": 5356.0,
+      "governance_overhead_ms": 99.96,
+      "status_code": 200,
+      "request_id": "f320fecf-5a7f-4b5f-b4dd-27f8e5bc3488",
+      "reason_code": "OK",
+      "error": null
+    }
+  ]
+}

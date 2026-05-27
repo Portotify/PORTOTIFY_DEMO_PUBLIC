@@ -1,0 +1,183 @@
+{
+  "engine": "openai",
+  "domain": "credit",
+  "started_at": "2026-05-27T10:20:30.090641Z",
+  "finished_at": "2026-05-27T10:22:29.473170Z",
+  "target_url": "https://portotify-backend.onrender.com",
+  "execute_url": "https://portotify-backend.onrender.com/v1/execute",
+  "total_requests": 12,
+  "warmup_count": 2,
+  "sample_count": 10,
+  "delay_seconds": 0.0,
+  "render_plan": "Hobby (legacy)",
+  "payload_snapshot": {
+    "domain": "credit",
+    "intent": "credit_profile_analysis",
+    "version": "v1",
+    "inputs": {
+      "applicant_text": "The applicant is the sole director and full-time employee of the applicant company, drawing a salary of 42,000 GBP per annum. Employment status: self-employed director, trading for 6 years. The company reported turnover of 2.1 million GBP for the fiscal year ending March 2024. Operating profit was 340 thousand GBP, with total debt obligations of 850 thousand GBP outstanding. Asset and savings information: the applicant holds personal savings of 85,000 GBP in a cash ISA, a residential property valued at 310,000 GBP with an outstanding mortgage of 195,000 GBP, and company retained reserves of 120,000 GBP. Monthly expense breakdown: mortgage repayment 1,150 GBP, household bills 420 GBP, vehicle finance 380 GBP, school fees 600 GBP, food and miscellaneous 800 GBP — total 3,350 GBP per month. Management accounts are unaudited. Twelve months of statements have been submitted for review. Bank statements covering six months have been submitted. No dividends were declared during the period. Personal tax returns for the past two years have been provided as supporting documentation. No county court judgments or insolvency events are recorded in the submitted documents. Current interest rate on the mortgage is 4.5 percent per annum."
+    },
+    "controls": {
+      "has_external_write": false,
+      "has_tool_call": false
+    }
+  },
+  "results": [
+    {
+      "index": 0,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T10:20:30.483618Z",
+      "client_total_ms": 8456,
+      "server_duration_ms": 8022.69,
+      "server_engine_ms": 7956.0,
+      "governance_overhead_ms": 66.69,
+      "status_code": 200,
+      "request_id": "acca4035-eff3-4e61-9e14-e218bf87f2d7",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 1,
+      "is_warmup": true,
+      "timestamp": "2026-05-27T10:20:38.940451Z",
+      "client_total_ms": 9604,
+      "server_duration_ms": 9374.25,
+      "server_engine_ms": 9312.0,
+      "governance_overhead_ms": 62.25,
+      "status_code": 200,
+      "request_id": "b3638f6d-df4a-4b33-9799-824a0663fad6",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 2,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:20:48.544959Z",
+      "client_total_ms": 9701,
+      "server_duration_ms": 9455.79,
+      "server_engine_ms": 9392.0,
+      "governance_overhead_ms": 63.79,
+      "status_code": 200,
+      "request_id": "3aef9f14-ad40-4bb5-be62-08e9ce71474a",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 3,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:20:58.246384Z",
+      "client_total_ms": 20708,
+      "server_duration_ms": 20444.88,
+      "server_engine_ms": 20376.0,
+      "governance_overhead_ms": 68.88,
+      "status_code": 200,
+      "request_id": "42e51ad0-a2a7-4abb-80cd-0deec7995460",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 4,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:21:18.953748Z",
+      "client_total_ms": 10930,
+      "server_duration_ms": 10689.62,
+      "server_engine_ms": 10627.0,
+      "governance_overhead_ms": 62.62,
+      "status_code": 200,
+      "request_id": "77270d07-e9a2-4547-907b-6ef038726806",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 5,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:21:29.884622Z",
+      "client_total_ms": 9628,
+      "server_duration_ms": 9381.64,
+      "server_engine_ms": 9321.0,
+      "governance_overhead_ms": 60.64,
+      "status_code": 200,
+      "request_id": "1d5ae729-3993-430b-a953-de71a86f7fff",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 6,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:21:39.512525Z",
+      "client_total_ms": 8926,
+      "server_duration_ms": 8693.32,
+      "server_engine_ms": 8632.0,
+      "governance_overhead_ms": 61.32,
+      "status_code": 200,
+      "request_id": "2707b21d-c04f-46de-b21d-218a540c1ec5",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 7,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:21:48.439609Z",
+      "client_total_ms": 8138,
+      "server_duration_ms": 7902.81,
+      "server_engine_ms": 7844.0,
+      "governance_overhead_ms": 58.81,
+      "status_code": 200,
+      "request_id": "c0304d9d-43cc-4368-88c3-8990293af238",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 8,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:21:56.577554Z",
+      "client_total_ms": 8341,
+      "server_duration_ms": 8103.47,
+      "server_engine_ms": 8039.0,
+      "governance_overhead_ms": 64.47,
+      "status_code": 200,
+      "request_id": "133a8456-4f9a-4baa-90c8-444ade5615a4",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 9,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:22:04.918423Z",
+      "client_total_ms": 8301,
+      "server_duration_ms": 8060.53,
+      "server_engine_ms": 7999.0,
+      "governance_overhead_ms": 61.53,
+      "status_code": 200,
+      "request_id": "89951667-7112-4adb-8995-145c1f1e2c33",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 10,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:22:13.220157Z",
+      "client_total_ms": 8679,
+      "server_duration_ms": 8432.8,
+      "server_engine_ms": 8371.0,
+      "governance_overhead_ms": 61.8,
+      "status_code": 200,
+      "request_id": "9e27b27e-fff1-4b25-b323-cbe459fc1878",
+      "reason_code": "OK",
+      "error": null
+    },
+    {
+      "index": 11,
+      "is_warmup": false,
+      "timestamp": "2026-05-27T10:22:21.899341Z",
+      "client_total_ms": 7573,
+      "server_duration_ms": 7326.53,
+      "server_engine_ms": 7260.0,
+      "governance_overhead_ms": 66.53,
+      "status_code": 200,
+      "request_id": "67591b9c-3f1d-4d77-9c1c-2ca73e662d14",
+      "reason_code": "OK",
+      "error": null
+    }
+  ]
+}

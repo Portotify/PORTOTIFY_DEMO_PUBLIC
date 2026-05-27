@@ -55,6 +55,17 @@ Each file is a recorded Portotify API response demonstrating a specific governan
 | `LATENCY_BENCHMARK_2026-05-27.md` | 2 engines × 4 domains, v2 with engine_ms visible, n=10 each | Engine-agnostic governance, LLM latency isolation, governance overhead 57–115 ms |
 | `FINDING_OPENAI_NONDETERMINISM.md` | openai/credit — same payload, opposite verdicts in two runs | LLM non-determinism validated empirically; runtime governance is the only reliable control |
 
+### Raw Benchmark Data — `latency/`
+
+| File | Contents |
+|---|---|
+| `latency/BENCHMARK_MANIFEST.md` | SHA-256 integrity manifest for all 26 raw JSON files — tamper-evident audit trail |
+| `latency/raw/openai_*.json` | OpenAI (gpt-4o) benchmark runs — career, credit, decision, finance |
+| `latency/raw/anthropic_*.json` | Anthropic (claude-haiku-4-5-20251001) benchmark runs — career, credit, decision, finance |
+| `latency/raw/mock_*.json` | Mock engine baseline runs |
+
+Files marked **v2 run** in the manifest contain `engine_ms` (LLM-only latency) and `overhead_ms` (governance cost) fields. All hashes in `BENCHMARK_MANIFEST.md` can be independently verified with SHA-256.
+
 ---
 
 ## Notes
