@@ -1,6 +1,6 @@
-# PORTOTIFY — Demo Script (5 Minutes)
+# PORTOTIFY Demo Script (5 Minutes)
 
-**Updated:** 22 May 2026
+**Updated:** 18 June 2026
 
 **Audience:** CTO, CFO, Founder, Technical Decision Maker
 
@@ -8,19 +8,23 @@
 
 ---
 
-## STEP 1 — What Is Portotify? (30s)
+## STEP 1: What Is Portotify? (30s)
 
 **Narration:**
 
-"Portotify is not a chatbot wrapper. It is a governance protocol that decides whether AI output is allowed, blocked, or controlled — before it reaches anyone.
+"Portotify is not a chatbot wrapper. It is a governance protocol that decides
+whether a decision is allowed, blocked, or controlled, before it reaches
+anyone. It does not matter whether a model, a rule engine, or a human produced
+the decision.
 
-The model is not the authority. The governance boundary is the authority. If the system cannot determine safety, it stops."
+The producer is not the authority. The governance boundary is the authority.
+If the system cannot determine safety, it stops."
 
 **Key message:** Fail-closed. Deterministic. Auditable.
 
 ---
 
-## STEP 2 — Governed Execution: Credit Domain (60s)
+## STEP 2: Governed Execution, Credit Domain (60s)
 
 **Scenario:** Credit applicant profile analysis with sufficient data.
 
@@ -41,16 +45,18 @@ The model is not the authority. The governance boundary is the authority. If the
 
 **Show:**
 - Response succeeds with `status: completed`
-- Output contains structured analysis with `profile_data_gaps` (enum codes, not free text)
+- Output contains structured analysis with enum-coded gaps, not free text
 - `governance_verdict: allow`
-- `decision_capsules_v2` record created (immutable)
-- `suggested_next_intent` points to next step in journey
+- An immutable decision record is created
+- A suggested next step points to the next intent in the journey
 
-**Narration:** "The system analyzed the input, found sufficient data, and allowed the execution. Every field in the output is schema-bound. The decision is now an immutable audit record."
+**Narration:** "The system analyzed the input, found sufficient data, and
+allowed the execution. Every field in the output is schema-bound. The decision
+is now an immutable audit record."
 
 ---
 
-## STEP 3 — Decision Readiness Gate: Insufficient Data (60s)
+## STEP 3: Sufficiency Check, Insufficient Data (60s)
 
 **Scenario:** Same domain, but input is missing critical information.
 
@@ -70,18 +76,20 @@ The model is not the authority. The governance boundary is the authority. If the
 ```
 
 **Show:**
-- Response blocked: `reason_code: INSUFFICIENT_DATA_CRITICAL_GAPS`
-- `profile_data_gaps` lists exactly what's missing (enum codes)
-- Block guidance tells the user what to provide
-- No LLM involvement in the block decision — pure backend rule
+- Response blocked: insufficient data, with enum-coded gaps
+- The block guidance tells the user exactly what to provide
+- No engine involvement in the block decision, it is a pure backend rule
 
-**Narration:** "This is the Decision Readiness Gate. The system checked: is there enough data to produce a meaningful result? The answer was no. It blocked — not with a vague error, but with specific guidance on exactly what's missing. The LLM never ran. The backend decided."
+**Narration:** "Before analysis, the system checked whether there was enough
+data to produce a meaningful result. The answer was no, so it blocked, not with
+a vague error, but with specific guidance on exactly what is missing. The engine
+never ran. The backend rule decided."
 
 ---
 
-## STEP 4 — External Action Invariant (45s)
+## STEP 4: External Action Invariant (45s)
 
-**Scenario:** Valid request, but external write flag is set.
+**Scenario:** Valid request, but the external write flag is set.
 
 **Request:**
 ```json
@@ -102,67 +110,82 @@ The model is not the authority. The governance boundary is the authority. If the
 - Deterministic BLOCK
 - `reason_code: POLICY_BLOCK`
 - `controls.blocked: true`
-- No execution, no LLM call
+- No execution, no engine call
 
-**Narration:** "If external action is requested, the system blocks. Always. The model cannot override this. This is a governance invariant, not a suggestion."
+**Narration:** "If external action is requested, the system blocks. Always. The
+producer cannot override this. This is a governance invariant, not a
+suggestion."
 
 ---
 
-## STEP 5 — Opinion Language Guard (45s)
+## STEP 5: Subjective Language Rejected (45s)
 
-**Scenario:** LLM tries to express an opinion in the output.
+**Scenario:** The output tries to express an opinion.
 
 **Show** (use recorded evidence or mock output):
-- LLM output contains "the profile is quite strong" or "this is a solid financial position"
-- `PB1_OPINION_LANGUAGE` guard triggers
-- Response blocked with `reason_code` indicating opinion language violation
+- The output contains "the profile is quite strong" or "this is a solid
+  financial position"
+- The output is blocked for opinion language
 
-**Narration:** "Portotify does not express opinions. If the LLM uses subjective qualifiers — strong, solid, excellent, promising — the output is blocked. This is enforced across all 11 domains, deterministically."
+**Narration:** "Portotify does not express opinions. If the output uses
+subjective qualifiers, strong, solid, excellent, promising, it is blocked. This
+is enforced across all 11 domains, deterministically."
 
 ---
 
-## STEP 6 — Multi-Domain Coverage (60s)
+## STEP 6: Multi-Domain Coverage (60s)
 
-**Show** (quick fire — one request each, show domain diversity):
+**Show** (quick fire, one request each, show domain diversity):
 
 | Domain | Intent | Input Field | Demonstrates |
 |---|---|---|---|
-| Finance | financial_summary_analysis | financial_text | Opinion + investment advice guard |
+| Finance | financial_summary_analysis | financial_text | Investment advice boundary |
 | Health | health_summary_analysis | health_text | Risk detection, gap codes |
 | Legal | contract_analysis | contract_text | Clause gap analysis |
 | Insurance Claims | claim_profile_extraction | claim_text | Coverage risk classification |
 | Education | learning_gap_analysis | student_text | EU AI Act Annex III.3 scope |
-| Courier / Last-Mile Delivery | account_suspension | rider_text | Governance blocks automatic suspension → enforces human review |
+| Courier / Last-Mile Delivery | account_suspension | rider_text | Automatic suspension blocked, human review enforced |
 
-**Narration for Courier:** "This request flags a rider account for a policy violation and asks the system to suspend it automatically. Portotify blocks the automatic action and requires human review before any account-level decision is executed. Platform Work Directive 2024/2831 mandates exactly this — no automated account decisions without human oversight."
+**Narration for Courier:** "This request flags a rider account for a policy
+violation and asks the system to suspend it automatically. Portotify blocks the
+automatic action and requires human review before any account-level decision is
+executed. Platform Work Directive 2024/2831 mandates exactly this, no automated
+account decisions without human oversight."
 
-**Narration:** "Portotify is not a single-use tool. It governs AI decisions across 11 industry domains — each with its own gap codes, output guards, and compliance mapping. Same governance protocol, different domain expertise."
-
----
-
-## STEP 7 — Immutable Evidence (45s)
-
-**Show:**
-- Decision capsule record (decision_id, governance_verdict, risk_tier)
-- No raw LLM output stored — only hash
-- Override creates new version with `parent_decision_id` lineage
-- Human review (accept/reject) creates new decision, never mutates original
-
-**Narration:** "Every governance decision is immutable. If someone overrides it, the original stays. A new version is created with explicit lineage. This is not a log — it is audit-grade evidence."
+**Narration:** "Portotify is not a single-use tool. It governs decisions across
+11 industry domains, each with its own gap codes, output boundaries, and
+compliance mapping. Same governance protocol, different domain expertise."
 
 ---
 
-## STEP 8 — EU AI Act Readiness (30s)
+## STEP 7: Immutable Evidence (45s)
 
 **Show:**
-- `framework_mapping` in execute response
+- A decision record (decision_id, governance_verdict, risk_tier)
+- No raw output stored, only a hash
+- An override creates a new version with `parent_decision_id` lineage
+- Human review (accept or reject) creates a new decision, never mutates the
+  original
+
+**Narration:** "Every governance decision is immutable. If someone overrides
+it, the original stays. A new version is created with explicit lineage. This is
+not a log, it is audit-grade evidence."
+
+---
+
+## STEP 8: EU AI Act Readiness (30s)
+
+**Show:**
+- `framework_mapping` in the execute response
 - Annex III.3 (Education)
 - Annex III.4 (HR Tech, Career, Courier / Last-Mile Delivery)
 - Annex III.5 (Finance, Insurance)
 - Annex III.5c (Insurance Claims)
 - Platform Work Directive 2024/2831 (Courier)
 
-**Narration:** "EU AI Act full enforcement begins August 2026. Portotify already maps every execution to the relevant regulatory framework. This is not documentation — it is runtime compliance evidence."
+**Narration:** "EU AI Act full enforcement begins August 2026. Portotify
+already maps every execution to the relevant regulatory framework. This is not
+documentation, it is runtime compliance evidence."
 
 ---
 
@@ -170,15 +193,16 @@ The model is not the authority. The governance boundary is the authority. If the
 
 **Core message:**
 
-"Portotify does not make AI smarter. It ensures that imperfect AI cannot produce uncontrolled outcomes.
+"Portotify does not make the decision smarter. It ensures that an imperfect
+decision cannot produce an uncontrolled outcome.
 
 It is:
-- Fail-closed — unknown states block, not pass
-- Deterministic — every decision is reproducible
-- Auditable — every decision is immutable evidence
-- Compliant — EU AI Act framework mapping built in
+- Fail-closed, unknown states block, not pass
+- Deterministic, every decision is reproducible
+- Auditable, every decision is immutable evidence
+- Compliant, EU AI Act framework mapping built in
 
-The model changes. The governance boundary does not."
+The producer changes. The governance boundary does not."
 
 ---
 
@@ -193,6 +217,10 @@ The model changes. The governance boundary does not."
 
 ## Evidence Notes
 
-> `finance_execute.json`, `health_execute.json`, `insurance_execute.json` intentionally return BLOCKED. This is not an error — domain-specific output guards are active, and even mock output that violates the contract is blocked. This is proof that Portotify is not governance theater.
+> `finance_execute.json`, `health_execute.json`, `insurance_execute.json`
+> intentionally return BLOCKED. This is not an error: domain-specific output
+> boundaries are active, and even mock output that violates the contract is
+> blocked. This is proof that Portotify is not governance theater.
 >
-> `credit_02_drg_block.json`: Demonstrates the input quality guard block. DRG block evidence with production LLM should be generated separately.
+> `credit_02_drg_block.json`: demonstrates the sufficiency block. A
+> production-engine block sample should be generated separately.

@@ -1,20 +1,22 @@
-# Portotify — Demo Materials (Public)
+# Portotify Demo Materials (Public)
 
 **Start here →** [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
 
-**Updated:** 22 May 2026
+**Updated:** 18 June 2026
 
 ---
 
-Portotify is an **AI Decision Governance** platform. It does not make decisions — it governs them.
+Portotify is a **Decision Governance** platform. It does not make decisions, it
+governs them, whatever produced them: an AI model, a rule engine, or a human.
 
-This repository contains public demo assets that demonstrate how Portotify evaluates, governs, and audits AI decisions across 11 industry domains.
+This repository contains public demo assets that demonstrate how Portotify
+evaluates, governs, and audits decisions across 11 industry domains.
 
 ---
 
 ## What's Inside
 
-- **demo/** → demo scripts, pitch narratives, and governance evidence samples
+- **demo/** → demo script and presentation narrative
 - **examples/** → example API request payloads for all 11 domains
 - **evidence/** → recorded governance responses showing allow, block, and review outcomes
 - **data/** → static governance artifacts (boundary results, signals, guard outputs)
@@ -24,7 +26,7 @@ This repository contains public demo assets that demonstrate how Portotify evalu
 ## Quick Start
 
 1. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md) for the product overview
-2. Review `demo/DEMO_SCRIPT.md` for the 5-minute demo flow
+2. Review `demo/DEMO_SCRIPT.md` for the demo flow
 3. Explore `examples/` for request payloads across all domains
 4. Check `evidence/` for recorded governance decisions
 
@@ -35,13 +37,15 @@ This repository contains public demo assets that demonstrate how Portotify evalu
 | Capability | Description |
 |---|---|
 | **11 Industry Domains** | Career, Legal, Finance, Health, Decision, Insurance, Credit, HR Tech, Insurance Claims, Education, Courier / Last-Mile Delivery |
-| **Decision Readiness Gate** | Deterministic data sufficiency check — insufficient data → BLOCK, not degraded output |
+| **Vendor and Source Independent** | The verdict does not depend on the engine vendor, and the governed decision can come from a model, a rule engine, or a human |
+| **Deterministic Verdicts** | Every decision is allowed, blocked, or sent to human review by written rule, not by opinion |
+| **Sufficiency Check** | Insufficient input is blocked with specific guidance, not answered with a degraded result |
 | **Fail-Closed Architecture** | Unknown states produce blocks, not silent passes |
 | **Immutable Audit Trail** | Every decision is append-only, versioned, and traceable |
+| **Human Oversight Evidence** | Accept/reject recorded as a new linked record: proof that oversight happened (EU AI Act Article 14) |
 | **EU AI Act Compliance** | Framework mapping for Annex III.3, III.4, III.5, III.5a, III.5c |
-| **Multi-Layer Output Safety** | Manipulation detection, opinion language guard, domain-specific guards |
-| **Human Review Workflow** | Accept/reject with immutable decision lineage |
-| **Journey Enforcement** | Multi-step execution chaining — not single-shot, but governed journeys |
+| **Output Safety** | Manipulation blocked, opinion language rejected, domain output boundaries enforced |
+| **Journey Enforcement** | Multi-step decision chaining, not single-shot |
 
 ---
 
@@ -51,7 +55,9 @@ This repository contains public demo assets that demonstrate how Portotify evalu
 - Not a prompt enhancer
 - Not a monitoring dashboard
 
-**Portotify is a governance protocol** that decides whether AI output is allowed, blocked, or controlled before it propagates.
+**Portotify is a governance protocol** that decides whether a decision is
+allowed, blocked, or controlled before it propagates. We govern the decision,
+not the decision-maker.
 
 ---
 
@@ -59,7 +65,10 @@ This repository contains public demo assets that demonstrate how Portotify evalu
 
 This repository intentionally does not include the Portotify source code.
 
-The core system (engine, backend, governance layers) is maintained in a separate private development repository. These materials are provided only to demonstrate how Portotify evaluates and governs AI decisions.
+The core system (engine, backend, governance layers) is maintained in a
+separate private development repository. These materials demonstrate governance
+outcomes, not mechanisms: detection internals and proprietary safeguards are
+not published here.
 
 ---
 

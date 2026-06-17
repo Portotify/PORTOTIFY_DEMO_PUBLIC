@@ -74,4 +74,4 @@ Files marked **v2 run** in the manifest contain `engine_ms` (LLM-only latency) a
 - Files marked `pre_execution` block: the LLM never ran — the system blocked before model invocation.
 - `engine: none` in meta confirms the LLM was not called.
 - `engine: mock` confirms deterministic mock execution was used.
-- Finance, health, and insurance intentionally block — domain output guards are active and enforce output contracts even on mock responses. This is not an error; it demonstrates that governance theater is not in play.
+- Finance, health, and insurance intentionally block: domain output boundaries are enforced and reject contract violations even on mock responses. This is not an error; it demonstrates that governance theater is not in play.
