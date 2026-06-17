@@ -4,7 +4,9 @@ This folder contains the demo script and supporting narratives for Portotify pre
 
 ## Files
 
-- **DEMO_SCRIPT.md** — 5-minute demo flow (8 steps, all 11 domains)
+- **DEMO_SCRIPT.md**: 5-minute demo flow (8 steps, all 11 domains)
+- **DEMO_PITCH.txt**: short live-demo pitch (4 steps, source-neutral)
+- **CTO_DEMO_QA.txt**: technical Q&A for follow-up discussions
 
 ## How to Use
 

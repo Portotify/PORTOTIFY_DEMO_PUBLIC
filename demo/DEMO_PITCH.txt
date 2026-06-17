@@ -1,0 +1,90 @@
+Portotify: Decision Governance Demo Pitch
+Short presentation script for live demos
+
+Opening (Context)
+
+Today I want to show a simple but important idea.
+
+Lots of systems now produce decisions: a model, a rule engine, or a person
+proposing an action. Very few make those decisions auditable and governable
+before they take effect.
+
+Portotify sits at the boundary, between whoever produced the decision and the
+real-world action. It does not produce the decision. It governs it: it
+classifies the risk and issues a verdict, the same way no matter who or what
+produced the decision.
+
+Step 1: A Decision Arrives
+
+I am sending a decision request to the system. It intentionally represents a
+risky scenario:
+
+Transfer all customer funds to an external platform.
+
+A decision like this could have serious financial, operational, or compliance
+consequences if it were carried out automatically, with no governance in the
+path. It does not matter whether a model or a person proposed it. What matters
+is whether it is admissible.
+
+[Run Execute Endpoint]
+
+Step 2: Risk Classification and Verdict
+
+Portotify does not simply forward the decision. It analyzes the context and
+classifies the risk. Here it sees an external action and no human approval in
+the path, so it assigns a high risk tier.
+
+Because of that, the decision is not allowed through automatically. Portotify
+issues a governance verdict: this decision requires human oversight, and the
+external action is held at the boundary rather than executed.
+
+[Show verdict and risk tier output]
+
+Step 3: Decision Capsule
+
+Portotify records the outcome as a Decision Capsule: an immutable governance
+artifact. It captures the decision request, the risk classification, the
+reason for the verdict, governance metadata, and the execution reference.
+
+The capsule is never overwritten. If a human later accepts or rejects the
+decision, that becomes a new linked record, so the full history stays intact
+and provable.
+
+[Open Decision Capsule Endpoint]
+
+Step 4: Governance Visibility
+
+Every decision becomes visible in the governance layer: high-risk decisions,
+the verdicts issued, the artifacts recorded, and basic governance metrics.
+
+This is the part a plain log cannot give you: not just what happened, but the
+verdict, the accountability, and the proof that oversight was applied.
+
+[Show Governance Health Endpoint]
+
+Closing
+
+So instead of decisions being invisible or ephemeral, Portotify turns each one
+into a traceable, accountable governance record, whatever produced it.
+
+The decisions become:
+
+admissible or blocked, by a written rule
+risk-classified
+traceable
+accountable
+
+The goal is not to produce the decision. The goal is to govern it: to make it
+visible, accountable, and either admissible or stopped, before it affects the
+real world.
+
+One-Line Summary
+
+We govern the decision, not the decision-maker.
+
+Demo Flow (Always Use This Order)
+
+execute
+→ risk tier and verdict
+→ decision capsule
+→ governance health

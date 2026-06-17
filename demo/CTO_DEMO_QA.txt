@@ -1,0 +1,136 @@
+Portotify: Demo Q&A (Technical Audience)
+
+Q1. Does Portotify replace or control the decision engine?
+
+Short answer
+
+Neither. Portotify does not produce the decision and does not replace the
+engine that does. It governs the decision.
+
+Explanation
+
+The engine (an AI model, a statistical model, a rule engine, or a human)
+still produces the decision. Portotify sits at the boundary and adds a layer
+that:
+
+analyzes the request
+classifies decision risk
+enforces governance rules
+issues a verdict (allow, review_required, block)
+produces an immutable governance record
+
+Think of it as a control and accountability layer, not an engine replacement.
+
+Q2. How is the risk classification determined?
+
+Short answer
+
+It is deterministic and rule-based, not predictive.
+
+Explanation
+
+Portotify evaluates signals such as:
+
+tool calls
+external writes
+presence or absence of human approval
+override usage
+
+These signals combine into a risk tier. The goal is not prediction accuracy
+but governance transparency: the same input yields the same tier, and the
+tier is auditable.
+
+Q3. What exactly is a Decision Capsule?
+
+Short answer
+
+An immutable governance artifact representing one decision.
+
+Explanation
+
+Each capsule records:
+
+the decision request
+the risk classification
+the reason for the verdict
+the execution reference
+governance metadata
+
+Capsules are append-only. They are never updated in place; a change creates a
+new linked capsule. This makes decisions traceable and provable for audits,
+incident analysis, governance reporting, and compliance review.
+
+Q4. Does Portotify block risky decisions, and what about human review?
+
+Short answer
+
+It issues one of three verdicts: allow, review_required, or block.
+
+Explanation
+
+allow: the decision is admissible and proceeds.
+review_required: the decision is admissible only under human oversight.
+block: the decision is inadmissible and is stopped (fail-closed).
+
+When a decision is escalated, a human accepts or rejects it. That action is
+recorded as a new, immutable record linked to the original, never an edit.
+Portotify does not carry out the underlying action on the human's behalf.
+
+This is what regulators increasingly ask for (EU AI Act Article 14): not just
+a recommendation to review, but proof that human oversight was required and
+applied.
+
+Q5. Why is this needed if we already log requests?
+
+Short answer
+
+Logs record events. Governance records decisions, verdicts, and
+accountability.
+
+Explanation
+
+Traditional logs show requests, responses, and timestamps. Portotify records
+decision risk, the governance verdict and its reason, policy context, and an
+immutable decision artifact. A log cannot prove a decision was governed or
+that oversight happened; a governance record can.
+
+Q6. Is this tied to a specific vendor or to AI at all?
+
+Short answer
+
+No on both counts. Portotify is vendor independent and source independent.
+
+Explanation
+
+Vendor independent: the governance path has no vendor-specific branch. It can
+operate with OpenAI, Anthropic, Google, local models, or future providers.
+The same rules run over each; different engines may yield different verdicts
+because they produce different outputs, but the rules do not change.
+
+Source independent: the decision being governed can come from an AI model, a
+statistical model, a rule engine, or a human. Governance is formed inside
+Portotify regardless of the source, and is never delegated to it.
+
+Q7. What problem is Portotify solving?
+
+Short answer
+
+Systems make decisions that affect people, but most organizations cannot
+explain, audit, or prove oversight of those decisions.
+
+Explanation
+
+Portotify addresses three gaps:
+
+Visibility: decisions are normally invisible.
+Risk classification: decisions are rarely categorized by risk.
+Accountability: there is usually no durable, provable governance record.
+
+It turns each decision into a traceable governance record, whatever produced
+it.
+
+One Sentence Summary
+
+Portotify adds a governance layer that turns any decision into an auditable,
+risk-classified, accountable record. We govern the decision, not the
+decision-maker.
