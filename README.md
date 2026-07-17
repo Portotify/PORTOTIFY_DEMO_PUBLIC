@@ -28,7 +28,7 @@ evaluates, governs, and audits decisions across 11 industry domains.
 1. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md) for the product overview
 2. Review `demo/DEMO_SCRIPT.md` for the demo flow
 3. Explore `examples/` for request payloads across all domains
-4. Check `evidence/` for recorded governance decisions
+4. Check `evidence/` for recorded ALLOW, BLOCK, and REVIEW outcomes with production latency benchmarks (57–115 ms governance overhead, SHA-256 verified)
 
 ---
 
