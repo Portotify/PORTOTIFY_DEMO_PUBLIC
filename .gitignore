@@ -1,7 +1,6 @@
 # Fail-closed: keep this repo demo-only
 /backend/
 /frontend/
-/docs/
 /engine/
 /tools/
 /scripts/

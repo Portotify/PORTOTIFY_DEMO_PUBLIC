@@ -1,5 +1,11 @@
 # Portotify Demo Materials (Public)
 
+## Live Public Demo
+
+Open the interactive decision story:
+
+[Launch the Portotify public demo](docs/index.html)
+
 **Start here →** [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
 
 **Updated:** 18 June 2026
@@ -8,6 +14,11 @@
 
 Portotify is a **Decision Governance** platform. It does not make decisions, it
 governs them, whatever produced them: an AI model, a rule engine, or a human.
+
+The interactive demo replays two public-safe recorded synthetic production
+execution outcomes: one ALLOW / COMPLETED and one BLOCK / REJECTED. It is not a
+live API call, uses no real customer data, and keeps the evidence frozen and
+inspectable.
 
 This repository contains public demo assets that demonstrate how Portotify
 evaluates, governs, and audits decisions across 11 industry domains.

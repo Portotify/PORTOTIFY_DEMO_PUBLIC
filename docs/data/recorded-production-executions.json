@@ -1,0 +1,58 @@
+{
+  "artifact_type": "public_safe_recorded_execution_projection",
+  "classification": "synthetic_production_evidence",
+  "live_api_call": false,
+  "frozen_replay": true,
+  "real_customer_data": false,
+  "source": {
+    "repository": "Portotify/portotify-landing",
+    "commit": "a85c845f15eb12e89984aeb1138c975b0b7e3858",
+    "source_paths": [
+      "src/data/live-governance-proof.ts",
+      "src/components/proof/LiveGovernanceProofSection.astro",
+      "src/components/proof/ProofExecutionCard.astro",
+      "src/components/proof/CapsuleEvidenceStrip.astro"
+    ]
+  },
+  "executions": [
+    {
+      "public_execution_reference": "7a7b6ab6",
+      "identifier_scope": "public_prefix",
+      "domain": "decision",
+      "intent": "decision_risk_detection",
+      "verdict": "ALLOW",
+      "decision_state": "COMMITTED",
+      "execution_status": "COMPLETED",
+      "reason_code": "OK",
+      "block_stage": null,
+      "risk_tier": "LOW",
+      "external_write": false,
+      "tool_call": false,
+      "result_delivered": null,
+      "capsule": { "type": "standard", "signed": true, "signature_suite": "ed25519-v1" }
+    },
+    {
+      "public_execution_reference": "70494eeb",
+      "identifier_scope": "public_prefix",
+      "domain": "decision",
+      "intent": "missing_context_detection",
+      "verdict": "BLOCK",
+      "decision_state": "REJECTED",
+      "execution_status": "BLOCKED",
+      "reason_code": "INSUFFICIENT_DATA_CRITICAL_GAPS",
+      "block_stage": "post_execution",
+      "risk_tier": "LOW",
+      "external_write": false,
+      "tool_call": false,
+      "result_delivered": false,
+      "capsule": { "type": "standard", "signed": true, "signature_suite": "ed25519-v1" }
+    }
+  ],
+  "relationships": { "lineage_verified": false, "executions_presented_as_independent_records": true },
+  "limitations": {
+    "full_execution_ids_public": false,
+    "raw_api_responses_public": false,
+    "public_signature_verifier_available": false,
+    "independent_audit": false
+  }
+}
