@@ -4,7 +4,7 @@
 
 Open the interactive decision story:
 
-[Launch the Portotify public demo](docs/index.html)
+[Launch the live Portotify public demo](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 
 **Start here →** [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
 
