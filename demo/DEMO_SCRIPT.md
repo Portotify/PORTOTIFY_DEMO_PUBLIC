@@ -208,10 +208,10 @@ The producer changes. The governance boundary does not."
 
 ## Post-Demo Resources
 
-- `examples/` — request payloads for all 11 domains
-- `evidence/` — recorded governance responses
-- `WHY_PORTOTIFY.md` — product overview
-- [portotify.com](https://portotify.com) — website
+- `examples/`: request payloads for all 11 domains
+- `evidence/`: recorded governance responses
+- `WHY_PORTOTIFY.md`: product overview
+- [portotify.com](https://portotify.com): website
 
 ---
 

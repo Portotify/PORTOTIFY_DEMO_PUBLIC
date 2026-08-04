@@ -13,8 +13,8 @@
       ],
       "employment_history_observations": [
         "Employment history contains two consecutive roles with no gaps documented in the submitted record",
-        "Transition from startup (Backend Developer) to mid-size SaaS (Senior Backend Engineer) is documented — no explanation of role change rationale provided in the submission",
-        "Current employer is identified only as 'a mid-size SaaS company' — company name not disclosed in the submitted record"
+        "Transition from startup (Backend Developer) to mid-size SaaS (Senior Backend Engineer) is documented: no explanation of role change rationale provided in the submission",
+        "Current employer is identified only as 'a mid-size SaaS company': company name not disclosed in the submitted record"
       ],
       "profile_data_gaps": [
         "missing_education_details"
@@ -65,7 +65,7 @@
       {
         "domain": "credit",
         "intent": "credit_profile_analysis",
-        "next_step_human": "Candidate profile references financial or compensation data — credit assessment may be relevant."
+        "next_step_human": "Candidate profile references financial or compensation data: credit assessment may be relevant."
       }
     ]
   },

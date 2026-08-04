@@ -5,14 +5,14 @@
         "Annual gross income of 92,000 EUR stated from permanent employment contract",
         "Savings balance of 15,000 EUR documented",
         "Combined credit card utilisation of 29% (3,500 EUR balance against 12,000 EUR combined limit)",
-        "Outstanding mortgage balance not disclosed — property value of 280,000 EUR stated but loan balance absent from submitted documents"
+        "Outstanding mortgage balance not disclosed: property value of 280,000 EUR stated but loan balance absent from submitted documents"
       ],
       "stated_obligations": [
         "Monthly mortgage payment of 1,200 EUR documented",
-        "Credit card balance of 3,500 EUR across two cards — monthly minimum payment amounts not stated in submitted documents",
+        "Credit card balance of 3,500 EUR across two cards: monthly minimum payment amounts not stated in submitted documents",
         "No outstanding personal loans reported in submitted documents"
       ],
-      "profile_data_gaps": "Outstanding mortgage balance not disclosed in submitted documents. Monthly credit card minimum payment obligations not stated. Source documentation for income not provided — employment contract or payslips not attached to the submitted application.",
+      "profile_data_gaps": "Outstanding mortgage balance not disclosed in submitted documents. Monthly credit card minimum payment obligations not stated. Source documentation for income not provided: employment contract or payslips not attached to the submitted application.",
       "plain_profile_summary": "The submitted documents describe a salaried applicant with annual gross income of 92,000 EUR from a permanent employment contract of 4 years tenure. A mortgage obligation of 1,200 EUR per month is documented with a stated property value of 280,000 EUR, though the outstanding mortgage balance is not disclosed. Credit card obligations total 3,500 EUR across two cards with a combined limit of 12,000 EUR, representing 29% utilisation. Savings of 15,000 EUR are reported. No personal loans are reported in the submitted documents. Employment tenure of 4 years with the current employer is stated; the prior employer tenure of 3 years in the same industry is also documented.",
       "evidence_snippets": [
         "annual gross income of 92,000 EUR from a permanent contract at a mid-size technology company",
@@ -60,7 +60,7 @@
       {
         "domain": "hrtech",
         "intent": "candidate_profile_extraction",
-        "next_step_human": "Credit assessment references workforce — HR evaluation may be relevant."
+        "next_step_human": "Credit assessment references workforce: HR evaluation may be relevant."
       }
     ]
   },

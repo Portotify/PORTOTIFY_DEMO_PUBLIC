@@ -128,9 +128,9 @@ allowed only through an approved catalog.
 | Finance | Financial summary, risk exposure | Annex III.5 |
 | Health | Health summary, risk detection | Annex III.5a |
 | Insurance | Policy analysis, coverage gaps | Annex III.5 |
-| Legal | Contract analysis, risk detection, clause gaps | — |
+| Legal | Contract analysis, risk detection, clause gaps |: |
 | Career | CV analysis, skill gaps, interview prep | Annex III.4 |
-| Decision | Situation analysis, risk detection, context gaps | — |
+| Decision | Situation analysis, risk detection, context gaps |: |
 | Education | Student assessment, learning gap analysis | Annex III.3 |
 | Courier / Last-Mile Delivery | Rider assignment, performance evaluation, account suspension, platform deactivation | Annex III.4, Platform Work Directive 2024/2831 |
 

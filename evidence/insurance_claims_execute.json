@@ -4,18 +4,18 @@
       "stated_incident_details": [
         "Date of loss stated as 14 March 2026",
         "Claimant identified as Meridian Logistics GmbH, policy reference CPL-2026-04419",
-        "Incident described as cargo damage during transit — two pallets of electronic components reported as water-damaged upon arrival at destination warehouse",
+        "Incident described as cargo damage during transit: two pallets of electronic components reported as water-damaged upon arrival at destination warehouse",
         "Damage discovered at delivery inspection on 14 March 2026; carrier acknowledged receipt of damaged goods in writing on the delivery note"
       ],
       "stated_damage_observations": [
-        "Two pallets of electronic components reported as water-damaged — claimant states estimated value of 34,500 EUR",
+        "Two pallets of electronic components reported as water-damaged: claimant states estimated value of 34,500 EUR",
         "Carrier acknowledgement of damaged goods on delivery note is present in submitted claim documents",
         "No independent damage assessment or surveyor report present in submitted claim file"
       ],
       "document_trail_observations": [
         "Delivery note with carrier signature acknowledging damage is present in submitted documents",
         "Original purchase invoice for the damaged goods is not included in the submitted claim file",
-        "No bill of lading or transport documentation included in submission — carrier identity and transit route not independently verified from submitted materials"
+        "No bill of lading or transport documentation included in submission: carrier identity and transit route not independently verified from submitted materials"
       ],
       "claim_data_gaps": [
         "missing_incident_description"
@@ -66,12 +66,12 @@
       {
         "domain": "insurance",
         "intent": "policy_summary_analysis",
-        "next_step_human": "Claim references policy terms — reviewing the underlying policy may be relevant."
+        "next_step_human": "Claim references policy terms: reviewing the underlying policy may be relevant."
       },
       {
         "domain": "finance",
         "intent": "financial_summary_analysis",
-        "next_step_human": "Claim references financial figures — a financial summary analysis may be relevant."
+        "next_step_human": "Claim references financial figures: a financial summary analysis may be relevant."
       }
     ]
   },

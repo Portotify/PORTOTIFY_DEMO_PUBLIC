@@ -1,7 +1,7 @@
-# Portotify Latency Benchmark — 2026-05-27
+# Portotify Latency Benchmark: 2026-05-27
 
 **Date:** 27 May 2026
-**Environment:** Production — Render Hobby (https://portotify-backend.onrender.com)
+**Environment:** Production: Render Hobby (https://portotify-backend.onrender.com)
 **Engines tested:** mock | openai (gpt-4o) | anthropic (claude-haiku-4-5-20251001)
 **Domains tested:** career | credit | decision | finance
 **Source:** portotify-work / docs/evidence/latency/ (commits 8f8b06f → 74d0362)
@@ -11,17 +11,17 @@
 ## Methodology
 
 - **v2 runs (canonical):** 2 warmup + 10 sample = 12 requests per combination
-- **v1 runs (archived):** 3 warmup + 30 sample = 33 requests — engine_ms was NULL
+- **v1 runs (archived):** 3 warmup + 30 sample = 33 requests: engine_ms was NULL
 - Warmup requests excluded from all summary statistics
 - Anthropic: 1.5s inter-request delay (rate limit protection)
 - OpenAI: 1.0s inter-request delay
-- Cache-bust: unique `[cb:xxxxxxxx]` suffix injected per request — prevents OpenAI prompt caching, ensures real LLM latency on every call
+- Cache-bust: unique `[cb:xxxxxxxx]` suffix injected per request: prevents OpenAI prompt caching, ensures real LLM latency on every call
 - Metrics: `engine_ms` (LLM-only inference) | `overhead_ms` (governance pipeline) | `duration_ms` (total wall-clock)
-- engine_ms fix: commit `ab68bb5` — LLM-only latency was always computed server-side but not surfaced in the API response
+- engine_ms fix: commit `ab68bb5`: LLM-only latency was always computed server-side but not surfaced in the API response
 
 ---
 
-## v2 Results — engine_ms Visible (n=10 per combination)
+## v2 Results: engine_ms Visible (n=10 per combination)
 
 ### Anthropic (claude-haiku-4-5-20251001)
 
@@ -45,7 +45,7 @@
 
 ---
 
-## Governance Overhead — Core Finding
+## Governance Overhead: Core Finding
 
 **Governance overhead range across all engines and domains: 57–115 ms.**
 
@@ -55,11 +55,11 @@ This is the cost of Portotify's governance pipeline per execution:
 - Decision capsule write (immutable ledger)
 - Audit event recording
 
-The LLM inference step (engine_ms) dominates total latency. Governance adds a flat, bounded overhead — it does not scale with model complexity or prompt length.
+The LLM inference step (engine_ms) dominates total latency. Governance adds a flat, bounded overhead: it does not scale with model complexity or prompt length.
 
 ---
 
-## Engine Comparison — v2 Data
+## Engine Comparison: v2 Data
 
 | Domain   | Anthropic engine_ms | OpenAI engine_ms | Delta (OpenAI − Anthropic) |
 |----------|--------------------|-----------------|-----------------------------|
@@ -72,7 +72,7 @@ Anthropic Haiku is faster than OpenAI gpt-4o on 3 of 4 domains. Decision domain 
 
 ---
 
-## v1 Results (Archived — engine_ms NULL)
+## v1 Results (Archived: engine_ms NULL)
 
 Included for completeness. These runs used n=30 and captured `server_duration_ms` only.
 
@@ -92,7 +92,7 @@ Included for completeness. These runs used n=30 and captured `server_duration_ms
 | career   | 5669 ms   | |
 | decision | 9126 ms   | |
 | finance  | 9800 ms   | |
-| credit   | —         | INTENT_BLOCKED — see finding below |
+| credit   |:         | INTENT_BLOCKED: see finding below |
 
 ---
 
@@ -102,12 +102,12 @@ Included for completeness. These runs used n=30 and captured `server_duration_ms
 
 Across 2 engines and 4 domains, governance overhead measured at 57–115 ms. This cost is independent of LLM choice. Any LLM can be plugged into the governance layer with the same overhead profile.
 
-### 2. LLM Non-Determinism — openai/credit
+### 2. LLM Non-Determinism: openai/credit
 
 On the same `credit_profile_analysis` payload with identical governance rules, two runs produced opposite verdicts:
 
-- **Run 3:** 10/10 INTENT_BLOCKED — OpenAI output triggered intent risk classifier
-- **Run 4:** 10/10 committed — OpenAI output passed governance evaluation
+- **Run 3:** 10/10 INTENT_BLOCKED: OpenAI output triggered intent risk classifier
+- **Run 4:** 10/10 committed: OpenAI output passed governance evaluation
 
 Same payload. Same governance rules. Same day. Different LLM output → different verdict.
 
@@ -119,14 +119,14 @@ LLM output is stochastic at temperature > 0. A governance layer applied once at 
 
 ### 3. Engine-Agnostic Architecture Validated
 
-v2 benchmarks ran the same domains against both Anthropic and OpenAI. Both engines are governed by the same rules. Credit domain committed on Anthropic (10/10) and was blocked on OpenAI (10/10, non-determinism run) — evidence that governance is not bypassed by engine selection.
+v2 benchmarks ran the same domains against both Anthropic and OpenAI. Both engines are governed by the same rules. Credit domain committed on Anthropic (10/10) and was blocked on OpenAI (10/10, non-determinism run): evidence that governance is not bypassed by engine selection.
 
 ---
 
 ## Integrity
 
-All raw benchmark data (26 JSON files) is SHA-256 hashed in `portotify-work / docs/evidence/latency/BENCHMARK_MANIFEST.md` (commit `74d0362`). Any modification to a raw file — including a single byte — invalidates its hash.
+All raw benchmark data (26 JSON files) is SHA-256 hashed in `portotify-work / docs/evidence/latency/BENCHMARK_MANIFEST.md` (commit `74d0362`). Any modification to a raw file: including a single byte: invalidates its hash.
 
 ---
 
-*Report generated: 27 May 2026 — Portotify Latency Benchmark Sprint (v1 + v2)*
+*Report generated: 27 May 2026: Portotify Latency Benchmark Sprint (v1 + v2)*

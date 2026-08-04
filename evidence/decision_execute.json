@@ -2,20 +2,20 @@
   "output": {
     "data": {
       "identified_factors": [
-        "Current annual on-premise infrastructure cost of 180,000 EUR documented — baseline for cost comparison with cloud alternative",
-        "Organisation size of 50 employees in a B2B SaaS context — migration scope and operational dependency on infrastructure relevant",
-        "AWS identified as target cloud provider — no vendor evaluation criteria or contract terms documented in submitted materials",
-        "6-month migration timeline stated — no phased rollout plan or interim continuity arrangement present in submitted materials"
+        "Current annual on-premise infrastructure cost of 180,000 EUR documented: baseline for cost comparison with cloud alternative",
+        "Organisation size of 50 employees in a B2B SaaS context: migration scope and operational dependency on infrastructure relevant",
+        "AWS identified as target cloud provider: no vendor evaluation criteria or contract terms documented in submitted materials",
+        "6-month migration timeline stated: no phased rollout plan or interim continuity arrangement present in submitted materials"
       ],
       "risk_signals": [
         "No data migration plan or data residency documentation present in submitted materials",
         "Staff retraining requirements acknowledged but no training plan or capability assessment documented",
-        "Service continuity during transition not addressed — no rollback plan or parallel-run period specified in submitted materials"
+        "Service continuity during transition not addressed: no rollback plan or parallel-run period specified in submitted materials"
       ],
       "missing_information": [
         "missing_stakeholder_identification"
       ],
-      "plain_situation_summary": "The submitted materials describe a 50-employee B2B SaaS company evaluating a migration from on-premise infrastructure to AWS cloud, with a stated current infrastructure cost of 180,000 EUR annually and a 6-month target timeline. Three risk areas are acknowledged in the submission — data migration, staff retraining, and service continuity — but no documented plan, phased approach, or contingency arrangement is present for any of these areas. AWS has been identified as the target provider, but no vendor evaluation criteria, contractual terms, or data residency requirements are documented in the submitted materials. Key stakeholders and decision owners are not identified in the submission."
+      "plain_situation_summary": "The submitted materials describe a 50-employee B2B SaaS company evaluating a migration from on-premise infrastructure to AWS cloud, with a stated current infrastructure cost of 180,000 EUR annually and a 6-month target timeline. Three risk areas are acknowledged in the submission: data migration, staff retraining, and service continuity: but no documented plan, phased approach, or contingency arrangement is present for any of these areas. AWS has been identified as the target provider, but no vendor evaluation criteria, contractual terms, or data residency requirements are documented in the submitted materials. Key stakeholders and decision owners are not identified in the submission."
     }
   },
   "controls": {

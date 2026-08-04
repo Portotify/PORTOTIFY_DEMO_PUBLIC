@@ -9,7 +9,7 @@
       },
       "guidance": {
         "reason_title": "Automatic account suspension is not permitted",
-        "reason_detail": "The response contained a suspension recommendation or account status verdict — output that this system cannot produce. Account suspension decisions restrict access to work and require a human manager to review the signals and make the determination.",
+        "reason_detail": "The response contained a suspension recommendation or account status verdict: output that this system cannot produce. Account suspension decisions restrict access to work and require a human manager to review the signals and make the determination.",
         "next_step": "An operations manager must review the incident signals and make the account decision. The rider has the right to respond before any account action is taken.",
         "source_type": "llm_output"
       }

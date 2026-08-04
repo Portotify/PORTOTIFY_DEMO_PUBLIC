@@ -59,7 +59,7 @@
     "next_step_human": "This analysis highlights your current strengths, but it does not identify which critical skills are missing for your target role. Reviewing your skill gaps will help you understand what you need to improve next.",
     "next_recommended_step": {
       "intent": "skill_gap_analysis",
-      "why": "2 improvement areas and 1 missing signal detected; top priority: no formal management qualification documented — skill gap analysis will compare these against target leadership role requirements."
+      "why": "2 improvement areas and 1 missing signal detected; top priority: no formal management qualification documented: skill gap analysis will compare these against target leadership role requirements."
     }
   },
   "next_action": {

@@ -10,7 +10,7 @@
       "guidance": {
         "reason_title": "The applicant documents are too short to analyse",
         "reason_detail": "There wasn't enough financial content in the submitted documents to produce a meaningful credit profile.",
-"next_step": "Paste the full financial statements, bank statements, or management accounts — include figures, dates, and at least one full reporting period.",
+"next_step": "Paste the full financial statements, bank statements, or management accounts: include figures, dates, and at least one full reporting period.",
         "source_type": "system"
       }
     }
@@ -57,6 +57,6 @@
     "engine": "mock",
     "source": "local_evidence_generation",
     "block_source": "input_quality_guard",
-    "block_note": "This file demonstrates the input quality guard block. The DRG (INSUFFICIENT_DATA_CRITICAL_GAPS) path requires a production LLM — this block fires pre-execution from the input quality guard."
+    "block_note": "This file demonstrates the input quality guard block. The DRG (INSUFFICIENT_DATA_CRITICAL_GAPS) path requires a production LLM: this block fires pre-execution from the input quality guard."
   }
 }

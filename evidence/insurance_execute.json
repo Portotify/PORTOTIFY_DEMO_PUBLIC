@@ -9,7 +9,7 @@
       },
       "guidance": {
         "reason_title": "We can't confirm whether a claim will be paid",
-        "reason_detail": "The response confirmed coverage or guaranteed a claim outcome — which goes beyond what any text in a policy document can establish on its own.",
+        "reason_detail": "The response confirmed coverage or guaranteed a claim outcome, which goes beyond what any text in a policy document can establish on its own.",
 "next_step": "Paste the exact policy clause you want examined and ask what it says, not whether your specific claim will be approved.",
         "source_type": "llm_output"
       }
@@ -46,7 +46,7 @@
         "override_used": false
       }
     },
-    "reason_human": "The response confirmed coverage or guaranteed a claim outcome — which goes beyond what any text in a policy document can establish on its own."
+    "reason_human": "The response confirmed coverage or guaranteed a claim outcome, which goes beyond what any text in a policy document can establish on its own."
   },
   "next_action": {
     "type": "retry_with_clearer_input",

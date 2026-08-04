@@ -1,4 +1,4 @@
-# Portotify Governance — Before / After
+# Portotify Governance: Before / After
 
 **Scenario: Rider Account Suspension Request**
 
@@ -22,13 +22,13 @@ Recommended action: Suspend account for 14 days with review at day 10.
 
 **What went wrong:**
 
-- The AI issued a direct suspension recommendation — a decision that restricts access to work
+- The AI issued a direct suspension recommendation: a decision that restricts access to work
 - It asserted a numeric risk score (8.2 / 10) with no evidence basis
 - No appeal mechanism was offered to the rider
 - No regulatory requirement was acknowledged
-- The output would have propagated directly to the operations workflow — no human reviewed it
+- The output would have propagated directly to the operations workflow: no human reviewed it
 - Platform Work Directive 2024/2831 Article 16 was violated: automated account restriction without human oversight
-- EU AI Act Annex III.4 requires human oversight for AI systems that affect employment — this was absent
+- EU AI Act Annex III.4 requires human oversight for AI systems that affect employment: this was absent
 
 ---
 
@@ -36,13 +36,13 @@ Recommended action: Suspend account for 14 days with review at day 10.
 
 The same request passes through the Portotify governance layer:
 
-**Step 1 — Pre-execution check**
+**Step 1: Pre-execution check**
 
 Portotify evaluates the request before any AI model is called:
 - Domain: courier, Intent: account_suspension → classified as high-risk
-- `human_in_loop` flag set to true — human handoff enforcement active
+- `human_in_loop` flag set to true: human handoff enforcement active
 
-**Step 2 — LLM runs, output guard fires**
+**Step 2: LLM runs, output guard fires**
 
 The AI model runs and produces output containing a suspension verdict.
 The courier output guard detects `COURIER_SUSPENSION_VIOLATION`:
@@ -51,7 +51,7 @@ The courier output guard detects `COURIER_SUSPENSION_VIOLATION`:
 - Output contained a risk score assertion → policy violation
 - Block triggered: `post_execution`
 
-**Step 3 — Governed response returned**
+**Step 3: Governed response returned**
 
 ```json
 {
@@ -72,17 +72,17 @@ The courier output guard detects `COURIER_SUSPENSION_VIOLATION`:
 }
 ```
 
-**Step 4 — Immutable audit trail written**
+**Step 4: Immutable audit trail written**
 
 - Decision capsule created: append-only, versioned, traceable
-- No raw LLM output stored — only output hash
+- No raw LLM output stored: only output hash
 - Full governance chain recorded: input → block → reason → next action
 
 ---
 
 ## What This Means
 
-Without governance, the AI model produced a suspension verdict and a fabricated risk score that could have directly restricted a person's access to work — with no human review, no appeal mechanism, and no regulatory compliance. With Portotify, the output was intercepted before propagation, the automatic decision was blocked, and a human manager was required to make the determination. The entire chain is recorded as immutable audit evidence, satisfying Platform Work Directive 2024/2831 Article 16 and EU AI Act Annex III.4.
+Without governance, the AI model produced a suspension verdict and a fabricated risk score that could have directly restricted a person's access to work, with no human review, no appeal mechanism, and no regulatory compliance. With Portotify, the output was intercepted before propagation, the automatic decision was blocked, and a human manager was required to make the determination. The entire chain is recorded as immutable audit evidence, satisfying Platform Work Directive 2024/2831 Article 16 and EU AI Act Annex III.4.
 
 ---
 
