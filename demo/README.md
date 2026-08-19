@@ -1,24 +1,26 @@
 # Demo Materials
 
-This folder contains the demo script and supporting narratives for Portotify presentations.
+This folder contains public-safe presentation material for Portotify runtime decision governance.
+
+The narratives cover decision systems including LLM, ML, algorithmic,
+rule-based, hybrid, and human-assisted producers.
 
 ## Files
 
-- **DEMO_SCRIPT.md**: 5-minute demo flow (8 steps, all 11 domains)
-- **DEMO_PITCH.txt**: short live-demo pitch (4 steps, source-neutral)
-- **CTO_DEMO_QA.txt**: technical Q&A for follow-up discussions
+- **DEMO_SCRIPT.md**: controlled public demo flow
+- **DEMO_PITCH.txt**: short runtime decision governance pitch
+- **CTO_DEMO_QA.txt**: technical follow-up Q&A
 
-## How to Use
+## Evidence Rule
 
-1. Start backend with `ENGINE_PROVIDER=mock` for deterministic execution
-2. Follow DEMO_SCRIPT.md step by step
-3. Use payloads from `../examples/` for live API calls
-4. Reference `../evidence/` for recorded governance responses
+Presentation claims must remain within the scope of the evidence being shown.
 
-## Audience
+Mock execution, static artifacts, recorded production evidence, benchmarks, and
+research findings are not interchangeable forms of proof.
 
-CTO, CFO, Founder, Technical Decision Maker
+See `../PUBLIC_DISCLOSURE_POLICY.md`.
 
-## Domains Covered
+## Domains Represented
 
-Career, Credit, Decision, Education, Finance, Health, HR Tech, Insurance, Insurance Claims, Legal, Courier / Last-Mile Delivery
+Career, Credit, Decision, Education, Finance, Health, HR Tech, Insurance,
+Insurance Claims, Legal, Courier / Last-Mile Delivery
