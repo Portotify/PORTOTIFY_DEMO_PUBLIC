@@ -1,89 +1,217 @@
-# Portotify Demo Materials (Public)
+# Portotify Public Evidence
 
-## Live Public Demo
+**Runtime decision governance across AI, LLM, ML, algorithmic, and hybrid decision systems.**
 
-Open the interactive decision story:
+> A correct output is not an authorized action.
 
-[Launch the live Portotify public demo](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
+[Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 
-**Start here →** [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
-
-**Updated:** 18 June 2026
+**Updated:** 19 August 2026
 
 ---
 
-Portotify is a **Decision Governance** platform. It does not make decisions, it
-governs them, whatever produced them: an AI model, a rule engine, or a human.
+## What This Repository Is
 
-The interactive demo replays two public-safe recorded synthetic production
-execution outcomes: one ALLOW / COMPLETED and one BLOCK / REJECTED. It is not a
-live API call, uses no real customer data, and keeps the evidence frozen and
-inspectable.
+This repository is a **public evidence window into Portotify**.
 
-This repository contains public demo assets that demonstrate how Portotify
-evaluates, governs, and audits decisions across 11 industry domains.
+It is deliberately limited.
+
+It does not publish the Portotify core system, proprietary governance mechanisms, or the complete current research surface.
+
+Instead, it exposes selected public-safe artifacts that make governance outcomes, boundaries, and limitations inspectable.
+
+For the rules governing public claims in this repository, see [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md).
+
+---
+
+## The Governance Problem
+
+LLMs, ML models, algorithmic systems, rule engines, and hybrid decision pipelines can analyze, classify, score, recommend, decide, and increasingly act.
+
+But capability is not authority.
+
+Portotify treats a produced decision as something that must cross an independent governance boundary before it can be accepted within a governed execution path.
+
+Several distinctions matter:
+
+- an AI or model output is not authorization
+- a score, recommendation, or algorithmic conclusion is not authority
+- a client assertion is not authority
+- an external conclusion is not a Portotify attestation
+- a prior governance outcome is not automatically reusable permission
+- evidence that something happened is not authority for a different action
+
+Portotify governs the decision, not the decision-maker.
+
+---
+
+## Live Public Evidence
+
+The interactive demo replays two **public-safe recorded synthetic production executions**:
+
+| Recorded execution | Verdict | Decision state | Execution status |
+|---|---|---|---|
+| A | ALLOW | COMMITTED | COMPLETED |
+| B | BLOCK | REJECTED | BLOCKED |
+
+The blocked execution reached post-execution governance checks, was rejected for critical context gaps, and its result was not delivered.
+
+Both public projections include recorded signed capsule metadata.
+
+### Evidence boundary
+
+The live page is:
+
+- a frozen replay
+- based on synthetic inputs executed in the production environment
+- not a live production API call
+- not real customer data
+- redacted to public-safe execution references
+- not an independent audit
+- not a public signature-verification service
+
+[Inspect the public-safe evidence projection](docs/data/recorded-production-executions.json)
+
+---
+
+## Evidence Map
+
+Different artifacts in this repository carry different evidentiary weight.
+
+| Evidence class | Location | What it demonstrates |
+|---|---|---|
+| **Recorded synthetic production evidence** | `docs/` | Selected production-environment governance outcomes presented as a frozen public-safe replay |
+| **Recorded mock responses** | `evidence/` | Reproducible ALLOW, BLOCK, and REVIEW behavior under deterministic mock execution |
+| **Static governance artifacts** | `data/` | Boundary results, state invariants, and governance signal examples |
+| **Request examples** | `examples/` | Public-safe request shapes across represented governance domains |
+| **Benchmark evidence** | `evidence/latency/` | Dated engine and governance latency measurements with integrity metadata |
+| **Governance findings** | `evidence/FINDING_OPENAI_NONDETERMINISM.md` | Preserved observations about model-output variability under runtime governance |
+
+These classes are intentionally not presented as equivalent forms of proof.
+
+---
+
+## Governance Properties Represented Here
+
+The public materials demonstrate or illustrate the following properties within their stated scopes:
+
+### Fail-closed outcomes
+
+Governed paths can reject an execution instead of silently passing an unresolved or inadmissible result.
+
+### Deterministic governance rules
+
+Governance verdicts are formed by rules outside the model, algorithm, client, or other producer whose output is being governed.
+
+The producer does not become the governance authority merely by producing an answer, score, recommendation, or decision.
+
+### Sufficiency enforcement
+
+Selected examples show execution being blocked when required decision context is insufficient.
+
+### Human oversight evidence
+
+Public artifacts include examples of governance outcomes requiring attributed human review and linked decision lineage.
+
+### Immutable decision evidence
+
+Published artifacts illustrate append-only decision records, linked lineage, verdict metadata, and recorded governance state.
+
+### Output and scope boundaries
+
+Domain-specific examples show selected outputs being rejected when they exceed the authority or output boundary represented by that governed intent.
+
+### Producer independence
+
+Portotify's governance model is designed around the governed decision rather than a specific model, algorithm, architecture, or vendor.
+
+An LLM, ML model, rule engine, algorithmic system, hybrid pipeline, or human-originated decision does not become authoritative merely because of its source.
+
+---
+
+## Domain Coverage Represented in This Repository
+
+The repository contains public-safe examples or evidence material covering these 11 domains:
+
+- Career
+- Courier / Last-Mile Delivery
+- Credit
+- Decision
+- Education
+- Finance
+- Health
+- HR Tech
+- Insurance
+- Insurance Claims
+- Legal
+
+Presence in this repository does not mean that every property demonstrated in one domain has been independently evidenced across every other domain.
+
+---
+
+## Regulatory Mapping
+
+Some public artifacts map governed use cases to regulatory frameworks including relevant EU AI Act Annex III categories and human-oversight concepts.
+
+These mappings are governance metadata and implementation evidence.
+
+They are **not regulatory certification, legal advice, or an independent conformity assessment**.
+
+---
+
+## What This Repository Does Not Prove
+
+This repository should not be read as evidence that:
+
+- every Portotify capability is public
+- every governance property has been independently demonstrated across every domain
+- one recorded execution proves universal system behavior
+- one model, algorithm, architecture, or provider result establishes universal behavior
+- a framework mapping constitutes regulatory certification
+- a recorded signed capsule has been independently verified by a public verifier
+- the absence of a published mechanism means no such mechanism exists
+- research or future architecture is already implemented
+
+The scope and limitations of each artifact are part of the evidence.
 
 ---
 
 ## What's Inside
 
-- **demo/** → demo script and presentation narrative
-- **examples/** → example API request payloads for all 11 domains
-- **evidence/** → recorded governance responses showing allow, block, and review outcomes
-- **data/** → static governance artifacts (boundary results, signals, guard outputs)
+- **`docs/`** → live frozen public evidence replay
+- **`evidence/`** → recorded governance responses, findings, and benchmark evidence
+- **`data/`** → static governance artifacts
+- **`examples/`** → public-safe request examples
+- **`demo/`** → presentation and technical demo material
+- **`WHY_PORTOTIFY.md`** → product thesis
+- **`PUBLIC_DISCLOSURE_POLICY.md`** → rules for public claims and disclosure
 
 ---
 
-## Quick Start
+## Start Here
 
-1. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md) for the product overview
-2. Review `demo/DEMO_SCRIPT.md` for the demo flow
-3. Explore `examples/` for request payloads across all domains
-4. Check `evidence/` for recorded ALLOW, BLOCK, and REVIEW outcomes with production latency benchmarks (57–115 ms governance overhead, SHA-256 verified)
-
----
-
-## What Portotify Does
-
-| Capability | Description |
-|---|---|
-| **11 Industry Domains** | Career, Legal, Finance, Health, Decision, Insurance, Credit, HR Tech, Insurance Claims, Education, Courier / Last-Mile Delivery |
-| **Vendor and Source Independent** | The verdict does not depend on the engine vendor, and the governed decision can come from a model, a rule engine, or a human |
-| **Deterministic Verdicts** | Every decision is allowed, blocked, or sent to human review by written rule, not by opinion |
-| **Sufficiency Check** | Insufficient input is blocked with specific guidance, not answered with a degraded result |
-| **Fail-Closed Architecture** | Unknown states produce blocks, not silent passes |
-| **Immutable Audit Trail** | Every decision is append-only, versioned, and traceable |
-| **Human Oversight Evidence** | Accept/reject recorded as a new linked record: proof that oversight happened (EU AI Act Article 14) |
-| **EU AI Act Compliance** | Framework mapping for Annex III.3, III.4, III.5, III.5a, III.5c |
-| **Output Safety** | Manipulation blocked, opinion language rejected, domain output boundaries enforced |
-| **Journey Enforcement** | Multi-step decision chaining, not single-shot |
+1. [Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
+2. Inspect `docs/data/recorded-production-executions.json`
+3. Read `evidence/README.md`
+4. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
+5. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
 
 ---
 
-## What Portotify Is NOT
+## Architecture Boundary
 
-- Not a chatbot wrapper
-- Not a prompt enhancer
-- Not a monitoring dashboard
+This repository intentionally does not contain the Portotify core implementation.
 
-**Portotify is a governance protocol** that decides whether a decision is
-allowed, blocked, or controlled before it propagates. We govern the decision,
-not the decision-maker.
+Public materials describe selected outcomes, invariants, boundaries, and evidence.
 
----
+Proprietary detection logic, enforcement mechanisms, internal prompts, security-sensitive implementation details, and other protected system internals are not published merely to strengthen a public claim.
 
-## Architecture Note
-
-This repository intentionally does not include the Portotify source code.
-
-The core system (engine, backend, governance layers) is maintained in a
-separate private development repository. These materials demonstrate governance
-outcomes, not mechanisms: detection internals and proprietary safeguards are
-not published here.
+**Outcomes can be public without making mechanisms public.**
 
 ---
 
 ## Contact
 
 [portotify.com](https://portotify.com)
+
 info@portotify.com
