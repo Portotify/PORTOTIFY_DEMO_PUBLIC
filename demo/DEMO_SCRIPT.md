@@ -1,226 +1,215 @@
-# PORTOTIFY Demo Script (5 Minutes)
+# PORTOTIFY Demo Script
 
-**Updated:** 18 June 2026
+**Updated:** 19 August 2026
 
 **Audience:** CTO, CFO, Founder, Technical Decision Maker
 
 **Environment:** Local or controlled staging with `ENGINE_PROVIDER=mock`
 
----
-
-## STEP 1: What Is Portotify? (30s)
-
-**Narration:**
-
-"Portotify is not a chatbot wrapper. It is a governance protocol that decides
-whether a decision is allowed, blocked, or controlled, before it reaches
-anyone. It does not matter whether a model, a rule engine, or a human produced
-the decision.
-
-The producer is not the authority. The governance boundary is the authority.
-If the system cannot determine safety, it stops."
-
-**Key message:** Fail-closed. Deterministic. Auditable.
+> This script demonstrates selected public-safe governance properties.  
+> It does not represent every Portotify capability or every production path.
 
 ---
 
-## STEP 2: Governed Execution, Credit Domain (60s)
+## STEP 1: What Is Portotify?
 
-**Scenario:** Credit applicant profile analysis with sufficient data.
+Portotify is runtime decision governance for consequential decision systems.
 
-**Request:**
-```json
-{
-  "domain": "credit",
-  "intent": "credit_profile_analysis",
-  "version": "v1",
-  "inputs": {
-    "applicant_text": "Applicant reports annual income of 85,000 EUR from employment at a technology company. Monthly mortgage payment of 1,200 EUR. Credit card balance of 3,500 EUR across two cards. Savings account with 15,000 EUR. No outstanding loans reported. Employment tenure of 4 years."
-  },
-  "controls": {
-    "has_external_write": false
-  }
-}
-```
+The producer may be an LLM, an ML model, an algorithm, a rule engine, a hybrid pipeline, or a human-supported system.
 
-**Show:**
-- Response succeeds with `status: completed`
-- Output contains structured analysis with enum-coded gaps, not free text
-- `governance_verdict: allow`
-- An immutable decision record is created
-- A suggested next step points to the next intent in the journey
+The producer can produce a result.
 
-**Narration:** "The system analyzed the input, found sufficient data, and
-allowed the execution. Every field in the output is schema-bound. The decision
-is now an immutable audit record."
+It does not grant itself governance authority.
+
+Portotify evaluates whether that candidate result is admissible within the governed path and issues a governance verdict:
+
+**ALLOW / BLOCK / REVIEW_REQUIRED**
+
+Key message:
+
+Capability is not authority.  
+The producer is not the governance authority.
 
 ---
 
-## STEP 3: Sufficiency Check, Insufficient Data (60s)
+## STEP 2: Governed Execution
 
-**Scenario:** Same domain, but input is missing critical information.
+Use a public-safe example with sufficient context.
 
-**Request:**
-```json
-{
-  "domain": "credit",
-  "intent": "credit_profile_analysis",
-  "version": "v1",
-  "inputs": {
-    "applicant_text": "Applicant wants a loan."
-  },
-  "controls": {
-    "has_external_write": false
-  }
-}
-```
+Show:
 
-**Show:**
-- Response blocked: insufficient data, with enum-coded gaps
-- The block guidance tells the user exactly what to provide
-- No engine involvement in the block decision, it is a pure backend rule
+- structured execution output
+- governance verdict
+- decision state
+- execution reference
+- governance metadata
 
-**Narration:** "Before analysis, the system checked whether there was enough
-data to produce a meaningful result. The answer was no, so it blocked, not with
-a vague error, but with specific guidance on exactly what is missing. The engine
-never ran. The backend rule decided."
+Narration:
+
+"This candidate result passed the governance conditions represented by this intent and execution context.
+
+ALLOW means this execution was admitted within this governed path.
+
+It does not mean the result has universal authority outside that context."
 
 ---
 
-## STEP 4: External Action Invariant (45s)
+## STEP 3: Insufficient Context
 
-**Scenario:** Valid request, but the external write flag is set.
+Use the recorded insufficient-data example.
 
-**Request:**
-```json
-{
-  "domain": "career",
-  "intent": "cv_analysis",
-  "version": "v1",
-  "inputs": {
-    "cv_text": "Backend engineer with Python and REST API experience. 5 years at major tech companies."
-  },
-  "controls": {
-    "has_external_write": true
-  }
-}
-```
+Show:
 
-**Show:**
-- Deterministic BLOCK
-- `reason_code: POLICY_BLOCK`
-- `controls.blocked: true`
-- No execution, no engine call
+- BLOCK outcome
+- explicit gap information
+- reason code
+- no silent conversion of uncertainty into permission
 
-**Narration:** "If external action is requested, the system blocks. Always. The
-producer cannot override this. This is a governance invariant, not a
-suggestion."
+Narration:
+
+"The system did not turn missing critical context into an apparently authoritative answer.
+
+Within this represented path, insufficient decision context produced a fail-closed governance outcome."
 
 ---
 
-## STEP 5: Subjective Language Rejected (45s)
+## STEP 4: Authority Boundary
 
-**Scenario:** The output tries to express an opinion.
+Use the static external-write boundary artifact:
 
-**Show** (use recorded evidence or mock output):
-- The output contains "the profile is quite strong" or "this is a solid
-  financial position"
-- The output is blocked for opinion language
+`data/boundary_critical_result.json`
 
-**Narration:** "Portotify does not express opinions. If the output uses
-subjective qualifiers, strong, solid, excellent, promising, it is blocked. This
-is enforced across all 11 domains, deterministically."
+This artifact represents a specific condition:
 
----
+- external write present
+- human review absent
+- required controls unsatisfied
+- verdict: BLOCK
 
-## STEP 6: Multi-Domain Coverage (60s)
+Narration:
 
-**Show** (quick fire, one request each, show domain diversity):
+"This does not mean every external action is universally blocked.
 
-| Domain | Intent | Input Field | Demonstrates |
-|---|---|---|---|
-| Finance | financial_summary_analysis | financial_text | Investment advice boundary |
-| Health | health_summary_analysis | health_text | Risk detection, gap codes |
-| Legal | contract_analysis | contract_text | Clause gap analysis |
-| Insurance Claims | claim_profile_extraction | claim_text | Coverage risk classification |
-| Education | learning_gap_analysis | student_text | EU AI Act Annex III.3 scope |
-| Courier / Last-Mile Delivery | account_suspension | rider_text | Automatic suspension blocked, human review enforced |
+It demonstrates a narrower rule: in this recorded boundary case, the required authority and controls were not established, so the proposed consequence was rejected fail-closed.
 
-**Narration for Courier:** "This request flags a rider account for a policy
-violation and asks the system to suspend it automatically. Portotify blocks the
-automatic action and requires human review before any account-level decision is
-executed. Platform Work Directive 2024/2831 mandates exactly this, no automated
-account decisions without human oversight."
-
-**Narration:** "Portotify is not a single-use tool. It governs decisions across
-11 industry domains, each with its own gap codes, output boundaries, and
-compliance mapping. Same governance protocol, different domain expertise."
+An external-action signal is not itself a governance verdict."
 
 ---
 
-## STEP 7: Immutable Evidence (45s)
+## STEP 5: Output and Scope Boundaries
 
-**Show:**
-- A decision record (decision_id, governance_verdict, risk_tier)
-- No raw output stored, only a hash
-- An override creates a new version with `parent_decision_id` lineage
-- Human review (accept or reject) creates a new decision, never mutates the
-  original
+Use selected recorded examples.
 
-**Narration:** "Every governance decision is immutable. If someone overrides
-it, the original stays. A new version is created with explicit lineage. This is
-not a log, it is audit-grade evidence."
+Show cases where governed output attempts to exceed the represented intent's permitted scope.
 
----
+Narration:
 
-## STEP 8: EU AI Act Readiness (30s)
+"Different governed intents carry different boundaries.
 
-**Show:**
-- `framework_mapping` in the execute response
-- Annex III.3 (Education)
-- Annex III.4 (HR Tech, Career, Courier / Last-Mile Delivery)
-- Annex III.5 (Finance, Insurance)
-- Annex III.5c (Insurance Claims)
-- Platform Work Directive 2024/2831 (Courier)
+Analysis does not automatically become recommendation.  
+Recommendation does not automatically become decision.  
+Decision does not automatically become execution.
 
-**Narration:** "EU AI Act full enforcement begins August 2026. Portotify
-already maps every execution to the relevant regulatory framework. This is not
-documentation, it is runtime compliance evidence."
+These examples demonstrate selected boundaries.
+They do not claim that every domain uses the same rule set."
 
 ---
 
-## CLOSE (30s)
+## STEP 6: Decision-System and Domain Diversity
 
-**Core message:**
+Show selected public-safe examples from several represented domains.
 
-"Portotify does not make the decision smarter. It ensures that an imperfect
-decision cannot produce an uncontrolled outcome.
+Explain that the repository contains examples or evidence material across:
 
-It is:
-- Fail-closed, unknown states block, not pass
-- Deterministic, every decision is reproducible
-- Auditable, every decision is immutable evidence
-- Compliant, EU AI Act framework mapping built in
+- Career
+- Courier / Last-Mile Delivery
+- Credit
+- Decision
+- Education
+- Finance
+- Health
+- HR Tech
+- Insurance
+- Insurance Claims
+- Legal
 
-The producer changes. The governance boundary does not."
+Narration:
+
+"The governance object is the decision, not the technology that produced it.
+
+The producer may be an LLM, ML model, algorithm, rule engine, hybrid pipeline, or human-assisted system.
+
+The governance requirements can differ by intent, domain, authority, and deployment context."
 
 ---
 
-## Post-Demo Resources
+## STEP 7: Governed Evidence
 
-- `examples/`: request payloads for all 11 domains
-- `evidence/`: recorded governance responses
-- `WHY_PORTOTIFY.md`: product overview
-- [portotify.com](https://portotify.com): website
+Show a public-safe decision record or capsule artifact.
+
+Show:
+
+- verdict metadata
+- risk metadata
+- execution reference
+- decision state
+- available lineage information
+
+Narration:
+
+"Governance should leave evidence.
+
+These artifacts make selected governance outcomes and lineage inspectable.
+
+The public repository exposes only the evidence that is safe and appropriate to disclose. It is not the complete production record."
 
 ---
 
-## Evidence Notes
+## STEP 8: Regulatory Mapping
 
-> `finance_execute.json`, `health_execute.json`, `insurance_execute.json`
-> intentionally return BLOCKED. This is not an error: domain-specific output
-> boundaries are active, and even mock output that violates the contract is
-> blocked. This is proof that Portotify is not governance theater.
->
-> `credit_02_drg_block.json`: demonstrates the sufficiency block. A
-> production-engine block sample should be generated separately.
+Show regulatory metadata only where it exists in the selected artifact.
+
+Narration:
+
+"Portotify can associate governed use cases with regulatory concepts and framework mappings.
+
+A mapping is not certification.
+
+It is not legal advice and it does not prove that a deployment is compliant.
+
+Regulatory classification depends on the actual use case and deployment context."
+
+For the platform-work example:
+
+"Directive (EU) 2024/2831 includes human-oversight requirements for automated management systems and requires certain decisions restricting, suspending, or terminating a platform-work relationship or account to be taken by a human.
+
+This demo illustrates a governance boundary relevant to that requirement.
+It does not constitute a legal conformity assessment."
+
+---
+
+## CLOSE
+
+"Portotify does not make the producer authoritative merely because it produced a plausible result.
+
+It governs whether a candidate decision may continue within a controlled path.
+
+The producer can change.
+
+LLM. ML. Algorithm. Rules. Hybrid. Human-assisted.
+
+The governance question remains:
+
+What was decided?  
+Under which authority?  
+Under which rules?  
+Using what evidence?  
+And was that decision allowed to continue?"
+
+---
+
+## Evidence Discipline
+
+Demo claims must follow `PUBLIC_DISCLOSURE_POLICY.md`.
+
+Recorded production evidence, mock evidence, static artifacts, benchmarks, and research findings are different evidence classes and must remain visibly distinguished.
