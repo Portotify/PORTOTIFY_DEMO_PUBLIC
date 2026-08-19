@@ -1,6 +1,6 @@
 # Portotify Governance: Before / After
 
-**Scenario: Rider Account Suspension Request**
+**Scenario:** Rider Account Suspension Request
 
 A platform operations system receives a report: a rider has three consecutive undelivered orders, one customer complaint, and a pattern of late check-ins. The system asks an AI to evaluate the case.
 
@@ -10,7 +10,7 @@ A platform operations system receives a report: a rider has three consecutive un
 
 The AI model responds directly, without governance:
 
-```
+```text
 Based on the incident record, I recommend suspending this account immediately.
 
 The rider demonstrates a risk score of 8.2 / 10 and falls into the HIGH-RISK tier.
@@ -20,38 +20,41 @@ a clear policy violation. Suspension is warranted.
 Recommended action: Suspend account for 14 days with review at day 10.
 ```
 
-**What went wrong:**
+**Observed governance concerns in this example:**
 
-- The AI issued a direct suspension recommendation: a decision that restricts access to work
-- It asserted a numeric risk score (8.2 / 10) with no evidence basis
-- No appeal mechanism was offered to the rider
-- No regulatory requirement was acknowledged
-- The output would have propagated directly to the operations workflow: no human reviewed it
-- Platform Work Directive 2024/2831 Article 16 was violated: automated account restriction without human oversight
-- EU AI Act Annex III.4 requires human oversight for AI systems that affect employment: this was absent
+- The model issued a direct suspension recommendation affecting access to work.
+- It asserted a numeric risk score without an evidenced basis in the example.
+- The represented flow did not include a human decision before the proposed account restriction.
+- The output attempted to turn analysis into an account-level consequence.
+
+Directive (EU) 2024/2831 Article 10(5) is relevant to this scenario because it requires certain decisions restricting, suspending, or terminating a platform-work relationship or account, and decisions of equivalent detriment, to be taken by a human being.
+
+This document is an explanatory governance example, not a legal conformity assessment.
 
 ---
 
-## WITH Portotify (Governed Output)
+## WITH Portotify (Recorded Governed Output)
 
-The same request passes through the Portotify governance layer:
+The same scenario is represented by the recorded mock evidence in `courier_account_suspension_BLOCK.json`.
 
-**Step 1: Pre-execution check**
+**Step 1: Recorded control context**
 
-Portotify evaluates the request before any AI model is called:
-- Domain: courier, Intent: account_suspension → classified as high-risk
-- `human_in_loop` flag set to true: human handoff enforcement active
+The artifact records:
 
-**Step 2: LLM runs, output guard fires**
+- domain: courier
+- account-suspension scenario
+- `human_in_loop: true`
+- mock engine execution
 
-The AI model runs and produces output containing a suspension verdict.
-The courier output guard detects `COURIER_SUSPENSION_VIOLATION`:
+**Step 2: Mock output guard result**
 
-- Output contained a suspension recommendation → policy violation
-- Output contained a risk score assertion → policy violation
-- Block triggered: `post_execution`
+The recorded mock output contained a suspension verdict.
 
-**Step 3: Governed response returned**
+The courier output guard recorded `COURIER_SUSPENSION_VIOLATION` and the execution was blocked at `post_execution`.
+
+**Step 3: Governed response**
+
+The preserved artifact includes:
 
 ```json
 {
@@ -62,28 +65,33 @@ The courier output guard detects `COURIER_SUSPENSION_VIOLATION`:
   },
   "meta": {
     "status": "blocked",
-    "reason_code": "COURIER_SUSPENSION_VIOLATION",
-    "reason_human": "Automatic account suspension blocked. Account suspension decisions restrict access to work and require a human manager to review the signals and make the determination."
+    "reason_code": "COURIER_SUSPENSION_VIOLATION"
   },
   "next_action": {
-    "type": "human_review_required",
-    "reason_human": "Operations manager review required. Rider has the right to respond before any account action is taken."
+    "type": "human_review_required"
   }
 }
 ```
 
-**Step 4: Immutable audit trail written**
+**Step 4: Evidence interpretation**
 
-- Decision capsule created: append-only, versioned, traceable
-- No raw LLM output stored: only output hash
-- Full governance chain recorded: input → block → reason → next action
+The artifact demonstrates a recorded mock governance path in which an account-suspension verdict produced by the mock provider output was rejected and a human-review next action was returned.
+
+It does not prove that Portotify controls every possible downstream platform path or that this artifact alone establishes legal compliance.
 
 ---
 
 ## What This Means
 
-Without governance, the AI model produced a suspension verdict and a fabricated risk score that could have directly restricted a person's access to work, with no human review, no appeal mechanism, and no regulatory compliance. With Portotify, the output was intercepted before propagation, the automatic decision was blocked, and a human manager was required to make the determination. The entire chain is recorded as immutable audit evidence, satisfying Platform Work Directive 2024/2831 Article 16 and EU AI Act Annex III.4.
+In this recorded example, the decision-producing system attempted to escalate from analysis into an account-suspension conclusion.
+
+The governed path rejected that output and returned a human-review requirement instead of treating the model conclusion as account-action authority.
+
+That governance boundary is relevant to the human-decision requirement in Directive (EU) 2024/2831 Article 10(5).
+
+The original recorded JSON contains a historical reference to Article 16. That reference is preserved in the artifact and corrected in `ERRATA.md` rather than silently rewritten.
 
 ---
 
-**Recorded evidence:** `courier_account_suspension_BLOCK.json`
+**Recorded evidence:** `courier_account_suspension_BLOCK.json`  
+**Errata:** `ERRATA.md`
