@@ -184,6 +184,7 @@ The scope and limitations of each artifact are part of the evidence.
 - **`examples/`** → public-safe request examples
 - **`demo/`** → presentation and technical demo material
 - **`WHY_PORTOTIFY.md`** → product thesis
+- **`GOVERNANCE_PRINCIPLES.md`** → public governance doctrine and authority boundaries
 - **`PUBLIC_DISCLOSURE_POLICY.md`** → rules for public claims and disclosure
 
 ---
@@ -194,7 +195,8 @@ The scope and limitations of each artifact are part of the evidence.
 2. Inspect `docs/data/recorded-production-executions.json`
 3. Read `evidence/README.md`
 4. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
-5. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
+5. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
+6. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
 
 ---
 
