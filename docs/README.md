@@ -1,7 +1,30 @@
-# Portotify Live Public Demo
+# Portotify Public Evidence Replay
 
-Open `index.html` to explore the dependency-free replay locally, or publish the `docs/` directory with GitHub Pages.
+This directory contains the GitHub Pages public evidence window for Portotify.
 
-The interactive demo replays two public-safe recorded synthetic production execution outcomes: one ALLOW / COMPLETED and one BLOCK / REJECTED.
+The page replays two independent public-safe recorded execution projections:
 
-It is not a live API call, uses no real customer data, and does not publish full execution identifiers or raw responses. The evidence is frozen and inspectable in [the public-safe projection](data/recorded-production-executions.json).
+- ALLOW / COMMITTED / COMPLETED
+- BLOCK / REJECTED / BLOCKED
+
+The source executions used synthetic inputs in the production environment.
+
+The public page itself:
+
+- is a frozen replay
+- makes no production API call
+- uses no real customer data
+- does not expose full execution identifiers or raw API responses
+- does not independently verify capsule signatures
+- does not represent an independent audit
+- does not establish lineage between the two recorded executions
+
+The underlying public-safe projection is:
+
+`data/recorded-production-executions.json`
+
+This is a deliberately limited public evidence window, not a complete representation of Portotify's runtime decision-governance capabilities.
+
+For repository-wide disclosure rules, see:
+
+`../PUBLIC_DISCLOSURE_POLICY.md`
