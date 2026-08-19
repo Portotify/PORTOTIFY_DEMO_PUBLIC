@@ -1,12 +1,15 @@
 # Portotify Latency Benchmark: Integrity Manifest
 
-**Generated:** 2026-05-27
-**Algorithm:** SHA-256
+**Generated:** 2026-05-27  
+**Algorithm:** SHA-256  
 **Purpose:** Tamper-evident record of all benchmark raw data files.
-Each hash is computed over the exact bytes of the JSON file at time of recording.
-Any modification to a file: including a single byte: will invalidate its hash.
 
-Git commit at manifest generation: `ab68bb5` (fix: engine_ms + duration_ms + overhead_ms)
+Each hash is computed over the exact bytes of the JSON file at time of recording.
+Any modification to a file, including a single byte, will invalidate its hash.
+
+Git commit at manifest generation: `ab68bb5` (fix: `engine_ms` + `duration_ms` + `overhead_ms`)
+
+> Repository path note, 19 August 2026: verification paths below were updated to match the current public repository layout. Recorded raw files and SHA-256 values were not modified as part of that documentation repair.
 
 ---
 
@@ -14,14 +17,14 @@ Git commit at manifest generation: `ab68bb5` (fix: engine_ms + duration_ms + ove
 
 ```powershell
 # Verify a single file (PowerShell)
-(Get-FileHash "docs\evidence\latency\raw\<filename>" -Algorithm SHA256).Hash.ToLower()
+(Get-FileHash "evidence\latency\raw\<filename>" -Algorithm SHA256).Hash.ToLower()
 
 # Compare against the hash listed below: they must match exactly.
 ```
 
 ```bash
 # Verify a single file (bash/linux)
-sha256sum docs/evidence/latency/raw/<filename>
+sha256sum evidence/latency/raw/<filename>
 ```
 
 ---
@@ -73,8 +76,7 @@ sha256sum docs/evidence/latency/raw/<filename>
 
 ## v2 Benchmark Summary (engine_ms visible)
 
-Files marked **v2 run** were recorded after commit `ab68bb5` which introduced
-`engine_ms` (LLM-only latency) and `duration_ms` (total pipeline) to the API response.
+Files marked **v2 run** were recorded after commit `ab68bb5` which introduced `engine_ms` and `duration_ms` to the API response.
 
 | Engine | Domain | engine_ms avg | overhead_ms avg | n |
 |--------|--------|--------------|----------------|---|
@@ -87,9 +89,10 @@ Files marked **v2 run** were recorded after commit `ab68bb5` which introduced
 | OpenAI | finance | 8086ms | 65ms | 10 |
 | OpenAI | credit | 9786ms | 63ms | 10 |
 
-**Governance overhead range across all engines and domains: 57–115ms.**
+**Recorded governance overhead range across the measured provider/domain combinations: 57–115ms.**
 
 ---
 
-*Manifest generated: 27 May 2026*
-*This file is itself version-controlled: its git history is part of the audit trail.*
+*Manifest generated: 27 May 2026.*  
+*Verification-path documentation repaired: 19 August 2026.*  
+*The registered raw-file hashes remain the recorded benchmark values.*
