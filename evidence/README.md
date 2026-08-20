@@ -6,7 +6,7 @@ This directory contains several distinct evidence classes. They are intentionall
 
 ### Recorded synthetic production evidence
 
-The GitHub Pages evidence window replays four public-safe recorded synthetic production executions across Decision and HRTech.
+The GitHub Pages evidence window replays six public-safe recorded execution projections from synthetic production-environment executions across Decision, HRTech, and Health.
 
 The underlying projections are:
 
@@ -18,7 +18,13 @@ The underlying projections are:
   - HRTech C: BLOCKED at pre-execution because `rubric_criteria` was missing
   - HRTech D: COMPLETED with `blocked: false` when rubric criteria were supplied
 
-The HRTech responses did not expose an explicit verdict or capsule metadata, so neither is inferred for those records.
+- `../docs/data/health-recorded-production-executions.json`
+  - Health E: COMPLETED with `blocked: false` for an internally consistent external interaction snapshot
+  - Health F: BLOCKED at post-execution for an internally inconsistent external interaction status/severity snapshot
+
+The Health records govern the internal consistency of the supplied external interaction snapshot. They do not establish whether the synthetic drug pair clinically interacts, and Portotify did not compute or replace the external interaction conclusion in these recorded executions.
+
+The observed HRTech and Health responses did not expose an explicit verdict or capsule metadata, so neither is inferred for those records. Signed capsule metadata is preserved only where it was explicitly observed in the Decision projection for executions A and B.
 
 These are frozen public-safe projections from synthetic production-environment executions. They are not live API calls, raw production responses, customer data, independent audit evidence, or universal behavior claims.
 
