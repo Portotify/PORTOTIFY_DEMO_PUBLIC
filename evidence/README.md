@@ -4,6 +4,24 @@ This directory contains several distinct evidence classes. They are intentionall
 
 ## Evidence Classes
 
+### Recorded synthetic production evidence
+
+The GitHub Pages evidence window replays four public-safe recorded synthetic production executions across Decision and HRTech.
+
+The underlying projections are:
+
+- `../docs/data/recorded-production-executions.json`
+  - Decision A: ALLOW / COMMITTED / COMPLETED
+  - Decision B: BLOCK / REJECTED / BLOCKED at post-execution governance
+
+- `../docs/data/hrtech-recorded-production-executions.json`
+  - HRTech C: BLOCKED at pre-execution because `rubric_criteria` was missing
+  - HRTech D: COMPLETED with `blocked: false` when rubric criteria were supplied
+
+The HRTech responses did not expose an explicit verdict or capsule metadata, so neither is inferred for those records.
+
+These are frozen public-safe projections from synthetic production-environment executions. They are not live API calls, raw production responses, customer data, independent audit evidence, or universal behavior claims.
+
 ### Recorded mock governance responses
 
 The governance-response JSON files in this directory use `ENGINE_PROVIDER=mock` unless the artifact explicitly states otherwise.
@@ -96,5 +114,6 @@ Files marked **v2 run** in the manifest contain `engine_ms` and `overhead_ms` fi
 - `pre_execution` block means the recorded path rejected the request before producer invocation.
 - `engine: none` in an artifact indicates no model engine was called in that recorded example.
 - `engine: mock` indicates deterministic mock execution was used for that recorded response.
+- Recorded synthetic production projections and recorded mock responses are separate evidence classes.
 - Mock governance responses, production-environment benchmarks, static artifacts, and the live public replay are different evidence classes.
 - Scope and limitations are part of the evidence.
