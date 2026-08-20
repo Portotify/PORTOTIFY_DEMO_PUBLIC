@@ -1,0 +1,70 @@
+{
+  "artifact_type": "public_safe_recorded_execution_projection",
+  "classification": "synthetic_production_evidence",
+  "domain": "health",
+  "intent": "drug_interaction_governance",
+  "live_api_call": false,
+  "frozen_replay": true,
+  "real_customer_data": false,
+  "executions": [
+    {
+      "public_execution_reference": "09f5b34a",
+      "case": "internally_consistent_external_interaction_snapshot",
+      "blocked": false,
+      "execution_status": "completed",
+      "reason_code": "OK",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "external_write": false,
+      "tool_call": false,
+      "interaction_status": "NOT_PRESENT",
+      "interaction_severity": "NOT_APPLICABLE",
+      "duration_ms": 9119,
+      "engine_ms": 5941.0,
+      "overhead_ms": 489.48,
+      "trace_persisted": true
+    },
+    {
+      "public_execution_reference": "5498a6fc",
+      "case": "internally_inconsistent_external_interaction_snapshot",
+      "blocked": true,
+      "execution_status": "blocked",
+      "reason_code": "HEALTH_OUTPUT_VIOLATION",
+      "block_stage": "post_execution",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "external_write": false,
+      "tool_call": false,
+      "interaction_status": "NOT_PRESENT",
+      "interaction_severity": "MODERATE",
+      "recorded_block_basis": "internally inconsistent interaction status and severity snapshot",
+      "duration_ms": 3849.26,
+      "engine_ms": 3534.0
+    }
+  ],
+  "comparison": {
+    "same_synthetic_drug_pair": true,
+    "same_external_interaction_status": true,
+    "same_external_source": true,
+    "same_controls": true,
+    "variable": "interaction_severity",
+    "completed_case": "NOT_PRESENT with NOT_APPLICABLE severity",
+    "blocked_case": "NOT_PRESENT with MODERATE severity",
+    "block_stage": "post_execution"
+  },
+  "limitations": {
+    "full_execution_ids_public": false,
+    "raw_api_responses_public": false,
+    "model_generated_narrative_public": false,
+    "clinical_interaction_conclusion_by_portotify": false,
+    "explicit_verdict_field_observed": false,
+    "capsule_metadata_observed_in_response": false,
+    "independent_audit": false
+  }
+}
