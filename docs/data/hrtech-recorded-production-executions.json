@@ -1,0 +1,62 @@
+{
+  "artifact_type": "public_safe_recorded_execution_projection",
+  "classification": "synthetic_production_evidence",
+  "domain": "hrtech",
+  "intent": "candidate_assessment_governance",
+  "live_api_call": false,
+  "frozen_replay": true,
+  "real_customer_data": false,
+  "executions": [
+    {
+      "public_execution_reference": "fb4eb65d",
+      "case": "missing_rubric_criteria",
+      "blocked": true,
+      "execution_status": "blocked",
+      "reason_code": "VALIDATION_ERROR",
+      "block_reason": "INPUT_MISSING_RUBRIC_CRITERIA",
+      "block_stage": "pre_execution",
+      "fail_closed": true,
+      "engine": "none",
+      "provider_output_used": false,
+      "fallback_used": false,
+      "risk_tier": "LOW",
+      "external_write": false,
+      "tool_call": false,
+      "duration_ms": 394.79
+    },
+    {
+      "public_execution_reference": "439d0d7e",
+      "case": "rubric_supplied",
+      "blocked": false,
+      "execution_status": "completed",
+      "reason_code": "OK",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "risk_tier": "LOW",
+      "external_write": false,
+      "tool_call": false,
+      "assessment_score": 3,
+      "limitations_count": 2,
+      "duration_ms": 9030,
+      "engine_ms": 4810.0,
+      "trace_persisted": true
+    }
+  ],
+  "comparison": {
+    "same_synthetic_candidate_response": true,
+    "same_controls": true,
+    "variable": "rubric_criteria",
+    "blocked_case": "rubric_criteria absent",
+    "completed_case": "rubric_criteria supplied"
+  },
+  "limitations": {
+    "full_execution_ids_public": false,
+    "raw_api_responses_public": false,
+    "explicit_verdict_field_observed": false,
+    "capsule_metadata_observed_in_response": false,
+    "independent_audit": false
+  }
+}
