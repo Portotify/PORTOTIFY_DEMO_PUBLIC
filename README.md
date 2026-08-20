@@ -47,7 +47,7 @@ Portotify governs the decision, not the decision-maker.
 
 ## Live Public Evidence
 
-The interactive demo replays four **public-safe recorded synthetic production executions** across two domains:
+The interactive demo replays six **public-safe recorded execution projections from synthetic production-environment executions** across three domains:
 
 | Recorded execution | Domain | Observed outcome | Stage / state | Reason |
 |---|---|---|---|---|
@@ -55,6 +55,8 @@ The interactive demo replays four **public-safe recorded synthetic production ex
 | B | Decision | BLOCK / BLOCKED | REJECTED / post-execution | INSUFFICIENT_DATA_CRITICAL_GAPS |
 | C | HRTech | BLOCKED | pre-execution | INPUT_MISSING_RUBRIC_CRITERIA |
 | D | HRTech | COMPLETED / blocked: false | completed | OK |
+| E | Health | COMPLETED / blocked: false | completed | OK |
+| F | Health | BLOCKED | post-execution | HEALTH_OUTPUT_VIOLATION |
 
 Execution B reached post-execution governance checks, was rejected for critical context gaps, and its public projection records `result_delivered: false`.
 
@@ -62,7 +64,13 @@ Execution C failed closed before provider execution because `rubric_criteria` wa
 
 Execution D used the same synthetic candidate response with rubric criteria supplied and completed the represented rubric-based assessment path. The observed response returned criterion observations, an assessment score, and explicit limitations.
 
-Signed capsule metadata is preserved in the public Decision projection for executions A and B. The observed HRTech responses C and D did not expose explicit verdict or capsule metadata, so this repository does not infer either for those records.
+Execution E used an externally supplied interaction snapshot with `interaction_status: NOT_PRESENT` and `interaction_severity: NOT_APPLICABLE`. The represented Health governance path completed with `blocked: false`.
+
+Execution F used the same synthetic drug pair and external interaction status, but the externally supplied severity was `MODERATE`. The represented path rejected the internally inconsistent status/severity combination at post-execution governance after provider execution.
+
+The Health evidence does not establish whether the synthetic drug pair clinically interacts. Portotify did not compute or replace the external interaction conclusion in these recorded executions; the public evidence shows governance of the supplied snapshot's internal consistency.
+
+Signed capsule metadata is preserved in the public Decision projection for executions A and B. The observed HRTech responses C and D and Health responses E and F did not expose explicit verdict or capsule metadata, so this repository does not infer either for those records.
 
 ### Evidence boundary
 
@@ -79,6 +87,8 @@ The live page is:
 [Inspect the Decision public-safe evidence projection](docs/data/recorded-production-executions.json)
 
 [Inspect the HRTech public-safe evidence projection](docs/data/hrtech-recorded-production-executions.json)
+
+[Inspect the Health public-safe evidence projection](docs/data/health-recorded-production-executions.json)
 
 ---
 
@@ -202,10 +212,11 @@ The scope and limitations of each artifact are part of the evidence.
 1. [Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 2. Inspect `docs/data/recorded-production-executions.json`
 3. Inspect `docs/data/hrtech-recorded-production-executions.json`
-4. Read `evidence/README.md`
-5. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
-6. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
-7. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
+4. Inspect `docs/data/health-recorded-production-executions.json`
+5. Read `evidence/README.md`
+6. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
+7. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
+8. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
 
 ---
 
