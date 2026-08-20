@@ -6,7 +6,7 @@
 
 [Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 
-**Updated:** 19 August 2026
+**Updated:** 20 August 2026
 
 ---
 
@@ -47,16 +47,22 @@ Portotify governs the decision, not the decision-maker.
 
 ## Live Public Evidence
 
-The interactive demo replays two **public-safe recorded synthetic production executions**:
+The interactive demo replays four **public-safe recorded synthetic production executions** across two domains:
 
-| Recorded execution | Verdict | Decision state | Execution status |
-|---|---|---|---|
-| A | ALLOW | COMMITTED | COMPLETED |
-| B | BLOCK | REJECTED | BLOCKED |
+| Recorded execution | Domain | Observed outcome | Stage / state | Reason |
+|---|---|---|---|---|
+| A | Decision | ALLOW / COMPLETED | COMMITTED | OK |
+| B | Decision | BLOCK / BLOCKED | REJECTED / post-execution | INSUFFICIENT_DATA_CRITICAL_GAPS |
+| C | HRTech | BLOCKED | pre-execution | INPUT_MISSING_RUBRIC_CRITERIA |
+| D | HRTech | COMPLETED / blocked: false | completed | OK |
 
-The blocked execution reached post-execution governance checks, was rejected for critical context gaps, and its result was not delivered.
+Execution B reached post-execution governance checks, was rejected for critical context gaps, and its public projection records `result_delivered: false`.
 
-Both public projections include recorded signed capsule metadata.
+Execution C failed closed before provider execution because `rubric_criteria` was absent. Its observed response records `engine: none` and `provider_output_used: false`.
+
+Execution D used the same synthetic candidate response with rubric criteria supplied and completed the represented rubric-based assessment path. The observed response returned criterion observations, an assessment score, and explicit limitations.
+
+Signed capsule metadata is preserved in the public Decision projection for executions A and B. The observed HRTech responses C and D did not expose explicit verdict or capsule metadata, so this repository does not infer either for those records.
 
 ### Evidence boundary
 
@@ -70,7 +76,9 @@ The live page is:
 - not an independent audit
 - not a public signature-verification service
 
-[Inspect the public-safe evidence projection](docs/data/recorded-production-executions.json)
+[Inspect the Decision public-safe evidence projection](docs/data/recorded-production-executions.json)
+
+[Inspect the HRTech public-safe evidence projection](docs/data/hrtech-recorded-production-executions.json)
 
 ---
 
@@ -193,10 +201,11 @@ The scope and limitations of each artifact are part of the evidence.
 
 1. [Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 2. Inspect `docs/data/recorded-production-executions.json`
-3. Read `evidence/README.md`
-4. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
-5. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
-6. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
+3. Inspect `docs/data/hrtech-recorded-production-executions.json`
+4. Read `evidence/README.md`
+5. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
+6. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
+7. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
 
 ---
 
