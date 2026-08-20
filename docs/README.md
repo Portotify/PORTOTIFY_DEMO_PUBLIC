@@ -2,10 +2,12 @@
 
 This directory contains the GitHub Pages public evidence window for Portotify.
 
-The page replays two independent public-safe recorded execution projections:
+The page replays four public-safe recorded synthetic production executions across two domains:
 
-- ALLOW / COMMITTED / COMPLETED
-- BLOCK / REJECTED / BLOCKED
+- Decision A: ALLOW / COMMITTED / COMPLETED
+- Decision B: BLOCK / REJECTED / BLOCKED at post-execution governance
+- HRTech C: BLOCKED at pre-execution because `rubric_criteria` was missing
+- HRTech D: COMPLETED with `blocked: false` when rubric criteria were supplied
 
 The source executions used synthetic inputs in the production environment.
 
@@ -17,11 +19,15 @@ The public page itself:
 - does not expose full execution identifiers or raw API responses
 - does not independently verify capsule signatures
 - does not represent an independent audit
-- does not establish lineage between the two recorded executions
+- does not infer an explicit HRTech verdict or capsule where those fields were not exposed in the observed responses
 
-The underlying public-safe projection is:
+The underlying public-safe projections are:
 
 `data/recorded-production-executions.json`
+
+`data/hrtech-recorded-production-executions.json`
+
+The Decision projection preserves signed capsule metadata for executions A and B. The observed HRTech responses C and D did not expose explicit verdict or capsule metadata, so none is inferred for those records.
 
 This is a deliberately limited public evidence window, not a complete representation of Portotify's runtime decision-governance capabilities.
 
