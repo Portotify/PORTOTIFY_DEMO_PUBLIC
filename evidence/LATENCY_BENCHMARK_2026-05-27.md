@@ -93,7 +93,7 @@ Included for completeness. These runs used n=30 and captured `server_duration_ms
 | career | 5669 ms | |
 | decision | 9126 ms | |
 | finance | 9800 ms | |
-| credit | — | `INTENT_BLOCKED`; see finding below |
+| credit | N/A | `INTENT_BLOCKED`; see finding below |
 
 ---
 
