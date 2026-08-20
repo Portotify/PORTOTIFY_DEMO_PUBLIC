@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A deliberately limited public evidence window replaying two public-safe recorded Portotify execution projections.">
+    <meta name="description" content="A deliberately limited public evidence window replaying four public-safe recorded Portotify execution projections across two domains.">
     <title>Portotify: Public evidence window</title>
     <link rel="stylesheet" href="assets/demo.css">
     <script defer src="https://cloud.umami.is/script.js" data-website-id="3b264b92-ba04-4dee-a0a9-35cd5febf732" data-domains="portotify.github.io"></script>
@@ -18,22 +18,23 @@
     <main id="main-content">
       <section class="hero shell" aria-labelledby="page-title">
         <div class="eyebrow">PORTOTIFY PUBLIC EVIDENCE WINDOW</div>
-        <h1 id="page-title">Two recorded executions.<br>Two governed outcomes.</h1>
-        <p class="hero-copy">This page replays two public-safe recorded execution projections produced from synthetic inputs in the production environment. One recorded execution was admitted. One was rejected.</p>
+        <h1 id="page-title">Four recorded executions.<br>Two domains. Different governed paths.</h1>
+        <p class="hero-copy">This page replays four public-safe recorded execution projections produced from synthetic inputs in the production environment across Decision and HRTech governance paths.</p>
         <p class="thesis">A produced result is not governance authority.</p>
         <div class="hero-actions">
           <button class="button button-primary" type="button" data-replay="a">Replay the recorded evidence</button>
-          <a class="button button-secondary" href="data/recorded-production-executions.json">Inspect the public evidence projection</a>
+          <a class="button button-secondary" href="data/recorded-production-executions.json">Inspect Decision projection</a>
+          <a class="button button-secondary" href="data/hrtech-recorded-production-executions.json">Inspect HRTech projection</a>
         </div>
         <p class="replay-boundary">Frozen replay only. No production API call is made from this page. No real customer data is used.</p>
       </section>
 
       <section id="replay" class="story-section shell" aria-labelledby="replay-title">
         <div class="section-kicker">01 / INTERACTIVE FROZEN REPLAY</div>
-        <div class="replay-toolbar"><h2 id="replay-title" class="section-title">Recorded outcomes, side by side.</h2><button class="button button-secondary" type="button" data-reset>Reset replay</button></div>
+        <div class="replay-toolbar"><h2 id="replay-title" class="section-title">Recorded outcomes across two domains.</h2><button class="button button-secondary" type="button" data-reset>Reset replay</button></div>
         <div class="execution-grid">
           <article id="execution-a" class="execution-card allow" aria-labelledby="execution-a-title">
-            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION A</p><h3 id="execution-a-title">ALLOW</h3></div><span class="verdict-badge">COMPLETED</span></header>
+            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION A / DECISION</p><h3 id="execution-a-title">ALLOW</h3></div><span class="verdict-badge">COMPLETED</span></header>
             <p class="execution-reference">public execution reference <code>7a7b6ab6</code></p>
             <p class="execution-summary">The recorded execution was admitted under the governance conditions represented by that execution.</p>
             <dl class="facts"><div><dt>DOMAIN</dt><dd>decision</dd></div><div><dt>INTENT</dt><dd>decision_risk_detection</dd></div><div><dt>VERDICT</dt><dd>ALLOW</dd></div><div><dt>DECISION STATE</dt><dd>COMMITTED</dd></div><div><dt>EXECUTION STATUS</dt><dd>COMPLETED</dd></div><div><dt>REASON CODE</dt><dd>OK</dd></div><div><dt>RISK TIER</dt><dd>LOW</dd></div><div><dt>EXTERNAL WRITE</dt><dd>NO</dd></div><div><dt>TOOL CALL</dt><dd>NO</dd></div></dl>
@@ -42,43 +43,61 @@
           </article>
 
           <article id="execution-b" class="execution-card block" aria-labelledby="execution-b-title">
-            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION B</p><h3 id="execution-b-title">BLOCK</h3></div><span class="verdict-badge">REJECTED</span></header>
+            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION B / DECISION</p><h3 id="execution-b-title">BLOCK</h3></div><span class="verdict-badge">REJECTED</span></header>
             <p class="execution-reference">public execution reference <code>70494eeb</code></p>
             <p class="execution-summary">The recorded output reached post-execution governance checks. Critical decision context was insufficient, the execution was rejected, and the projection records <code>result_delivered: false</code>.</p>
             <dl class="facts"><div><dt>DOMAIN</dt><dd>decision</dd></div><div><dt>INTENT</dt><dd>missing_context_detection</dd></div><div><dt>VERDICT</dt><dd>BLOCK</dd></div><div><dt>DECISION STATE</dt><dd>REJECTED</dd></div><div><dt>EXECUTION STATUS</dt><dd>BLOCKED</dd></div><div><dt>REASON CODE</dt><dd>INSUFFICIENT_DATA_CRITICAL_GAPS</dd></div><div><dt>BLOCK STAGE</dt><dd>post_execution</dd></div><div><dt>RISK TIER</dt><dd>LOW</dd></div><div><dt>EXTERNAL WRITE</dt><dd>NO</dd></div><div><dt>TOOL CALL</dt><dd>NO</dd></div><div><dt>RESULT DELIVERY</dt><dd>NOT DELIVERED</dd></div></dl>
             <div class="capsule-inline"><span>CAPSULE METADATA</span><strong>STANDARD / SIGNED / ed25519-v1</strong></div>
             <button class="button button-secondary replay-button" type="button" data-replay="b" aria-controls="execution-b" aria-expanded="false">Show execution B <span aria-hidden="true">→</span></button>
           </article>
+
+          <article id="execution-c" class="execution-card block" aria-labelledby="execution-c-title">
+            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION C / HRTECH</p><h3 id="execution-c-title">BLOCKED</h3></div><span class="verdict-badge">PRE-EXECUTION</span></header>
+            <p class="execution-reference">public execution reference <code>fb4eb65d</code></p>
+            <p class="execution-summary">The rubric was absent, so the HRTech assessment path failed closed before provider execution.</p>
+            <dl class="facts"><div><dt>DOMAIN</dt><dd>hrtech</dd></div><div><dt>INTENT</dt><dd>candidate_assessment_governance</dd></div><div><dt>EXECUTION STATUS</dt><dd>BLOCKED</dd></div><div><dt>REASON CODE</dt><dd>VALIDATION_ERROR</dd></div><div><dt>BLOCK REASON</dt><dd>INPUT_MISSING_RUBRIC_CRITERIA</dd></div><div><dt>BLOCK STAGE</dt><dd>PRE_EXECUTION</dd></div><div><dt>FAIL-CLOSED</dt><dd>YES</dd></div><div><dt>ENGINE</dt><dd>NONE</dd></div><div><dt>PROVIDER OUTPUT USED</dt><dd>NO</dd></div><div><dt>RISK TIER</dt><dd>LOW</dd></div><div><dt>EXTERNAL WRITE</dt><dd>NO</dd></div><div><dt>TOOL CALL</dt><dd>NO</dd></div></dl>
+            <div class="capsule-inline"><span>OBSERVED RESPONSE BOUNDARY</span><strong>NO EXPLICIT VERDICT OR CAPSULE METADATA EXPOSED</strong></div>
+            <button class="button button-secondary replay-button" type="button" data-replay="c" aria-controls="execution-c" aria-expanded="false">Show execution C <span aria-hidden="true">→</span></button>
+          </article>
+
+          <article id="execution-d" class="execution-card allow" aria-labelledby="execution-d-title">
+            <header class="execution-card__header"><div><p class="card-kicker">RECORDED EXECUTION D / HRTECH</p><h3 id="execution-d-title">COMPLETED</h3></div><span class="verdict-badge">OK</span></header>
+            <p class="execution-reference">public execution reference <code>439d0d7e</code></p>
+            <p class="execution-summary">With the rubric supplied, the same synthetic candidate response completed the represented assessment path and returned rubric-based observations, a score, and explicit limitations.</p>
+            <dl class="facts"><div><dt>DOMAIN</dt><dd>hrtech</dd></div><div><dt>INTENT</dt><dd>candidate_assessment_governance</dd></div><div><dt>EXECUTION STATUS</dt><dd>COMPLETED</dd></div><div><dt>REASON CODE</dt><dd>OK</dd></div><div><dt>BLOCKED</dt><dd>NO</dd></div><div><dt>FAIL-CLOSED</dt><dd>YES</dd></div><div><dt>ENGINE</dt><dd>OPENAI</dd></div><div><dt>MODEL</dt><dd>GPT-4O-MINI</dd></div><div><dt>PROVIDER OUTPUT USED</dt><dd>YES</dd></div><div><dt>ASSESSMENT SCORE</dt><dd>3</dd></div><div><dt>LIMITATIONS</dt><dd>2</dd></div><div><dt>RISK TIER</dt><dd>LOW</dd></div><div><dt>EXTERNAL WRITE</dt><dd>NO</dd></div><div><dt>TOOL CALL</dt><dd>NO</dd></div></dl>
+            <div class="capsule-inline"><span>OBSERVED RESPONSE BOUNDARY</span><strong>COMPLETED / BLOCKED: FALSE / NO EXPLICIT VERDICT IN RESPONSE</strong></div>
+            <button class="button button-primary replay-button" type="button" data-replay="d" aria-controls="execution-d" aria-expanded="false">Show execution D <span aria-hidden="true">→</span></button>
+          </article>
         </div>
       </section>
 
       <section class="story-section shell" aria-labelledby="block-title">
-        <div class="section-kicker">02 / BLOCK EXPLANATION</div><h2 id="block-title" class="section-title">The recorded output was rejected before normal delivery.</h2>
-        <div class="explanation-grid"><article><span>POST-EXECUTION BLOCK</span><p>The recorded result was evaluated after output generation and before normal delivery.</p></article><article><span>CRITICAL CONTEXT GAPS</span><p>Reason code: <code>INSUFFICIENT_DATA_CRITICAL_GAPS</code></p></article><article><span>RESULT NOT DELIVERED</span><p>The public projection records <code>result_delivered: false</code> for this execution.</p></article></div>
-        <div class="control-strip"><span>External write: <strong>NO</strong></span><span>Tool call: <strong>NO</strong></span><span>Frozen replay: <strong>YES</strong></span></div>
-        <p class="section-copy">This is a property of this recorded Portotify execution path. It is not a claim that Portotify controls unrelated systems or every possible downstream route.</p>
+        <div class="section-kicker">02 / CONTROL-POINT CONTRAST</div><h2 id="block-title" class="section-title">Two recorded blocks occurred at different governance stages.</h2>
+        <div class="explanation-grid"><article><span>DECISION / POST-EXECUTION</span><p>Execution B was evaluated after output generation. Critical decision context was insufficient and the projection records <code>result_delivered: false</code>.</p></article><article><span>HRTECH / PRE-EXECUTION</span><p>Execution C failed closed because <code>rubric_criteria</code> was absent. The observed response records <code>engine: none</code> and <code>provider_output_used: false</code>.</p></article><article><span>DIFFERENT PATHS, BOUNDED CLAIMS</span><p>The records demonstrate different control points in the represented execution paths. They do not establish universal interception of unrelated downstream systems.</p></article></div>
+        <div class="control-strip"><span>External write in all four projections: <strong>NO</strong></span><span>Tool call in all four projections: <strong>NO</strong></span><span>Frozen replay: <strong>YES</strong></span></div>
+        <p class="section-copy">These are properties of the recorded Portotify execution paths shown here. They are not claims that Portotify controls every producer, deployment, external system, or downstream route.</p>
       </section>
 
       <section class="story-section shell" aria-labelledby="capsule-title">
-        <div class="section-kicker">03 / CAPSULE METADATA</div><h2 id="capsule-title" class="section-title">Both projections record signed capsule metadata.</h2><p class="section-copy">The public projection records <code>signed: true</code> and <code>ed25519-v1</code> for both executions. This page does not independently verify those signatures.</p>
+        <div class="section-kicker">03 / CAPSULE METADATA</div><h2 id="capsule-title" class="section-title">Signed capsule metadata is shown only where it was preserved in the public projection.</h2><p class="section-copy">Decision executions A and B record <code>signed: true</code> and <code>ed25519-v1</code>. This page does not independently verify those signatures. The observed HRTech responses C and D did not expose capsule metadata, so none is inferred for them.</p>
         <div class="capsule-grid"><article class="capsule-card"><header><span>PUBLIC REFERENCE</span><code>7a7b6ab6</code><strong>ALLOW</strong></header><dl class="facts"><div><dt>STATE</dt><dd>COMMITTED</dd></div><div><dt>RISK</dt><dd>LOW</dd></div><div><dt>CAPSULE</dt><dd>STANDARD</dd></div><div><dt>SIGNATURE</dt><dd>SIGNED</dd></div><div><dt>SUITE</dt><dd>ed25519-v1</dd></div><div><dt>REASON</dt><dd>OK</dd></div></dl></article><article class="capsule-card"><header><span>PUBLIC REFERENCE</span><code>70494eeb</code><strong>BLOCK</strong></header><dl class="facts"><div><dt>STATE</dt><dd>REJECTED</dd></div><div><dt>RISK</dt><dd>LOW</dd></div><div><dt>CAPSULE</dt><dd>STANDARD</dd></div><div><dt>SIGNATURE</dt><dd>SIGNED</dd></div><div><dt>SUITE</dt><dd>ed25519-v1</dd></div><div><dt>REASON</dt><dd>INSUFFICIENT_DATA_CRITICAL_GAPS</dd></div></dl></article></div>
       </section>
 
       <section class="story-section shell" aria-labelledby="classification-title">
         <div class="section-kicker">04 / EVIDENCE CLASSIFICATION</div><h2 id="classification-title" class="section-title">What this page shows — and what it does not establish.</h2>
         <div class="classification-grid">
-          <article><span>TWO INDEPENDENT RECORDED PROJECTIONS</span><p>One ALLOW / COMMITTED / COMPLETED record and one BLOCK / REJECTED / BLOCKED record are presented as independent executions.</p></article>
+          <article><span>FOUR RECORDED PROJECTIONS / TWO DOMAINS</span><p>Two Decision records and two HRTech records are presented as public-safe projections from synthetic production-environment executions.</p></article>
           <article><span>SYNTHETIC PRODUCTION EVIDENCE</span><p>The source executions used synthetic inputs in the production environment. The public interface is a frozen replay.</p></article>
-          <article><span>PUBLIC-SAFE PROJECTION</span><p>Full execution identifiers and raw API responses are not published here. The page uses public references from the preserved projection.</p></article>
-          <article><span>NO UNIVERSAL BEHAVIOR CLAIM</span><p>These two records do not establish identical behavior across every Portotify domain, intent, producer, or deployment.</p></article>
-          <article><span>NO VERIFIED LINEAGE BETWEEN RECORDS</span><p>The public projection marks lineage as not verified and presents these executions as independent records.</p></article>
-          <article><span>NO INDEPENDENT AUDIT OR SIGNATURE VERIFIER</span><p>The projection records signature metadata, but this page provides neither independent signature verification nor an independent audit.</p></article>
+          <article><span>PUBLIC-SAFE PROJECTION</span><p>Full execution identifiers and raw API responses are not published here. The page uses truncated public references.</p></article>
+          <article><span>NO UNIVERSAL BEHAVIOR CLAIM</span><p>These four records do not establish identical behavior across every Portotify domain, intent, producer, or deployment.</p></article>
+          <article><span>NO INFERRED HRTECH VERDICT OR CAPSULE</span><p>The observed HRTech responses did not expose an explicit verdict or capsule metadata, so this page does not infer either.</p></article>
+          <article><span>NO INDEPENDENT AUDIT OR SIGNATURE VERIFIER</span><p>The Decision projection records signature metadata, but this page provides neither independent signature verification nor an independent audit.</p></article>
         </div>
       </section>
 
       <section class="story-section shell" aria-labelledby="other-title"><div class="section-kicker">05 / OTHER REPOSITORY EXAMPLES</div><h2 id="other-title" class="section-title">Other recorded and curated repository examples.</h2><div class="other-grid"><article><strong>ALLOW</strong><span>RECORDED MOCK RESPONSE</span><p>Sufficient input, policy-compliant output in the represented mock path.</p><a href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/credit_01_execute.json" target="_blank" rel="noopener noreferrer" aria-label="View ALLOW evidence in a new tab">View evidence →</a></article><article><strong>BLOCK</strong><span>RECORDED MOCK RESPONSE</span><p>Insufficient data or output contract violation in recorded mock examples.</p><a href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/credit_02_drg_block.json" target="_blank" rel="noopener noreferrer" aria-label="View BLOCK evidence in a new tab">View evidence →</a></article><article><strong>REVIEW</strong><span>CURATED STATIC ARTIFACT</span><p>High-risk candidate with a recorded <code>REVIEW_REQUIRED</code> governance outcome and separate review model.</p><a href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/03_governance_high_risk_execute.json" target="_blank" rel="noopener noreferrer" aria-label="View REVIEW evidence in a new tab">View evidence →</a></article><article><strong>BENCHMARK</strong><span>PRODUCTION-ENVIRONMENT BENCHMARK</span><p>Dated latency measurements with preserved raw data and integrity metadata.</p><a href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/LATENCY_BENCHMARK_2026-05-27.md" target="_blank" rel="noopener noreferrer" aria-label="View latency benchmark in a new tab">View benchmark →</a></article></div></section>
 
-      <section class="final-cta shell" aria-labelledby="final-title"><div><div class="section-kicker">PUBLIC EVIDENCE WINDOW</div><h2 id="final-title">Inspect the underlying public-safe projection.</h2></div><div class="final-links"><a class="button button-primary" href="data/recorded-production-executions.json">View projection</a><a class="button button-secondary" href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/README.md" target="_blank" rel="noopener noreferrer" aria-label="View evidence index in a new tab">View evidence index</a><a class="button button-secondary" href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC" target="_blank" rel="noopener noreferrer" aria-label="View repository overview in a new tab">View repository overview</a></div></section>
+      <section class="final-cta shell" aria-labelledby="final-title"><div><div class="section-kicker">PUBLIC EVIDENCE WINDOW</div><h2 id="final-title">Inspect the underlying public-safe projections.</h2></div><div class="final-links"><a class="button button-primary" href="data/recorded-production-executions.json">View Decision projection</a><a class="button button-secondary" href="data/hrtech-recorded-production-executions.json">View HRTech projection</a><a class="button button-secondary" href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC/blob/main/evidence/README.md" target="_blank" rel="noopener noreferrer" aria-label="View evidence index in a new tab">View evidence index</a><a class="button button-secondary" href="https://github.com/Portotify/PORTOTIFY_DEMO_PUBLIC" target="_blank" rel="noopener noreferrer" aria-label="View repository overview in a new tab">View repository overview</a></div></section>
     </main>
     <footer class="site-footer shell"><span>PORTOTIFY / PUBLIC EVIDENCE WINDOW</span><span>Frozen evidence. No production API call.</span><span class="site-footer__privacy">Privacy-preserving analytics: This public demo uses Umami Cloud to measure anonymous usage and traffic sources. The tracker processes the page URL and query parameters, referrer, page title, browser, operating system, device and screen characteristics, browser language, and approximate location derived from the request IP address. The IP address is not stored. This integration does not use analytics cookies or collect form values, demo inputs, names, email addresses, or custom user identifiers.</span></footer>
     <script src="assets/demo.js"></script>
