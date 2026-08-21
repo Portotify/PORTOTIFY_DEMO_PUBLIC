@@ -1,6 +1,6 @@
 # Evidence Errata
 
-**Updated:** 19 August 2026
+**Updated:** 21 August 2026
 
 This file records corrections to the interpretation, labeling, or references surrounding preserved evidence artifacts.
 
