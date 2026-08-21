@@ -1,0 +1,123 @@
+{
+  "artifact_type": "public_safe_recorded_execution_projection",
+  "classification": "synthetic_production_evidence",
+  "domain": "legal",
+  "intent": "contract_analysis",
+  "live_api_call": false,
+  "frozen_replay": true,
+  "real_customer_data": false,
+
+  "fixed_batch": {
+    "description": "Five production attempts using one fixed synthetic contract payload; the five-run count was specified before execution; no retries and no outcome-dependent stopping.",
+    "recorded_payload_sha256": "47bddf69dbea98133ce7dbc18ff1249f37c5e3405335f957f44830ab06eb608a",
+    "total_attempts": 5,
+    "completed_count": 5,
+    "blocked_count": 0,
+    "legal_authority_violation_count": 0,
+    "attempts": [
+      {
+        "public_execution_reference": "c034875a",
+        "execution_status": "completed",
+        "blocked": false,
+        "reason_code": "OK"
+      },
+      {
+        "public_execution_reference": "2f31dec0",
+        "execution_status": "completed",
+        "blocked": false,
+        "reason_code": "OK"
+      },
+      {
+        "public_execution_reference": "cecccac3",
+        "execution_status": "completed",
+        "blocked": false,
+        "reason_code": "OK"
+      },
+      {
+        "public_execution_reference": "85348e1d",
+        "execution_status": "completed",
+        "blocked": false,
+        "reason_code": "OK"
+      },
+      {
+        "public_execution_reference": "e40eec28",
+        "execution_status": "completed",
+        "blocked": false,
+        "reason_code": "OK"
+      }
+    ]
+  },
+
+  "featured_executions": [
+    {
+      "public_execution_reference": "c034875a",
+      "case": "fixed_batch_representative",
+      "batch_position": 1,
+      "batch_total": 5,
+      "blocked": false,
+      "execution_status": "completed",
+      "reason_code": "OK",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "contract_data_gaps": [
+        "missing_party_identification",
+        "missing_termination_clauses",
+        "missing_dispute_resolution"
+      ],
+      "duration_ms": 11002,
+      "engine_ms": 8314.0
+    },
+    {
+      "public_execution_reference": "c33b480f",
+      "case": "separate_synthetic_contract_unverifiable_gap_absence",
+      "blocked": true,
+      "execution_status": "blocked",
+      "reason_code": "UNVERIFIABLE_GAP_ABSENCE",
+      "block_stage": "post_execution",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "duration_ms": 5259.83,
+      "engine_ms": 4812.0
+    },
+    {
+      "public_execution_reference": "3c76bc17",
+      "case": "separate_synthetic_contract_evidence_mismatch",
+      "blocked": true,
+      "execution_status": "blocked",
+      "reason_code": "LEGAL_EVIDENCE_MISMATCH",
+      "block_stage": "post_execution",
+      "fail_closed": true,
+      "engine": "openai",
+      "model": "gpt-4o-mini",
+      "provider_output_used": true,
+      "fallback_used": false,
+      "duration_ms": 5346.0,
+      "engine_ms": 4864.0
+    }
+  ],
+
+  "notes": {
+    "distinct_synthetic_contracts": true,
+    "not_a_controlled_comparison": true,
+    "representative_selection": "The completed execution shown in the replay is H1, the first chronological execution in the fixed five-run batch specified before execution, not an execution selected for its output.",
+    "contract_data_gaps_provenance": "Recorded contract_data_gaps are provider-returned output fields from the represented executions, not independent Portotify findings about the contract."
+  },
+
+  "limitations": {
+    "full_execution_ids_public": false,
+    "raw_api_responses_public": false,
+    "raw_model_output_public": false,
+    "raw_model_output_observed_for_blocked_cases": false,
+    "explicit_verdict_field_observed": false,
+    "capsule_metadata_observed_in_response": false,
+    "independent_audit": false,
+    "universal_behavior_claimed": false,
+    "request_body_public": false
+  }
+}

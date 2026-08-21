@@ -6,7 +6,7 @@
 
 [Launch the live public evidence replay](https://portotify.github.io/PORTOTIFY_DEMO_PUBLIC/)
 
-**Updated:** 20 August 2026
+**Updated:** 21 August 2026
 
 ---
 
@@ -47,7 +47,7 @@ Portotify governs the decision, not the decision-maker.
 
 ## Live Public Evidence
 
-The interactive demo replays six **public-safe recorded execution projections from synthetic production-environment executions** across three domains:
+The interactive demo replays nine **public-safe recorded execution cards from synthetic production-environment executions** across four domains:
 
 | Recorded execution | Domain | Observed outcome | Stage / state | Reason |
 |---|---|---|---|---|
@@ -57,6 +57,9 @@ The interactive demo replays six **public-safe recorded execution projections fr
 | D | HRTech | COMPLETED / blocked: false | completed | OK |
 | E | Health | COMPLETED / blocked: false | completed | OK |
 | F | Health | BLOCKED | post-execution | HEALTH_OUTPUT_VIOLATION |
+| G1 | Legal | COMPLETED / blocked: false | completed | OK |
+| G2 | Legal | BLOCKED | post-execution | UNVERIFIABLE_GAP_ABSENCE |
+| G3 | Legal | BLOCKED | post-execution | LEGAL_EVIDENCE_MISMATCH |
 
 Execution B reached post-execution governance checks, was rejected for critical context gaps, and its public projection records `result_delivered: false`.
 
@@ -70,7 +73,11 @@ Execution F used the same synthetic drug pair and external interaction status, b
 
 The Health evidence does not establish whether the synthetic drug pair clinically interacts. Portotify did not compute or replace the external interaction conclusion in these recorded executions; the public evidence shows governance of the supplied snapshot's internal consistency.
 
-Signed capsule metadata is preserved in the public Decision projection for executions A and B. The observed HRTech responses C and D and Health responses E and F did not expose explicit verdict or capsule metadata, so this repository does not infer either for those records.
+Execution G1 is the first execution in a separate fixed five-run batch specified before execution, repeating one fixed synthetic contract payload against `legal.contract_analysis`, with no retries and no outcome-dependent stopping. All five attempts completed with `blocked: false`; no Legal authority block was observed across that batch. The full batch (5/5 completed, 0 blocked) is recorded in the Legal projection, not only in the single featured card.
+
+Executions G2 and G3 each used their own separate synthetic contract, evaluated independently. G2 was blocked post-execution with `UNVERIFIABLE_GAP_ABSENCE`; the recorded governance outcome did not accept an unverified absence-of-gaps result. G3 was blocked post-execution with `LEGAL_EVIDENCE_MISMATCH`; the recorded evidence-integrity reason states that a quoted evidence snippet could not be matched to the authorized source document. G1, G2, and G3 are not a same-input, single-variable comparison with each other; for G2 and G3, the rejected pre-block provider output was not preserved in the public-facing response.
+
+Signed capsule metadata is preserved in the public Decision projection for executions A and B. The observed HRTech responses C and D, Health responses E and F, and Legal responses G1, G2, and G3 did not expose explicit verdict or capsule metadata, so this repository does not infer either for those records.
 
 ### Evidence boundary
 
@@ -89,6 +96,8 @@ The live page is:
 [Inspect the HRTech public-safe evidence projection](docs/data/hrtech-recorded-production-executions.json)
 
 [Inspect the Health public-safe evidence projection](docs/data/health-recorded-production-executions.json)
+
+[Inspect the Legal public-safe evidence projection](docs/data/legal-recorded-production-executions.json)
 
 ---
 
@@ -213,10 +222,11 @@ The scope and limitations of each artifact are part of the evidence.
 2. Inspect `docs/data/recorded-production-executions.json`
 3. Inspect `docs/data/hrtech-recorded-production-executions.json`
 4. Inspect `docs/data/health-recorded-production-executions.json`
-5. Read `evidence/README.md`
-6. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
-7. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
-8. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
+5. Inspect `docs/data/legal-recorded-production-executions.json`
+6. Read `evidence/README.md`
+7. Read [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
+8. Read [GOVERNANCE_PRINCIPLES.md](GOVERNANCE_PRINCIPLES.md)
+9. Read [PUBLIC_DISCLOSURE_POLICY.md](PUBLIC_DISCLOSURE_POLICY.md)
 
 ---
 

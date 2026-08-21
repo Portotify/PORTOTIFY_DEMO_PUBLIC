@@ -6,7 +6,7 @@ This directory contains several distinct evidence classes. They are intentionall
 
 ### Recorded synthetic production evidence
 
-The GitHub Pages evidence window replays six public-safe recorded execution projections from synthetic production-environment executions across Decision, HRTech, and Health.
+The GitHub Pages evidence window replays nine public-safe recorded execution cards from synthetic production-environment executions across Decision, HRTech, Health, and Legal.
 
 The underlying projections are:
 
@@ -22,9 +22,18 @@ The underlying projections are:
   - Health E: COMPLETED with `blocked: false` for an internally consistent external interaction snapshot
   - Health F: BLOCKED at post-execution for an internally inconsistent external interaction status/severity snapshot
 
+- `../docs/data/legal-recorded-production-executions.json`
+  - Legal G1: COMPLETED with `blocked: false` — the first execution in a separate fixed five-run batch specified before execution, repeating one fixed synthetic contract payload with no retries and no outcome-dependent stopping (5/5 completed, 0 Legal authority blocks observed across that batch)
+  - Legal G2: BLOCKED at post-execution with `UNVERIFIABLE_GAP_ABSENCE`, on its own separate synthetic contract
+  - Legal G3: BLOCKED at post-execution with `LEGAL_EVIDENCE_MISMATCH`, on another separate synthetic contract
+
 The Health records govern the internal consistency of the supplied external interaction snapshot. They do not establish whether the synthetic drug pair clinically interacts, and Portotify did not compute or replace the external interaction conclusion in these recorded executions.
 
-The observed HRTech and Health responses did not expose an explicit verdict or capsule metadata, so neither is inferred for those records. Signed capsule metadata is preserved only where it was explicitly observed in the Decision projection for executions A and B.
+Legal G2 and G3 are independently scoped observations against separate synthetic contracts — not a same-input, single-variable comparison with each other or with the Legal G1 batch. For both blocked cases, the rejected pre-block provider output was not preserved in the public-facing response.
+
+**This production evidence is distinct from the recorded mock evidence in this same directory.** `legal_execute.json` (below, under "Allow Outcomes") is a separate, `ENGINE_PROVIDER=mock` deterministic example and is not affected by, or a substitute for, the Legal production projection described here.
+
+The observed HRTech, Health, and Legal responses did not expose an explicit verdict or capsule metadata, so none is inferred for those records. Signed capsule metadata is preserved only where it was explicitly observed in the Decision projection for executions A and B.
 
 These are frozen public-safe projections from synthetic production-environment executions. They are not live API calls, raw production responses, customer data, independent audit evidence, or universal behavior claims.
 
@@ -59,7 +68,7 @@ These artifacts demonstrate the measurements and observations recorded for that 
 | `decision_execute.json` | decision | Situation analysis | ALLOW: completed |
 | `hrtech_execute.json` | hrtech | Candidate profile extraction | ALLOW: completed, suggested next: employment_risk_signals |
 | `insurance_claims_execute.json` | insurance_claims | Claim profile extraction | ALLOW: completed |
-| `legal_execute.json` | legal | Contract analysis | ALLOW: completed |
+| `legal_execute.json` | legal | Contract analysis (recorded mock, `ENGINE_PROVIDER=mock`) | ALLOW: completed |
 
 ---
 
