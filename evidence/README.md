@@ -76,7 +76,7 @@ These artifacts demonstrate the measurements and observations recorded for that 
 
 | File | Domain | Scenario | Outcome |
 |---|---|---|---|
-| `credit_02_drg_block.json` | credit | Credit profile: input too short | BLOCK: INPUT_INSUFFICIENT_APPLICANT_TEXT (input quality guard, pre-execution) |
+| `credit_02_drg_block.json` | credit | Credit profile: input too short | BLOCK: INPUT_INSUFFICIENT_APPLICANT_TEXT (input quality guard, pre-execution). See `ERRATA.md` for the historical `provider_output_used` metadata correction. |
 | `finance_execute.json` | finance | Financial summary: mock output produced investment advice | BLOCK: FINANCE_OUTPUT_VIOLATION (output guard, post-execution) |
 | `health_execute.json` | health | Health summary: output guard triggered | BLOCK: output contract violation (post-execution) |
 | `insurance_execute.json` | insurance | Policy analysis: output guard triggered | BLOCK: output contract violation (post-execution) |
