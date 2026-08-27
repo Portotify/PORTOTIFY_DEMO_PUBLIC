@@ -89,7 +89,9 @@ Files marked **v2 run** were recorded after commit `ab68bb5` which introduced `e
 | OpenAI | finance | 8086ms | 65ms | 10 |
 | OpenAI | credit | 9786ms | 63ms | 10 |
 
-**Recorded governance overhead range across the measured provider/domain combinations: 57–115ms.**
+**Recorded governance overhead combination-average range across the measured provider/domain combinations: 63–115ms.**
+
+Individual canonical `governance_overhead_ms` observations ranged from 54.41ms to 220.42ms. This individual-request range is distinct from the combination-average range.
 
 ---
 

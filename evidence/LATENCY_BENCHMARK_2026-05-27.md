@@ -13,7 +13,7 @@
 - **v1 runs (archived):** 3 warmup + 30 sample = 33 requests; `engine_ms` was NULL
 - Warmup requests excluded from summary statistics
 - Anthropic: 1.5s inter-request delay
-- OpenAI: 1.0s inter-request delay in the benchmark script configuration
+- OpenAI: 0.0s inter-request delay recorded in the canonical v2 run configuration
 - Cache-bust: unique `[cb:xxxxxxxx]` suffix injected per request to avoid prompt-cache reuse in the measured path
 - Metrics: `engine_ms` (engine inference) | `overhead_ms` (recorded non-engine pipeline time) | `duration_ms` (total server duration)
 - `engine_ms` response surfacing fix: commit `ab68bb5`
@@ -46,7 +46,9 @@
 
 ## Governance Overhead Observation
 
-Across the eight measured OpenAI/Anthropic provider-domain combinations, average recorded governance overhead remained within **57–115 ms**.
+Across the eight measured OpenAI/Anthropic provider-domain combinations, the combination averages for recorded governance overhead were **63–115 ms**.
+
+Individual canonical sample observations ranged from **54.41 ms to 220.42 ms**. The combination-average range is not an individual-request latency bound.
 
 The recorded overhead represented non-engine work in the measured execution path, including governance and persistence activity represented by that implementation at the time of the benchmark.
 
@@ -101,7 +103,9 @@ Included for completeness. These runs used n=30 and captured `server_duration_ms
 
 ### 1. Recorded governance overhead range
 
-Across the eight measured provider/domain combinations, average governance overhead was recorded within the 57–115 ms range.
+Across the eight measured provider/domain combinations, the combination averages for governance overhead were recorded within the 63–115 ms range.
+
+Individual canonical observations ranged from 54.41 ms to 220.42 ms, including a 220.42 ms observation in the OpenAI/career run. This is an observed sample range, not a universal bound.
 
 This is a benchmark result for those combinations, not a universal latency guarantee.
 
