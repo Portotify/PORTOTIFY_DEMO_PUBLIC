@@ -43,11 +43,35 @@ The governance-response JSON files in this directory use `ENGINE_PROVIDER=mock` 
 
 These files are deterministic, reproducible examples of selected ALLOW, BLOCK, and human-review-related outcomes.
 
-### Production-environment latency benchmark
+### Current benchmark: September 2026
 
-`LATENCY_BENCHMARK_2026-05-27.md` and `latency/` contain benchmark material recorded against the production Render endpoint using mock, OpenAI, and Anthropic engines.
+`LATENCY_BENCHMARK_2026-09-19.md` is the current public benchmark summary for
+run `20260919T120620Z-d3f844`. It reports an A-B-A comparison of
+`gpt-4o-mini` and `claude-haiku-4-5-20251001` across the final five-domain
+paired set only: decision, courier, health, insurance_claims, and legal.
 
-These artifacts demonstrate the measurements and observations recorded for that benchmark scope. They do not establish identical latency or behavior for every model, provider, prompt, domain, or future implementation.
+Six of the 11 initial domains were excluded because of governance outcomes.
+Those exclusions are not transport/provider failures, and the five-domain
+result is not generalizable to all 11 domains. The report also documents
+survivor selection, A-B-A drift, non-model drift, provider-plus-model-plus-
+configuration scope, and missing Anthropic token telemetry.
+
+Raw September JSONL, production response bodies, secrets, private manifests,
+and the private closure document are not published here.
+
+### Historical benchmark: May 2026 (legacy methodology)
+
+`LATENCY_BENCHMARK_2026-05-27.md` and `latency/` contain the preserved May
+benchmark material recorded against the production Render endpoint. These are
+historical artifacts, not the current benchmark.
+
+The May v1 `server_avg` was based on recorded `server_duration_ms` while
+engine timing was unavailable. It must not be silently reinterpreted as, or
+directly compared with, September `server_non_model_ms`.
+
+These artifacts demonstrate the measurements and observations recorded for
+their dated scope. They do not establish identical latency or behavior for
+every model, provider, prompt, domain, or future implementation.
 
 ### Governance finding
 
@@ -103,11 +127,12 @@ These artifacts demonstrate the measurements and observations recorded for that 
 
 ---
 
-## Production-Environment Latency Benchmark
+## Latency Benchmark Evidence
 
 | File | Scenario | Demonstrates |
 |---|---|---|
-| `LATENCY_BENCHMARK_2026-05-27.md` | OpenAI and Anthropic across 4 domains, plus mock baseline data | Recorded latency measurements and governance-overhead observations for the tested combinations |
+| `LATENCY_BENCHMARK_2026-09-19.md` | Current September 2026 A-B-A benchmark across 5 admissible paired domains | Public-safe summary of the authoritative paired latency results and limitations |
+| `LATENCY_BENCHMARK_2026-05-27.md` | Historical May 2026 benchmark across 4 domains, plus mock baseline data | Preserved legacy latency measurements and governance-overhead observations for the tested combinations |
 | `FINDING_OPENAI_NONDETERMINISM.md` | openai/credit: same governance-relevant payload content, opposite outcomes across two runs | Preserved evidence that runtime-produced artifacts can differ across executions and should be governed as actually produced |
 
 ### Raw Benchmark Data: `latency/`
